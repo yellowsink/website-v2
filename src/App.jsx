@@ -1,7 +1,9 @@
-import Sidebar from "./Sidebar";
-import IndexRoute from "./routes/Index";
 import { render } from "solid-js/web";
 import { NavLink, Router, useRoutes } from "solid-app-router";
+
+import Sidebar from "./Sidebar";
+import IndexRoute from "./routes/Index";
+import AccountsRoute from "./routes/Accounts";
 
 import "virtual:windi.css";
 import "virtual:windi-devtools";
@@ -12,6 +14,11 @@ const routes = [
     path: "/",
     component: <IndexRoute />,
   },
+  {
+    name: "Accounts",
+    path: "/accounts",
+    component: <AccountsRoute />
+  }
 ];
 
 const App = () => {
