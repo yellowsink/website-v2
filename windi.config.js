@@ -4,4 +4,5 @@ export default {
       mono: ["Roboto Mono", "monospace"],
     },
   },
+  darkMode: "class",
 };

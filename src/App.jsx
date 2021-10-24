@@ -25,7 +25,7 @@ const App = () => {
   const Routes = useRoutes(routes);
 
   return (
-    <div class="bg-light-600 flex">
+    <div class="flex bg-light-600 dark:(bg-dark-400 text-white) transition-colors">
       <Sidebar routes={routes} />
       <div class="p-20">
         <Routes />
