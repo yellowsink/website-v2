@@ -2,7 +2,7 @@ import dark from "./assets/dark.svg";
 import light from "./assets/light.svg";
 
 export default () => (
-  <div class="flex mb-10">
+  <div class="flex mb-10 self-center">
     <img src={dark} class="dark:(filter invert)" />
 
     <button

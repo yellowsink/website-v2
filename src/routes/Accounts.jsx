@@ -1,7 +1,7 @@
 export default () => (
     <>
       <h2 class="text-xl">Accounts</h2>
-      <div>piss</div>
+      <div class="text-4xl mt-6">Under construction 🏗</div>
     </>
   );
   
