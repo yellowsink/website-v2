@@ -17,6 +17,10 @@
 
     <script src="/src/App.jsx" type="module"></script>
 
+    <style id="temp_dark">
+      @media (prefers-color-scheme: dark) { #root { filter: invert(); } }
+    </style>
+
     <script>
       // if your phone etc is on dark mode, make the side dark
       window.onload = () => {

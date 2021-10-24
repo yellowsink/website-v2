@@ -12,12 +12,12 @@ const routes = [
   {
     name: "About me",
     path: "/",
-    component: <IndexRoute />,
+    component: IndexRoute,
   },
   {
     name: "Accounts",
     path: "/accounts",
-    component: <AccountsRoute />,
+    component: AccountsRoute,
   },
 ];
 
@@ -29,8 +29,7 @@ const App = () => {
       <div class="flex bg-light-600 dark:(bg-dark-400 text-white) transition-colors <md:flex-col <md:min-h-[100vh]">
         <Sidebar routes={routes} />
         <div class="p-20">
-          {/* <Routes /> */}
-          <p>solid-app-router is broken in builds apparently, so you get nothing instead. Enjoy!</p>
+          <Routes />
         </div>
       </div>
     </Router>
