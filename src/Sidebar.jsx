@@ -3,7 +3,7 @@ import ThemeToggler from "./ThemeToggler";
 
 export default ({ routes }) => {
   return (
-    <div class="p-20 pt-5 w-auto md:(h-[100vh] w-100) xl:w-150 bg-light-200 dark:bg-dark-800 shadow-lg font-mono transition-colors">
+    <div class="p-20 pt-5 w-auto flex-shrink-0 md:(h-[100vh] w-100) xl:w-150 bg-light-200 dark:bg-dark-800 shadow-lg font-mono transition-colors">
       <div class="flex justify-center">
         <ThemeToggler />
       </div>
@@ -14,7 +14,7 @@ export default ({ routes }) => {
         {routes.map((route) => (
           <li>
             <NavLink
-              class="text-black dark:text-white underline-transparent hover:pl-4 transition-all"
+              class="text-black dark:text-white no-underline hover:pl-4 transition-all"
               href={route.path}
               end
             >
