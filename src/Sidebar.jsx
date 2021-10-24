@@ -26,7 +26,7 @@ export default ({ routes }) => {
 
       <div class="flex-1" />
 
-      <p class="-m-14 text-right">Made with &lt;3 and moderate pain</p>
+      <p class="-m-14 mt-0 text-right">Made with &lt;3 and moderate pain</p>
 
       {/* forgive me for css but solid app router go brr */}
       <style>{".active { margin-left: 2rem; }"}</style>
