@@ -30,6 +30,7 @@ const App = () => {
         <Sidebar routes={routes} />
         <div class="p-20">
           {/* <Routes /> */}
+          <p>solid-app-router is broken in builds apparently, so you get nothing instead. Enjoy!</p>
         </div>
       </div>
     </Router>

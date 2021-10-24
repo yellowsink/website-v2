@@ -9,13 +9,8 @@ export default () => (
       <h2 class="text-3xl m-6 my-auto">About me</h2>
     </div>
     <div class="text-xl italic mt-6">
-      Just another British 15 y/o trying his best to build cool stuff.
+      When dumb project ideas and free time collide.
     </div>
-
-    <p>
-      Or alternatively, what happens when intelligence collides with way too
-      many dumb project ideas and free time.
-    </p>
 
     <p>
       My most comfortable programming language is C# - I know it like the back
