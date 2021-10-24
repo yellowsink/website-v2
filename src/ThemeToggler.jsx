@@ -9,8 +9,12 @@ export default () => (
       class="w-12 h-6 rounded-full bg-dark-800 dark:bg-dark-50 mx-2 flex items-center"
       onClick={() => {
         let root = document.getElementById("root");
-        document.cookie = root.classList == "" ? "dark" : "light"
-        root.classList = root.classList == "" ? "dark" : "";
+        let newIsDark = !(root.classList == "dark");
+        if (window.prefersDark == newIsDark) document.cookie = "detect";
+        else if (newIsDark) document.cookie = "dark";
+        else document.cookie = "light";
+
+        root.classList = newIsDark ? "dark" : "";
       }}
     >
       <div class="w-4 h-4 rounded-full bg-light-500 mx-1 dark:ml-7 transition-all" />

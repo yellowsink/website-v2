@@ -18,18 +18,26 @@
     <script src="/src/App.jsx" type="module"></script>
 
     <style id="temp_dark">
-      @media (prefers-color-scheme: dark) { #root { filter: invert(); } }
+      @media (prefers-color-scheme: dark) {
+        #root {
+          filter: invert();
+        }
+      }
     </style>
 
     <script>
       // if your phone etc is on dark mode, make the side dark
       window.onload = () => {
+        window.prefersDark = !!window.matchMedia("(prefers-color-scheme: dark)")
+          .matches;
+
         if (
           document.cookie == "dark" ||
-          window.matchMedia("(prefers-color-scheme: dark)").matches
-        ) {
+          (document.cookie != "light" && window.prefersDark)
+        )
           document.getElementById("root").className = "dark";
-        }
+
+        document.getElementById("temp_dark").remove();
       };
     </script>
   </body>
