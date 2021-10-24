@@ -17,28 +17,23 @@ const routes = [
   {
     name: "Accounts",
     path: "/accounts",
-    component: <AccountsRoute />
-  }
+    component: <AccountsRoute />,
+  },
 ];
 
 const App = () => {
   const Routes = useRoutes(routes);
 
   return (
-    <div class="flex bg-light-600 dark:(bg-dark-400 text-white) transition-colors <md:flex-col <md:min-h-[100vh]">
-      <Sidebar routes={routes} />
-      <div class="p-20">
-        <Routes />
+    <Router>
+      <div class="flex bg-light-600 dark:(bg-dark-400 text-white) transition-colors <md:flex-col <md:min-h-[100vh]">
+        <Sidebar routes={routes} />
+        <div class="p-20">
+          <Routes />
+        </div>
       </div>
-    </div>
+    </Router>
   );
 };
 
-render(
-  () => (
-    <Router>
-      <App />
-    </Router>
-  ),
-  document.getElementById("root")
-);
+render(App, document.getElementById("root"));
