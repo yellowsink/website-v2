@@ -30,7 +30,7 @@ export default () => (
 
     <img
       src="https://github-readme-stats.vercel.app/api?username=yellowsink&theme=gruvbox"
-      class="m-4 w-100 rounded shadow-lg"
+      class="m-4 w-100 rounded shadow-lg mx-auto"
     />
 
     <h3 class="font-bold mt-2">Rhythm Gaming</h3>
