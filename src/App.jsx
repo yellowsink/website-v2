@@ -8,9 +8,7 @@ if (
 )
   document.getElementById("root").className = "dark";
 
-setTimeout(() => {
-  document.getElementById("temp_dark").remove();
-}, 500);
+document.getElementById("temp_dark").remove();
 
 // App.jsx main
 import { render } from "solid-js/web";
