@@ -19,26 +19,9 @@
 
     <style id="temp_dark">
       @media (prefers-color-scheme: dark) {
-        #root {
-          filter: invert();
-        }
+        #root, img { filter: invert(); }
+        * { transition-duration: 0ms !important; }
       }
     </style>
-
-    <script>
-      // if your phone etc is on dark mode, make the side dark
-      window.onload = () => {
-        window.prefersDark = !!window.matchMedia("(prefers-color-scheme: dark)")
-          .matches;
-
-        if (
-          document.cookie == "dark" ||
-          (document.cookie != "light" && window.prefersDark)
-        )
-          document.getElementById("root").className = "dark";
-
-        document.getElementById("temp_dark").remove();
-      };
-    </script>
   </body>
 </html>

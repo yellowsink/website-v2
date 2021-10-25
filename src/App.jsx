@@ -1,3 +1,18 @@
+// dark mode code
+window.prefersDark = !!window.matchMedia("(prefers-color-scheme: dark)")
+  .matches;
+
+if (
+  document.cookie == "dark" ||
+  (document.cookie != "light" && window.prefersDark)
+)
+  document.getElementById("root").className = "dark";
+
+setTimeout(() => {
+  document.getElementById("temp_dark").remove();
+}, 500);
+
+// App.jsx main
 import { render } from "solid-js/web";
 import { NavLink, Router, useRoutes } from "solid-app-router";
 
