@@ -41,7 +41,7 @@ const App = () => {
     <Router>
       <div class="flex bg-light-600 dark:(bg-dark-400 text-white) transition-colors <md:flex-col min-h-[100vh]">
         <Sidebar routes={routes} />
-        <div class="md:ml-100 xl:ml-150 p-20">
+        <div class="md:ml-100 xl:ml-150 p-18">
           <Routes />
         </div>
       </div>
