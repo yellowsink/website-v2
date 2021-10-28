@@ -1,7 +1,7 @@
 export default () => (
   /* <> allows us to return more than one component without wrapping in a div. neat! */
   <>
-    <div class="flex mb-10">
+    <div class="flex mb-10 font-mono">
       <img
         src="https://gravatar.com/avatar/07c71710cff6bc1bd3ef089a2530cc82?s=500"
         class="h-30 w-30 bg-[#6DB4D5] @sm:(h-20 w-20)"
