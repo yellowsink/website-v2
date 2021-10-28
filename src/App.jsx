@@ -14,12 +14,14 @@ document.getElementById("temp_dark").remove();
 import { render } from "solid-js/web";
 import { NavLink, Router, useRoutes } from "solid-app-router";
 
-import Sidebar from "./Sidebar";
-import IndexRoute from "./routes/Index";
-import AccountsRoute from "./routes/Accounts";
-
 import "virtual:windi.css";
 import "virtual:windi-devtools";
+
+import Sidebar from "./Sidebar";
+
+import IndexRoute from "./routes/Index";
+import AccountsRoute from "./routes/Accounts";
+import PluginsRoute from "./routes/Plugins";
 
 const routes = [
   {
@@ -32,6 +34,11 @@ const routes = [
     path: "/accounts",
     component: AccountsRoute,
   },
+  {
+    name: "Discord plugins",
+    path: "/plugins",
+    component: PluginsRoute
+  }
 ];
 
 const App = () => {
@@ -41,7 +48,7 @@ const App = () => {
     <Router>
       <div class="flex bg-light-600 dark:(bg-dark-400 text-white) transition-colors <md:flex-col min-h-[100vh]">
         <Sidebar routes={routes} />
-        <div class="md:ml-100 xl:ml-150 p-18">
+        <div class="md:ml-100 xl:ml-150 p-18 flex-1">
           <Routes />
         </div>
       </div>
