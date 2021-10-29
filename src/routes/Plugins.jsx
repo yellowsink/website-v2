@@ -43,7 +43,7 @@ export default () => {
 
         #markdown-container img {
           /* equivalent to h-12 */
-          height: 3rem;
+          height: 50px;
           /* equivalent to my-4 */
           margin: 1rem 0;
         }
@@ -51,6 +51,34 @@ export default () => {
         #markdown-container a {
           /* equivalent to text-blue-400 */
           color: #60A5FA;
+        }
+
+        #markdown-container li {
+          list-style: square;
+          margin-left: 2rem;
+        }
+
+        
+        @keyframes growFade {
+          0% {
+            height: 0;
+            opacity: 0;
+          }
+          100% {
+            opacity: 1;
+          }
+        }
+
+        #markdown-container details[open] img {
+          animation-name: growFade;
+          animation-duration: 500ms, 200ms;
+          animation-delay: 0ms, 500ms;
+        }
+
+        #markdown-container details a {
+          width: 10rem;
+          display: flex;
+          justify-content: center;
         }
       `}
       </style>
