@@ -1,0 +1,26 @@
+{
+  "0 debug pnpm:scope": {
+    "selected": 1
+  },
+  "1 debug pnpm:package-manifest": {
+    "initial": {},
+    "prefix": "/home/sink/source/website-v2"
+  },
+  "2 debug pnpm:context": {
+    "currentLockfileExists": false,
+    "storeDir": "/home/sink/.pnpm-store/v3",
+    "virtualStoreDir": "/home/sink/source/website-v2/node_modules/.pnpm"
+  },
+  "3 error pnpm": {
+    "errno": -2,
+    "code": "ENOENT",
+    "syscall": "open",
+    "path": "/home/sink/.pnpm-store/v3/files/51/4f132ebfc4a17760ece8cca7487da03a08015afe67fa16f5ca4ec50432aeccfa4337769acff509d5b1f1f976390745a711a6ab955ce13c1f2c721dea70198c-index.json",
+    "err": {
+      "name": "pnpm",
+      "message": "ENOENT: no such file or directory, open '/home/sink/.pnpm-store/v3/files/51/4f132ebfc4a17760ece8cca7487da03a08015afe67fa16f5ca4ec50432aeccfa4337769acff509d5b1f1f976390745a711a6ab955ce13c1f2c721dea70198c-index.json'",
+      "code": "ENOENT",
+      "stack": "pnpm: ENOENT: no such file or directory, open '/home/sink/.pnpm-store/v3/files/51/4f132ebfc4a17760ece8cca7487da03a08015afe67fa16f5ca4ec50432aeccfa4337769acff509d5b1f1f976390745a711a6ab955ce13c1f2c721dea70198c-index.json'"
+    }
+  }
+}
