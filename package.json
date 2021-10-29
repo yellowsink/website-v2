@@ -16,7 +16,6 @@
     "windicss": "^3.2.0"
   },
   "dependencies": {
-    "marked": "^3.0.8",
     "solid-app-router": "^0.1.11",
     "solid-js": "^1.2.0",
     "solid-markdown": "^1.0.9"
