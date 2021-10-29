@@ -1,6 +1,4 @@
 import { createResource, createSignal } from "solid-js";
-import marked from "marked";
-import { Dynamic } from "solid-js/web";
 
 const sourceUrl =
   "https://raw.githubusercontent.com/yellowsink/cc-plugins/master/README.md";
