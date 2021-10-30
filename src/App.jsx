@@ -22,6 +22,7 @@ import Sidebar from "./Sidebar";
 import IndexRoute from "./routes/Index";
 import AccountsRoute from "./routes/Accounts";
 import PluginsRoute from "./routes/Plugins";
+import SolidownRoute from "./routes/Solidown";
 
 const routes = [
   {
@@ -38,6 +39,11 @@ const routes = [
     name: "Discord plugins",
     path: "/plugins",
     component: PluginsRoute
+  },
+  {
+    name: "Solidown",
+    path: "/solidown",
+    component: SolidownRoute
   }
 ];
 

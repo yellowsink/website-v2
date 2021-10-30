@@ -55,3 +55,14 @@
   display: flex;
   justify-content: center;
 }
+
+.solidown-markdown-root pre {
+  font-family: "Roboto Mono", "monospace";
+  font-size: .8rem;
+  background-color: #333;
+  color: white;
+  padding: .5rem;
+  border: 1px #aaa solid;
+  white-space: pre-wrap; 
+}
+
