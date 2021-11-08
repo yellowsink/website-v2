@@ -21,8 +21,7 @@ import Sidebar from "./Sidebar";
 
 import IndexRoute from "./routes/Index";
 import AccountsRoute from "./routes/Accounts";
-import PluginsRoute from "./routes/Plugins";
-import SolidownRoute from "./routes/Solidown";
+import MarkdownPage from "./components/MarkdownPage";
 
 const routes = [
   {
@@ -38,13 +37,18 @@ const routes = [
   {
     name: "Discord plugins",
     path: "/plugins",
-    component: PluginsRoute
+    component: MarkdownPage("https://raw.githubusercontent.com/yellowsink/cc-plugins/master/README.md"),
   },
   {
     name: "Solidown",
     path: "/solidown",
-    component: SolidownRoute
-  }
+    component: MarkdownPage("https://raw.githubusercontent.com/yellowsink/solidown/master/README.md"),
+  },
+  {
+    name: "Quark",
+    path: "/quark",
+    component: MarkdownPage("https://raw.githubusercontent.com/yellowsink/quark/master/README.md"),
+  },
 ];
 
 const App = () => {

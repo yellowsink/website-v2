@@ -4,6 +4,7 @@ import reddit from "../assets/accounticons/reddit.png";
 import discord from "../assets/accounticons/discord.png";
 import twitter from "../assets/accounticons/twitter.png";
 import youtube from "../assets/accounticons/youtube.png";
+import github from "../assets/accounticons/github.svg";
 
 const accounts = [
   {
@@ -34,6 +35,12 @@ const accounts = [
     label: "YouTube",
     link: "https://www.youtube.com/channel/UCQ_ZGydjNeSHNbdo_m6uUcQ",
     uname: "Cain Atkinson",
+  },
+  {
+    banner: github,
+    label: "Github",
+    link: "https://github.com/yellowsink",
+    uname: "Yellowsink",
   },
 ];
 
