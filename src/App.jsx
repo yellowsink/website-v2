@@ -19,9 +19,10 @@ import "virtual:windi-devtools";
 
 import Sidebar from "./Sidebar";
 
+import MarkdownPage from "./components/MarkdownPage";
 import IndexRoute from "./routes/Index";
 import AccountsRoute from "./routes/Accounts";
-import MarkdownPage from "./components/MarkdownPage";
+import WacomRoute from "./routes/Wacom";
 
 const routes = [
   {
@@ -49,6 +50,11 @@ const routes = [
     path: "/quark",
     component: MarkdownPage("https://raw.githubusercontent.com/yellowsink/quark/master/README.md"),
   },
+  {
+    name: "Wacom",
+    path: "/wacom",
+    component: WacomRoute
+  }
 ];
 
 const App = () => {
