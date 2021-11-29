@@ -23,6 +23,7 @@ import MarkdownPage from "./components/MarkdownPage";
 import IndexRoute from "./routes/Index";
 import AccountsRoute from "./routes/Accounts";
 import WacomRoute from "./routes/Wacom";
+import ModdingIntroRoute from "./routes/ModdingIntro";
 
 const routes = [
   {
@@ -38,23 +39,34 @@ const routes = [
   {
     name: "Discord plugins",
     path: "/plugins",
-    component: MarkdownPage("https://raw.githubusercontent.com/yellowsink/cc-plugins/master/README.md"),
+    component: MarkdownPage(
+      "https://raw.githubusercontent.com/yellowsink/cc-plugins/master/README.md"
+    ),
+  },
+  {
+    name: "Discord mod intro",
+    path: "/moddingintro",
+    component: ModdingIntroRoute,
   },
   {
     name: "Solidown",
     path: "/solidown",
-    component: MarkdownPage("https://raw.githubusercontent.com/yellowsink/solidown/master/README.md"),
+    component: MarkdownPage(
+      "https://raw.githubusercontent.com/yellowsink/solidown/master/README.md"
+    ),
   },
   {
     name: "Quark",
     path: "/quark",
-    component: MarkdownPage("https://raw.githubusercontent.com/yellowsink/quark/master/README.md"),
+    component: MarkdownPage(
+      "https://raw.githubusercontent.com/yellowsink/quark/master/README.md"
+    ),
   },
   {
     name: "Wacom",
     path: "/wacom",
-    component: WacomRoute
-  }
+    component: WacomRoute,
+  },
 ];
 
 const App = () => {
