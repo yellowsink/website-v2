@@ -164,7 +164,7 @@ export default () => (
       </li>
       <li class="list-disc">
         QuickCSS: a minimal but polished and functional plugin to just simply
-        yourself some CSS.
+        write yourself some CSS.
       </li>
       <li class="list-disc">
         Create Emote: steal other users' emotes, and create them with ease too?
