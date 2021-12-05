@@ -18,12 +18,14 @@ import "virtual:windi.css";
 import "virtual:windi-devtools";
 
 import Sidebar from "./Sidebar";
+import pagestyles from "./assets/page.sass";
 
 import MarkdownPage from "./components/MarkdownPage";
 import IndexRoute from "./routes/Index";
 import AccountsRoute from "./routes/Accounts";
 import WacomRoute from "./routes/Wacom";
 import ModdingIntroRoute from "./routes/ModdingIntro";
+import LinuxAudioRoute from "./routes/LinuxAudio";
 
 const routes = [
   {
@@ -67,6 +69,11 @@ const routes = [
     path: "/wacom",
     component: WacomRoute,
   },
+  {
+    name: "Linux Audio",
+    path: "/linux_audio_prod",
+    component: LinuxAudioRoute,
+  },
 ];
 
 const App = () => {
@@ -76,8 +83,11 @@ const App = () => {
     <Router>
       <div class="flex bg-light-600 dark:(bg-dark-400 text-white) transition-colors <md:flex-col min-h-[100vh] font-sans">
         <Sidebar routes={routes} />
-        <div class="md:ml-100 xl:ml-150 p-18 flex-1">
+        {/* haha root root */}
+        <div class="md:ml-100 xl:ml-150 p-18 flex-1" id="route-root">
           <Routes />
+          {/* I will mix Windi with standard CSS and you will not stop me */}
+          <style>{pagestyles}</style>
         </div>
       </div>
     </Router>
