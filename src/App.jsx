@@ -26,6 +26,7 @@ import AccountsRoute from "./routes/Accounts";
 import WacomRoute from "./routes/Wacom";
 import ModdingIntroRoute from "./routes/ModdingIntro";
 import LinuxAudioRoute from "./routes/LinuxAudio";
+import PronounsRoute from "./routes/Pronouns";
 
 const routes = [
   {
@@ -74,6 +75,11 @@ const routes = [
     path: "/linux_audio_prod",
     component: LinuxAudioRoute,
   },
+  {
+    name: "Pronoun Grammar",
+    path: "/prounoun_grammar",
+    component: PronounsRoute,
+  }
 ];
 
 const App = () => {
