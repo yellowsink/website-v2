@@ -79,7 +79,14 @@ const routes = [
     name: "Pronoun Grammar",
     path: "/prounoun_grammar",
     component: PronounsRoute,
-  }
+  },
+  {
+    name: "Simian",
+    path: "/simian",
+    component: MarkdownPage(
+      "https://raw.githubusercontent.com/yellowsink/simian/master/README.md"
+    ),
+  },
 ];
 
 const App = () => {
