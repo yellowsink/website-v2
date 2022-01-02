@@ -12,7 +12,7 @@ document.getElementById("temp_dark").remove();
 
 // App.jsx main
 import { render } from "solid-js/web";
-import { NavLink, Router, useRoutes } from "solid-app-router";
+import { Router, useRoutes } from "solid-app-router";
 
 import "virtual:windi.css";
 import "virtual:windi-devtools";
