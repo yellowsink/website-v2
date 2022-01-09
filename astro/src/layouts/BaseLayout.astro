@@ -1,20 +1,25 @@
 ---
-import styles from "../styles.sass"
+import Sidebar from "../components/Sidebar.jsx"
+import routes from "../routes.json"
 ---
 
 <html lang="en">
-  <!-- <head>
+  <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <link rel="shortcut icon" type="image/ico" href="/src/assets/favicon.ico" />
-    <title>Sink's place</title>
+    <title>Sink{"'"}s place</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Lato:ital@0;1&family=Roboto+Mono:wght@100;300&display=swap"
       rel="stylesheet"
     />
-  </head> -->
+    <link rel="stylesheet" href={Astro.resolve("../styles.sass")} />
+  </head>
   <body>
+    <Sidebar routes={routes} currentPath={Astro.request.canonicalURL.pathname} />
+    <div id="content">
     <slot />
+    </div>
   </body>
 </html>

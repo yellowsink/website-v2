@@ -1,5 +1,5 @@
 {
-  "name": "@example/minimal",
+  "name": "website-v2-astro",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -10,7 +10,9 @@
   },
   "devDependencies": {
     "astro": "^0.22.9",
-    "postcss-windicss": "^1.0.0",
     "sass": "^1.47.0"
+  },
+  "dependencies": {
+    "@astrojs/renderer-solid": "^0.3.0"
   }
 }

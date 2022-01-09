@@ -1,1 +1,82 @@
-@windicss
+//@windicss
+//@tailwind bases
+//@tailwind components
+//@tailwind utilities
+
+@mixin text-lg 
+    font-size: 1.125rem
+    line-height: 1.75rem
+
+@mixin text-sm
+    font-size: 0.875rem
+    line-height: 1.25rem
+
+$sm: 640px
+$md: 768px
+$lg: 1024px
+$xl: 1280px
+//$2xl: 1536px
+
+body
+    display: flex
+    min-height: 100vh
+    margin: 0
+    
+    @media (max-width: $md)
+        flex-direction: column
+
+#sidebar
+    box-sizing: border-box
+    display: flex
+    flex-direction: column
+    padding: 5rem
+    padding-top: 1.25rem
+    width: auto
+    background: #fafafa
+    font-family: "Roboto Mono", monospace
+    box-shadow: 0 10px 15px -3px rgb(0 0 0/0.1),0 4px 6px -4px rgb(0 0 0/0.1)
+
+    @media (min-width: $md)
+        height: 100vh
+        width: 25rem
+        position: fixed
+
+    @media (min-width: $xl)
+        width: 37.5rem // 150 windi units
+
+    h1
+        text-align: center
+        font-weight: lighter
+    
+    #sbar_bottomtext
+        margin: -3.5rem
+        margin-top: 0
+        text-align: right
+        @include text-sm
+    
+    ul
+        padding-left: 0
+        margin: 0
+
+    li 
+        list-style: none
+        &> a
+            @include text-lg
+            
+            text-decoration: none
+            color: black
+            transition: padding-left 150ms
+            &:hover
+                padding-left: 1rem
+
+#content
+    padding: 4.5rem
+    background: #f1f3f5
+    flex: 1
+    font-family: Lato, sans-serif
+
+    @media (min-width: $md)
+        margin-left: 25rem
+
+    @media (min-width: $xl)
+        margin-left: 37.5rem // 150 windi units
