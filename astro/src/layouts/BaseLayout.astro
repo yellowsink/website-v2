@@ -1,6 +1,12 @@
 ---
 import Sidebar from "../components/Sidebar.jsx"
 import routes from "../routes.json"
+
+const { title } = Astro.props
+const fullTitle =
+  title
+  ? `Sink's place - ${title}`
+  : "Sink's place"
 ---
 
 <html lang="en">
@@ -9,7 +15,7 @@ import routes from "../routes.json"
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <link rel="shortcut icon" type="image/ico" href="/src/assets/favicon.ico" />
-    <title>Sink{"'"}s place</title>
+    <title>{fullTitle}</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Lato:ital@0;1&family=Roboto+Mono:wght@100;300&display=swap"
       rel="stylesheet"
