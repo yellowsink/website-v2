@@ -1,0 +1,32 @@
+---
+import dark from "../../public/dark.svg";
+import light from "../../public/light.svg";
+---
+
+<div id="theme-toggler" class="flex mb-10 self-center">
+  <div class="imgwrapper">
+    <img src={light} />
+    <img src={light} />
+  </div>
+
+  <button onclick="toggleTheme()">
+    <div />
+  </button>
+
+  <div class="imgwrapper">
+    <img src={dark} />
+    <img src={dark} />
+  </div>
+
+  <script>
+    window.toggleTheme = function() {
+      let root = document.getElementById("root");
+      let newIsDark = !(root.classList == "dark");
+      if (window.prefersDark == newIsDark) document.cookie = "detect";
+      else if (newIsDark) document.cookie = "dark";
+      else document.cookie = "light";
+
+      root.classList = newIsDark ? "dark" : "";
+    }
+  </script>
+</div>

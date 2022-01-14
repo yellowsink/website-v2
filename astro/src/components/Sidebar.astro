@@ -1,10 +1,10 @@
 ---
-import ThemeToggler from "./ThemeToggler.jsx";
+import ThemeToggler from "./ThemeToggler.astro";
 const { routes, currentPath } = Astro.props;
 ---
 
 <div id="sidebar">
-  <ThemeToggler client:load />
+  <ThemeToggler client:idle />
 
   <h1>sink's place</h1>
   <h2>Pages:</h2>

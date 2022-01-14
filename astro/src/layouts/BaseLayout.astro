@@ -23,8 +23,7 @@ const fullTitle =
     <link rel="stylesheet" href={Astro.resolve("../styles.sass")} />
   </head>
   <body id="root">
-    <!-- i have to client:load this component for it to be allowed to client:load the theme toggler, which is very annoying -_- -->
-    <Sidebar routes={routes} currentPath={Astro.request.canonicalURL.pathname} client:load />
+    <Sidebar routes={routes} currentPath={Astro.request.canonicalURL.pathname} />
     <div id="content">
     <slot />
     </div>

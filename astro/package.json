@@ -11,8 +11,5 @@
   "devDependencies": {
     "astro": "^0.22.9",
     "sass": "^1.47.0"
-  },
-  "dependencies": {
-    "@astrojs/renderer-solid": "^0.3.0"
   }
 }
