@@ -1,0 +1,9 @@
+---
+import BaseLayout from "./BaseLayout.astro"
+import IndexHeader from "../components/IndexHeader.astro"
+---
+
+<BaseLayout title={Astro.props.title ?? Astro.props.content.title}>
+    <IndexHeader />
+    <slot />
+</BaseLayout>

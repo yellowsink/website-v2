@@ -6,5 +6,37 @@
   {
     "name": "Accounts",
     "path": "/accounts"
+  },
+  {
+    "name": "Discord plugins",
+    "path": "/plugins"
+  },
+  {
+    "name": "Discord mod intro",
+    "path": "/moddingintro"
+  },
+  {
+    "name": "Solidown",
+    "path": "/solidown"
+  },
+  {
+    "name": "Quark",
+    "path": "/quark"
+  },
+  {
+    "name": "Wacom",
+    "path": "/wacom"
+  },
+  {
+    "name": "Linux Audio",
+    "path": "/linux_audio_prod"
+  },
+  {
+    "name": "Pronoun Grammar",
+    "path": "/prounoun_grammar"
+  },
+  {
+    "name": "Simian",
+    "path": "/simian"
   }
 ]
