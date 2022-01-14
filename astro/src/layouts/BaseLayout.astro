@@ -22,7 +22,7 @@ const fullTitle =
     />
     <link rel="stylesheet" href={Astro.resolve("../styles.sass")} />
   </head>
-  <body>
+  <body id="root">
     <Sidebar routes={routes} currentPath={Astro.request.canonicalURL.pathname} />
     <div id="content">
     <slot />
@@ -30,7 +30,7 @@ const fullTitle =
 
     <style id="temp_dark">
       @media (prefers-color-scheme: dark) {
-        body,
+        #root,
         img {
           filter: invert();
         }
@@ -45,6 +45,7 @@ const fullTitle =
         .matches;
 
       if (
+        true ||
         document.cookie == "dark" ||
         (document.cookie != "light" && window.prefersDark)
       )
