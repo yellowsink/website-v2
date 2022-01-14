@@ -1,5 +1,5 @@
 ---
-import Sidebar from "../components/Sidebar.jsx"
+import Sidebar from "../components/Sidebar.astro"
 import routes from "../routes.json"
 
 const { title } = Astro.props
@@ -23,7 +23,7 @@ const fullTitle =
     <link rel="stylesheet" href={Astro.resolve("../styles.sass")} />
   </head>
   <body id="root">
-    <!-- client:load to make the theme toggler load -->
+    <!-- i have to client:load this component for it to be allowed to client:load the theme toggler, which is very annoying -_- -->
     <Sidebar routes={routes} currentPath={Astro.request.canonicalURL.pathname} client:load />
     <div id="content">
     <slot />
