@@ -27,5 +27,30 @@ const fullTitle =
     <div id="content">
     <slot />
     </div>
+
+    <style id="temp_dark">
+      @media (prefers-color-scheme: dark) {
+        body,
+        img {
+          filter: invert();
+        }
+        * {
+          transition-duration: 0ms !important;
+        }
+      }
+    </style>
+
+    <script client:only>
+      window.prefersDark = !!window.matchMedia("(prefers-color-scheme: dark)")
+        .matches;
+
+      if (
+        document.cookie == "dark" ||
+        (document.cookie != "light" && window.prefersDark)
+      )
+        document.getElementById("root").className = "dark";
+
+      document.getElementById("temp_dark").remove();
+    </script>
   </body>
 </html>
