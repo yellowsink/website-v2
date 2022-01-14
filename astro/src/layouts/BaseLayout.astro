@@ -23,7 +23,8 @@ const fullTitle =
     <link rel="stylesheet" href={Astro.resolve("../styles.sass")} />
   </head>
   <body id="root">
-    <Sidebar routes={routes} currentPath={Astro.request.canonicalURL.pathname} />
+    <!-- client:load to make the theme toggler load -->
+    <Sidebar routes={routes} currentPath={Astro.request.canonicalURL.pathname} client:load />
     <div id="content">
     <slot />
     </div>
@@ -45,7 +46,6 @@ const fullTitle =
         .matches;
 
       if (
-        true ||
         document.cookie == "dark" ||
         (document.cookie != "light" && window.prefersDark)
       )

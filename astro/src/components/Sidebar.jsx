@@ -1,7 +1,9 @@
+import ThemeToggler from "./ThemeToggler";
+
 export default ({ routes, currentPath }) => {
   return (
     <div id="sidebar">
-      {/* <ThemeToggler /> */}
+      <ThemeToggler />
 
       <h1>sink's place</h1>
       <h2>Pages:</h2>
