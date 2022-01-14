@@ -2,7 +2,9 @@
 import Sidebar from "../components/Sidebar.astro"
 import routes from "../routes.json"
 
-const { title } = Astro.props
+// `content` for markdown pages.
+const { title: rawTitle, content } = Astro.props
+const title = rawTitle ?? content.title
 const fullTitle =
   title
   ? `Sink's place - ${title}`

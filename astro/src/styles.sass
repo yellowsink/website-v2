@@ -91,14 +91,14 @@ body
             &:hover
                 padding-left: 1rem
             
-            &.hover
+            &.active
                 margin-left: 2rem
 
 #content
     @include transition-col
 
     .dark &
-        background: #444
+        background: #222
 
     @include text-col
     padding: 4.5rem
@@ -138,12 +138,14 @@ body
                 opacity: 0
 
     button
+        cursor: pointer
+
         border: none
         padding: 0
         width: 3rem
         height: 1.5rem
         border-radius: 9999px
-        margin: 0 1rem
+        margin: 0 .5rem
         display: flex
         align-items: center
 
