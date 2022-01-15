@@ -27,6 +27,7 @@ import WacomRoute from "./routes/Wacom";
 import ModdingIntroRoute from "./routes/ModdingIntro";
 import LinuxAudioRoute from "./routes/LinuxAudio";
 import PronounsRoute from "./routes/Pronouns";
+import WkMadnessRoute from "./routes/WkMadness"
 
 const routes = [
   {
@@ -86,6 +87,11 @@ const routes = [
     component: MarkdownPage(
       "https://raw.githubusercontent.com/yellowsink/simian/master/README.md"
     ),
+  },
+  {
+    name: "WebKit CSS madness",
+    path: "/wkmadness",
+    component: WkMadnessRoute
   },
 ];
 
