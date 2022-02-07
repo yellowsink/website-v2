@@ -60,13 +60,6 @@ const routes = [
     ),
   },
   {
-    name: "Quark",
-    path: "/quark",
-    component: MarkdownPage(
-      "https://raw.githubusercontent.com/yellowsink/quark/master/README.md"
-    ),
-  },
-  {
     name: "Wacom",
     path: "/wacom",
     component: WacomRoute,
@@ -91,7 +84,14 @@ const routes = [
   {
     name: "WebKit CSS madness",
     path: "/wkmadness",
-    component: WkMadnessRoute
+    component: WkMadnessRoute,
+  },
+  {
+    name: "HLCC",
+    path: "/hlcc",
+    component: MarkdownPage(
+      "https://raw.githubusercontent.com/yellowsink/hlcc/master/README.md"
+    ),
   },
 ];
 
