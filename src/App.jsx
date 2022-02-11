@@ -27,6 +27,7 @@ import WacomRoute from "./routes/Wacom";
 import ModdingIntroRoute from "./routes/ModdingIntro";
 import LinuxAudioRoute from "./routes/LinuxAudio";
 import PronounsRoute from "./routes/Pronouns";
+import WkMadnessRoute from "./routes/WkMadness"
 
 const routes = [
   {
@@ -59,13 +60,6 @@ const routes = [
     ),
   },
   {
-    name: "Quark",
-    path: "/quark",
-    component: MarkdownPage(
-      "https://raw.githubusercontent.com/yellowsink/quark/master/README.md"
-    ),
-  },
-  {
     name: "Wacom",
     path: "/wacom",
     component: WacomRoute,
@@ -85,6 +79,18 @@ const routes = [
     path: "/simian",
     component: MarkdownPage(
       "https://raw.githubusercontent.com/yellowsink/simian/master/README.md"
+    ),
+  },
+  {
+    name: "WebKit CSS madness",
+    path: "/wkmadness",
+    component: WkMadnessRoute,
+  },
+  {
+    name: "HLCC",
+    path: "/hlcc",
+    component: MarkdownPage(
+      "https://raw.githubusercontent.com/yellowsink/hlcc/master/README.md"
     ),
   },
 ];
