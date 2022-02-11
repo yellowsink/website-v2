@@ -1,0 +1,13 @@
+---
+import SolidownWrapper from "./SolidownWrapper.jsx"
+const { src } = Astro.props;
+---
+
+<noscript>
+  <p>There would've been some dynamically fetched Markdown here, but you have Javascript disabled.</p>
+  <p>Here is a <a href={src}>link</a> to the md file</p>
+  <p>This site used to rely on Javascript, but thanks to the magic of Astro, no longer does.</p>
+  <p>However, as I just statically build it, I still can't get Markdown to work without client-side JS.</p>
+</noscript>
+
+<SolidownWrapper src={src} />

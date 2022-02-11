@@ -1,7 +1,0 @@
----
-import { Markdown } from "astro/components";
-const { url } = Astro.props;
-const data = await (await fetch(url)).text();
----
-
-<Markdown>{data}</Markdown>
