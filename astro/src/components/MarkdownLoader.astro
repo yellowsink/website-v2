@@ -1,13 +1,21 @@
 ---
-import SolidownWrapper from "./SolidownWrapper.jsx"
 const { src } = Astro.props;
 ---
 
 <noscript>
-  <p>There would've been some dynamically fetched Markdown here, but you have Javascript disabled.</p>
-  <p>Here is a <a href={src}>link</a> to the md file</p>
-  <p>This site used to rely on Javascript, but thanks to the magic of Astro, no longer does.</p>
-  <p>However, as I just statically build it, I still can't get Markdown to work without client-side JS.</p>
+  <div style="border: 1px solid gray; border-radius: 1rem; padding: 1rem">
+    <p>There would've been some dynamically fetched Markdown here, but you have Javascript disabled.</p>
+    <p>Here is a <a href={src}>link</a> to the md file</p>
+    <p>This site used to rely on Javascript, but thanks to the magic of Astro, no longer does.</p>
+    <p>However, as I just statically build it, I still can't get Markdown to work without client-side JS.</p>
+  </div>
 </noscript>
 
-<SolidownWrapper src={src} />
+<div id="MARKDOWN_TARGET" data-src={src} style="overflow-x: auto; max-width: 35rem;"></div>
+<script src="https://cdn.jsdelivr.net/npm/remarkable@2.0.1/dist/remarkable.min.js"></script>
+<script type="module">
+  const mdTarget = document.getElementById("MARKDOWN_TARGET");
+  const rawText = await (await fetch(mdTarget.dataset.src)).text();
+  const md = new remarkable.Remarkable({html: true}).render(rawText);
+  mdTarget.innerHTML = md;
+</script>
