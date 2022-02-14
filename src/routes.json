@@ -1,0 +1,34 @@
+[
+  {
+    "name": "About me",
+    "path": "/"
+  },
+  {
+    "name": "Accounts",
+    "path": "/accounts"
+  },
+  {
+    "name": "Discord plugins",
+    "path": "/plugins"
+  },
+  {
+    "name": "Wacom",
+    "path": "/wacom"
+  },
+  {
+    "name": "Linux Audio",
+    "path": "/linux_audio_prod"
+  },
+  {
+    "name": "Simian",
+    "path": "/simian"
+  },
+  {
+    "name": "HLCC",
+    "path": "/hlcc"
+  },
+  {
+    "name": "Upcoming Projects",
+    "path": "/upcoming"
+  }
+]

@@ -1,24 +1,16 @@
 {
-  "name": "vite-template-solid",
-  "version": "0.0.0",
-  "description": "",
+  "name": "website-v2-astro",
+  "version": "0.0.1",
+  "private": true,
   "scripts": {
-    "start": "vite",
-    "dev": "vite",
-    "build": "vite build",
-    "serve": "vite preview"
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
   },
-  "license": "BSD-3-Clause",
   "devDependencies": {
-    "sass": "^1.45.2",
-    "vite": "^2.7.10",
-    "vite-plugin-solid": "^2.1.4",
-    "vite-plugin-windicss": "^1.6.1",
-    "windicss": "^3.4.2"
-  },
-  "dependencies": {
-    "solid-app-router": "^0.1.14",
-    "solid-js": "^1.2.6",
-    "zero-md": "^2.3.1"
+    "astro": "^0.23.0-next.6",
+    "prettier-plugin-astro": "^0.0.12",
+    "sass": "^1.49.7"
   }
 }

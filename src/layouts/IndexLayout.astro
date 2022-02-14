@@ -1,0 +1,45 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+---
+
+<BaseLayout title={Astro.props.title ?? Astro.props.content.title}>
+  <div class="top-wrap">
+    <img
+      src="https://gravatar.com/avatar/07c71710cff6bc1bd3ef089a2530cc82?s=500"
+    />
+    <div>
+      <h1>About me</h1>
+      <h2>When awful ideas and free time collide.</h2>
+    </div>
+  </div>
+  <slot />
+</BaseLayout>
+
+<style lang="sass">
+  .top-wrap
+    display: flex
+    margin-bottom: 2.5rem
+    font-family: "Roboto Mono", monospace
+
+    div
+      margin-left: 1.5rem
+
+    img
+      width: 7.5rem
+      height: 7.5rem
+      background: #6DB4D5
+
+    h1
+      font-size: 1.875rem !important
+      line-height: 2.25rem !important
+      margin: 0
+      margin-bottom: .5rem
+      font-weight: 400
+
+    h2
+      font-size: 1.25rem !important
+      line-height: 1.75rem !important
+      margin: 0
+      font-style: italic
+      font-weight: 400
+</style>
