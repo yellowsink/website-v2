@@ -75,9 +75,10 @@ const fixedPath =
       list-style: none
       &> a
         @include text-lg
+        @include text-col
+        font-style: italic
 
         text-decoration: none
-        @include text-col
         transition: padding-left 150ms, color 150ms
         :global(.dark) &
           @include text-col-dark
