@@ -47,8 +47,8 @@ const fullTitle =
         .matches;
 
       if (
-        document.cookie == "dark" ||
-        (document.cookie != "light" && window.prefersDark)
+        document.cookie.split("; ").includes("dark") ||
+        (!document.cookie.split("; ").includes("light") && window.prefersDark)
       )
         document.getElementById("root").className = "dark";
 

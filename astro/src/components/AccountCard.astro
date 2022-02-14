@@ -17,7 +17,7 @@ const { banner, label, link, uname } = Astro.props;
       border-color: #a1a1aa
 
     background: #f8f9fa
-    transition: background-color border-color 0.2s ease-in-out
+    transition: all 150ms
     border: #71717a 1px solid
     padding: 2rem
     width: auto
@@ -34,6 +34,10 @@ const { banner, label, link, uname } = Astro.props;
 
     @media (max-width: 768px)
       flex-direction: column
+
+    color: #212121 !important
+    :global(.dark) &
+      color: invert(#212121) !important
   
   img
     height: 3rem
@@ -55,8 +59,4 @@ const { banner, label, link, uname } = Astro.props;
     text-align: center
     @media (min-width: 768px)
       text-align: right
-    
-    color: #212121
-    :global(.dark) &
-      color: invert(#212121)
 </style>
