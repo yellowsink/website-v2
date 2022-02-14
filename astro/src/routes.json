@@ -20,15 +20,15 @@
     "path": "/linux_audio_prod"
   },
   {
-    "name": "Pronoun Grammar",
-    "path": "/prounoun_grammar"
-  },
-  {
     "name": "Simian",
     "path": "/simian"
   },
   {
     "name": "HLCC",
     "path": "/hlcc"
+  },
+  {
+    "name": "Upcoming Projects",
+    "path": "/upcoming"
   }
 ]
