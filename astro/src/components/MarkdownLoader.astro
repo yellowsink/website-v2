@@ -11,7 +11,7 @@ const { src } = Astro.props;
   </div>
 </noscript>
 
-<div id="MARKDOWN_TARGET" data-src={src} style="overflow-x: auto; max-width: 35rem;"></div>
+<div id="MARKDOWN_TARGET" data-src={src}></div>
 <script src="https://cdn.jsdelivr.net/npm/remarkable@2.0.1/dist/remarkable.min.js"></script>
 <script type="module">
   const mdTarget = document.getElementById("MARKDOWN_TARGET");
@@ -19,3 +19,10 @@ const { src } = Astro.props;
   const md = new remarkable.Remarkable({html: true}).render(rawText);
   mdTarget.innerHTML = md;
 </script>
+
+<style>
+#MARKDOWN_TARGET {
+  overflow-x: auto;
+  max-width: 35rem;
+}
+</style>

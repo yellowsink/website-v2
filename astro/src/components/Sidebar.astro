@@ -1,6 +1,7 @@
 ---
 import ThemeToggler from "./ThemeToggler.astro";
 const { routes, currentPath } = Astro.props;
+const fixedPath = currentPath.length > 1 && currentPath.endsWith("/") ? currentPath.slice(0, -1) : currentPath;
 ---
 
 <div id="sidebar">
@@ -12,7 +13,7 @@ const { routes, currentPath } = Astro.props;
     {routes.map((route) => (
       <li>
         <a
-          class={route.path === currentPath ? "active" : ""}
+          class={route.path === fixedPath ? "active" : ""}
           href={route.path}
         >
           {route.name}

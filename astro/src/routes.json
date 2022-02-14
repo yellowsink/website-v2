@@ -12,18 +12,6 @@
     "path": "/plugins"
   },
   {
-    "name": "Discord mod intro",
-    "path": "/moddingintro"
-  },
-  {
-    "name": "Solidown",
-    "path": "/solidown"
-  },
-  {
-    "name": "Quark",
-    "path": "/quark"
-  },
-  {
     "name": "Wacom",
     "path": "/wacom"
   },
@@ -38,5 +26,9 @@
   {
     "name": "Simian",
     "path": "/simian"
+  },
+  {
+    "name": "HLCC",
+    "path": "/hlcc"
   }
 ]
