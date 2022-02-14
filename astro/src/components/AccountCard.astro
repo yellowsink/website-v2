@@ -1,0 +1,62 @@
+---
+const { banner, label, link, uname } = Astro.props;
+---
+
+<a href={link} target={"_blank"} class="shadow-md">
+  <img src={banner} />
+  <div>
+    <h2>{label}</h2>
+    <p>{uname}</p>
+  </div>
+</a>
+
+<style lang="sass">
+  a
+    :global(.dark) &
+      background: #1f1f1f
+      border-color: #a1a1aa
+
+    background: #f8f9fa
+    transition: background-color border-color 0.2s ease-in-out
+    border: #71717a 1px solid
+    padding: 2rem
+    width: auto
+    height: 10rem
+    
+    display: flex
+    justify-content: space-between
+
+    font-family: "Roboto Mono", monospace
+    text-decoration: none
+
+    @media (min-width: 768px)
+      width: 20rem
+
+    @media (max-width: 768px)
+      flex-direction: column
+  
+  img
+    height: 3rem
+
+    margin-left: auto
+    margin-right: auto
+    @media (min-width: 768px)
+      height: 75%
+      align-self: center
+      margin-left: -.5rem
+      margin-right: 1rem
+      object-fit: cover
+
+    // for dark mode
+    filter: drop-shadow(0 0 1rem #f8f9fa)
+
+  div
+    align-self: center
+    text-align: center
+    @media (min-width: 768px)
+      text-align: right
+    
+    color: #212121
+    :global(.dark) &
+      color: invert(#212121)
+</style>

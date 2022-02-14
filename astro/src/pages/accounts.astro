@@ -1,0 +1,80 @@
+---
+import AccountCard from "../components/AccountCard.astro";
+import BaseLayout from "../layouts/BaseLayout.astro"
+
+const accounts = [
+  {
+    banner: "/icons/discord.svg",
+    label: "Discord",
+    uname: "Yellowsink#8156",
+  },
+  {
+    banner: "/icons/twitter.svg",
+    label: "Twitter",
+    link: "https://twitter.com/CainAtkin",
+    uname: "@CainAtkin",
+  },
+  {
+    banner: "/icons/github.svg",
+    label: "Github",
+    link: "https://github.com/yellowsink",
+    uname: "Yellowsink",
+  },
+  {
+    banner: "/icons/at.svg",
+    label: "Email me!",
+    link: "mailto:yellowsink@riseup.net",
+    uname: "yellowsink@riseup.net"
+  },
+  {
+    banner: "/icons/reddit-alien.svg",
+    label: "Reddit",
+    link: "https://reddit.com/u/yellosink",
+    uname: "u/yellosink",
+  },
+  {
+    banner: "/icons/osu.svg",
+    label: "osu!",
+    link: "https://osu.ppy.sh/u/yellowsink",
+    uname: "Yellowsink",
+  },
+  {
+    banner: "/icons/youtube.svg",
+    label: "YouTube",
+    link: "https://www.youtube.com/channel/UCQ_ZGydjNeSHNbdo_m6uUcQ",
+    uname: "Cain Atkinson",
+  },
+  {
+    banner: "/icons/mastodon.svg",
+    label: "Mastodon",
+    uname: "@yellowsink\n@toot.alyxia.dev"
+  }
+];
+---
+
+<BaseLayout title="Accounts">
+  <h2>Accounts</h2>
+  <div class="">
+    {accounts.map((acc) => (
+      <AccountCard
+        banner={acc.banner}
+        label={acc.label}
+        link={acc.link}
+        uname={acc.uname}
+      />
+    ))}
+  </div>
+</BaseLayout>
+
+<style lang="sass">
+  div
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-evenly
+    gap: 1.5rem
+    margin-top: 1rem
+    margin-bottom: 1rem
+
+    @media (max-width: 768px)
+      flex-direction: column
+</style>
