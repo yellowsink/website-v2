@@ -6,6 +6,7 @@ title: Linux Audio
 ## The state of digital music production on Linux
 
 ### The setup
+
 <table>
   <tbody>
     <tr>
@@ -68,6 +69,7 @@ title: Linux Audio
 </table>
 
 ### Setting up audio apps - The natives
+
 There are two native Linux audio applications I decided to try. The first
 of these was LMMS, which is honestly too unusable for me, but otherwise
 fine
@@ -83,7 +85,7 @@ find any of my VST plugins.
 
 Had I got some Linux VSTs, this would work absolutely fine - indeed REAPER
 has the widest plugin format support of any other software I tested,
-however *Windows* VSTs under Wine did not display (reasonably).
+however _Windows_ VSTs under Wine did not display (reasonably).
 
 Also to note is that LMMS theoretically can load Windows VSTs - the
 VeSTige plugin should be able to load a Windows VST given the path to the
@@ -91,6 +93,7 @@ dll, however it didn't work for me, and last time I'd tried it, the UI had
 been very very buggy anyway.
 
 ### Setting up audio apps - The Windows DAWs
+
 Every DAW I tried installed and launched out of the box on Wine, which was
 a nice surprise. In addition I encountered no issues with audio playback
 quality - No xruns whatsoever. In addition, both Reason and FL were
@@ -100,6 +103,7 @@ iZotope RX 8 installed, however insta-crashes on launch. This also causes
 the RX VSTs to fail to load in other hosts.
 
 ### REAPER on Wine
+
 REAPER runs fine under Wine, and only has one minor graphical issue (the
 scrollbars cant decide if they should look REAPER-ey or Windows-ey, and
 settle on glitching between the two).
@@ -110,6 +114,7 @@ you should probably just use the Linux build and wrestle with a bridge
 such as LinVST.
 
 ### Reason 12
+
 I have long had a soft spot for Reason, since I started using it a few
 years back (on Reason 10 Lite). So I was excited to find that the latest
 version installs fine on Wine and loads up too.
@@ -140,6 +145,7 @@ make use of its rack in other DAWs, but the VST3 Reason Rack Plugin
 crashes instantly.
 
 ### FL Studio 20
+
 FL Studio is a frightfully popular DAW with a nice UI, an unconventional
 pattern-based workflow, a nice light engine, and quite the dedicated
 community. Oh, and it can drive Razer Chroma devices too so your keyboard
@@ -163,23 +169,25 @@ Windows. You may wish to use a WM not a DE to make it automatically nice
 and big despite being windowed.
 
 ### Ableton Live
+
 I didn't try Live. According to Wine appdb it works fine, if much heavier
 like FL and minor glitches. So yeah.
 
 ### Conclusion
+
 In conclusion, audio production on Linux is painfully close to being
 really really great, but for that to happen I think we need one of the
 following three to happen:
 
-  - (Most likely) Some effort from the team at Cockos: working windows VST
-    bridging in REAPER would make using it a very viable choice, and running
-    natively on Linux means it will outperform DAWs on any other OS 90% of
-    the time, plus it can take full advantage of Pipewire (likely indirectly
-    via JACK), for fun routing and low latency.
+- (Most likely) Some effort from the team at Cockos: working windows VST
+  bridging in REAPER would make using it a very viable choice, and running
+  natively on Linux means it will outperform DAWs on any other OS 90% of
+  the time, plus it can take full advantage of Pipewire (likely indirectly
+  via JACK), for fun routing and low latency.
 
-  - (Pretty unlikely) Some effort from the Wine team: somehow make FL and
-    Ableton use the full extent of your CPU - reduce DSP overhead somehow
+- (Pretty unlikely) Some effort from the Wine team: somehow make FL and
+  Ableton use the full extent of your CPU - reduce DSP overhead somehow
 
-  - (Comically unlikely) A huge effort from the KVM/QEMU devs and Linux
-    Kernel contributors, and possibly Microsoft: make Windows KVMs have
-    usable performance. Yeah that's not happening.
+- (Comically unlikely) A huge effort from the KVM/QEMU devs and Linux
+  Kernel contributors, and possibly Microsoft: make Windows KVMs have
+  usable performance. Yeah that's not happening.

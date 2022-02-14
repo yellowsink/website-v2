@@ -10,7 +10,7 @@ import light from "../../public/light.svg";
   </div>
 
   <button onclick="toggleTheme()">
-    <div />
+    <div></div>
   </button>
 
   <div class="imgwrapper">
@@ -19,7 +19,7 @@ import light from "../../public/light.svg";
   </div>
 
   <script>
-    window.toggleTheme = function() {
+    window.toggleTheme = function () {
       let root = document.getElementById("root");
       let newIsDark = !(root.classList == "dark");
       if (window.prefersDark == newIsDark) document.cookie = "detect";
@@ -27,6 +27,63 @@ import light from "../../public/light.svg";
       else document.cookie = "light";
 
       root.classList = newIsDark ? "dark" : "";
-    }
+    };
   </script>
 </div>
+
+<style lang="sass">
+  #theme-toggler
+    display: flex
+    margin-bottom: 2.5rem
+    align-self: center
+
+    &> .imgwrapper
+      // fix spacing weirdness
+      width: 24px
+      height: 24px
+
+      &> *
+        // overlay both on top of each other
+        position: absolute
+
+        // transition
+        $DURATION: 150ms
+
+        transition: background-color $DURATION, color $DURATION, opacity #{$DURATION}
+
+        // invert the back one
+        &:first-child
+          filter: invert(1)
+
+        // hide the front one
+        :global(.dark) &:not(:first-child)
+          opacity: 0
+
+    button
+      cursor: pointer
+
+      border: none
+      padding: 0
+      width: 3rem
+      height: 1.5rem
+      border-radius: 9999px
+      margin: 0 .5rem
+      display: flex
+      align-items: center
+
+      background: #181818
+
+      :global(.dark) &
+        background: #4a4a4a
+
+      &> div
+        width: 1rem
+        height: 1rem
+        border-radius: 9999px
+        background: #f2f2f2
+        margin: 0 .25rem
+        transition: margin-left 150ms
+
+        :global(.dark) &
+          margin-left: 1.75rem
+</style>

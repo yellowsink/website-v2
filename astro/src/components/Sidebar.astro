@@ -1,7 +1,10 @@
 ---
 import ThemeToggler from "./ThemeToggler.astro";
 const { routes, currentPath } = Astro.props;
-const fixedPath = currentPath.length > 1 && currentPath.endsWith("/") ? currentPath.slice(0, -1) : currentPath;
+const fixedPath =
+  currentPath.length > 1 && currentPath.endsWith("/")
+    ? currentPath.slice(0, -1)
+    : currentPath;
 ---
 
 <div id="sidebar">
@@ -12,17 +15,76 @@ const fixedPath = currentPath.length > 1 && currentPath.endsWith("/") ? currentP
   <ul>
     {routes.map((route) => (
       <li>
-        <a
-          class={route.path === fixedPath ? "active" : ""}
-          href={route.path}
-        >
+        <a class={route.path === fixedPath ? "active" : ""} href={route.path}>
           {route.name}
         </a>
       </li>
     ))}
   </ul>
 
-  <div style="flex: 1" />
+  <div style="flex: 1"></div>
 
   <p id="sbar_bottomtext">Built with Astro and VSCode</p>
 </div>
+
+<style lang="sass">
+  @import "../vars.sass"
+
+  #sidebar
+    @include transition-col
+
+    @include text-col
+
+    box-sizing: border-box
+    display: flex
+    flex-direction: column
+    padding: 5rem
+    padding-top: 1.25rem
+    width: auto
+    background: #fafafa
+    font-family: "Roboto Mono", monospace
+    box-shadow: 0 10px 15px -3px rgb(0 0 0/0.1),0 4px 6px -4px rgb(0 0 0/0.1)
+
+    :global(.dark) &
+      background: #181818
+      @include text-col-dark
+
+    @media (min-width: $md)
+      height: 100vh
+      width: 25rem
+      position: fixed
+
+    @media (min-width: $xl)
+      width: 37.5rem // 150 windi units
+
+    h1
+      text-align: center
+      font-weight: lighter
+
+    #sbar_bottomtext
+      margin: -3.5rem
+      margin-top: 0
+      text-align: right
+      @include text-sm
+
+    ul
+      padding-left: 0
+      margin: 0
+
+    li
+      list-style: none
+      &> a
+        @include text-lg
+
+        text-decoration: none
+        @include text-col
+        transition: padding-left 150ms, color 150ms
+        :global(.dark) &
+          @include text-col-dark
+
+        &:hover
+          padding-left: 1rem
+
+        &.active
+          margin-left: 2rem
+</style>

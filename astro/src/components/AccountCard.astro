@@ -12,22 +12,21 @@ const { banner, label, link, uname } = Astro.props;
 
 <style lang="sass">
   a
-    :global(.dark) &
-      background: #1f1f1f
-      border-color: #a1a1aa
-
     background: #f8f9fa
     transition: all 150ms
     border: #71717a 1px solid
     padding: 2rem
     width: auto
     height: 10rem
-    
+
     display: flex
     justify-content: space-between
 
     font-family: "Roboto Mono", monospace
     text-decoration: none
+    :global(.dark) &
+      background: #1f1f1f
+      border-color: #a1a1aa
 
     @media (min-width: 768px)
       width: 20rem
@@ -35,24 +34,24 @@ const { banner, label, link, uname } = Astro.props;
     @media (max-width: 768px)
       flex-direction: column
 
-    color: #212121 !important
+      color: #212121 !important
     :global(.dark) &
       color: invert(#212121) !important
-  
+
   img
     height: 3rem
 
     margin-left: auto
     margin-right: auto
+    // for dark mode
+    filter: drop-shadow(0 0 1rem #f8f9fa)
+
     @media (min-width: 768px)
       height: 75%
       align-self: center
       margin-left: -.5rem
       margin-right: 1rem
       object-fit: cover
-
-    // for dark mode
-    filter: drop-shadow(0 0 1rem #f8f9fa)
 
   div
     align-self: center

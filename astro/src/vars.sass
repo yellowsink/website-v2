@@ -1,0 +1,29 @@
+@mixin text-lg
+  font-size: 1.125rem
+  line-height: 1.75rem
+
+@mixin text-sm
+  font-size: 0.875rem
+  line-height: 1.25rem
+
+$sm: 640px
+$md: 768px
+$lg: 1024px
+$xl: 1280px
+//$2xl: 1536px
+
+$root-text-colour: #212121 // semantic UI
+
+@mixin text-col
+  color: $root-text-colour
+
+  .dark &
+    color: invert($root-text-colour)
+
+@mixin text-col-dark
+  color: invert($root-text-colour)
+
+@mixin transition-col
+  $DURATION: 150ms
+
+  transition: background-color $DURATION, color $DURATION, opacity #{$DURATION}

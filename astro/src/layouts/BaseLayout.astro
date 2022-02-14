@@ -1,14 +1,11 @@
 ---
-import Sidebar from "../components/Sidebar.astro"
-import routes from "../routes.json"
+import Sidebar from "../components/Sidebar.astro";
+import routes from "../routes.json";
 
 // `content` for markdown pages.
-const { title: rawTitle, content } = Astro.props
-const title = rawTitle ?? content.title
-const fullTitle =
-  title
-  ? `Sink's place - ${title}`
-  : "Sink's place"
+const { title: rawTitle, content } = Astro.props;
+const title = rawTitle ?? content.title;
+const fullTitle = title ? `Sink's place - ${title}` : "Sink's place";
 ---
 
 <html lang="en">
@@ -16,7 +13,7 @@ const fullTitle =
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
-    <link rel="shortcut icon" type="image/ico" href="/src/assets/favicon.ico" />
+    <link rel="shortcut icon" type="image/ico" href="/favicon.ico" />
     <title>{fullTitle}</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Lato:ital@0;1&family=Roboto+Mono:wght@100;300&display=swap"
@@ -25,21 +22,17 @@ const fullTitle =
     <link rel="stylesheet" href={Astro.resolve("../styles.sass")} />
   </head>
   <body id="root">
-    <Sidebar routes={routes} currentPath={Astro.request.canonicalURL.pathname} />
+    <Sidebar {routes} currentPath={Astro.request.canonicalURL.pathname} />
     <div id="content">
-    <slot />
+      <slot />
     </div>
 
-    <style id="temp_dark">
-      @media (prefers-color-scheme: dark) {
-        #root,
-        img {
-          filter: invert();
-        }
-        * {
-          transition-duration: 0ms !important;
-        }
-      }
+    <style id="temp_dark" lang="sass">
+      @media (prefers-color-scheme: dark)
+        #root, img
+          filter: "invert()"
+        *
+          transition-duration: 0ms !important
     </style>
 
     <script client:only>
