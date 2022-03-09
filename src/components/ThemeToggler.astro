@@ -1,4 +1,4 @@
-<div id="theme-toggler" class="flex mb-10 self-center">
+<div style="display:none" id="theme-toggler" class="flex mb-10 self-center">
   <div class="imgwrapper">
     <img src="/light.svg" />
     <img src="/light.svg" />
@@ -14,6 +14,8 @@
   </div>
 
   <script>
+    document.getElementById("theme-toggler").style.display = "";
+    
     window.toggleTheme = function () {
       let root = document.getElementById("root");
       let newIsDark = !(root.classList == "dark");
