@@ -43,8 +43,9 @@ const { banner, label, link, uname } = Astro.props;
 
     margin-left: auto
     margin-right: auto
-    // for dark mode
-    filter: drop-shadow(0 0 1rem #f8f9fa)
+
+    :global(.dark) &
+      filter: invert(1)
 
     @media (min-width: 768px)
       height: 75%
