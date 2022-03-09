@@ -28,6 +28,10 @@
     "path": "/hlcc"
   },
   {
+    "name": "F# ops",
+    "path": "/fs_ops"
+  },
+  {
     "name": "Upcoming Projects",
     "path": "/upcoming"
   }
