@@ -6,6 +6,11 @@ import routes from "../routes.json";
 const { title: rawTitle, content } = Astro.props;
 const title = rawTitle ?? content.title;
 const fullTitle = title ? `Sink's place - ${title}` : "Sink's place";
+
+const jbMonoUrl =
+  "https://cdn.jsdelivr.net/npm/jetbrains-mono@1.0.6/css/jetbrains-mono.min.css";
+const gFontsUrl =
+  "https://fonts.googleapis.com/css2?family=Lato:ital@0;1&family=Roboto+Mono:wght@100;300&display=swap";
 ---
 
 <html lang="en">
@@ -15,14 +20,25 @@ const fullTitle = title ? `Sink's place - ${title}` : "Sink's place";
     <meta name="theme-color" content="#000000" />
     <link rel="shortcut icon" type="image/ico" href="/favicon.ico" />
     <title>{fullTitle}</title>
+
+    <!-- load fonts deferred -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Lato:ital@0;1&family=Roboto+Mono:wght@100;300&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href={gFontsUrl}
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
     <link
-      href="https://cdn.jsdelivr.net/npm/jetbrains-mono@1.0.6/css/jetbrains-mono.min.css"
-      rel="stylesheet"
+      rel="preload"
+      href={jbMonoUrl}
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
+    <noscript>
+      <link rel="stylesheet" href={jbMonoUrl} />
+      <link rel="stylesheet" href={gFontsUrl} />
+    </noscript>
+
     <link rel="stylesheet" href={Astro.resolve("../styles.sass")} />
   </head>
   <body id="root">

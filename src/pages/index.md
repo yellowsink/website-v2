@@ -20,7 +20,7 @@ horrific. I sometimes use Go because why not? I have recently been using
 JS a lot to make Discord plugins, as well as this site, and a little
 webdev for a client mod.
 
-![GH stats](https://github-readme-stats.vercel.app/api?username=yellowsink&theme=gruvbox)
+<!-- ![GH stats](https://github-readme-stats.vercel.app/api?username=yellowsink&theme=gruvbox) -->
 
 ### Rhythm Gaming
 
