@@ -9,8 +9,9 @@
     "preview": "astro preview"
   },
   "devDependencies": {
-    "astro": "^0.23.7",
+    "astro": "^1.0.0-beta.27",
+    "crossani": "^1.1.0",
     "prettier-plugin-astro": "^0.0.12",
-    "sass": "^1.49.9"
+    "sass": "^1.51.0"
   }
 }
