@@ -10,7 +10,7 @@
   },
   "devDependencies": {
     "astro": "^1.0.0-beta.27",
-    "crossani": "^1.1.0",
+    "crossani": "^1.1.1",
     "prettier-plugin-astro": "^0.0.12",
     "sass": "^1.51.0"
   }
