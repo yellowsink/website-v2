@@ -8,10 +8,58 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
     <p>A silky smooth declarative animation library for the web</p>
 
-
     <p><em>
         Fun fact: CrossAni powers the animation of my pfp on the about me page!
         <a href="https://github.com/yellowsink/website-v2/blob/master/src/components/AnimatedPfp.astro">(See code)</a>
     </em></p>
+
+    <h3>Some Examples</h3>
+    <noscript>
+        <div style="border: 1px solid gray; border-radius: 1rem; padding: 1rem">
+            <p>These examples rely on JavaScript, which you have disabled.</p>
+        </div>
+    </noscript>
+
+    <p>//TODO</p>
+    
+    <h3>Features</h3>
+    <h4>Uncomprimising performance</h4>
+    <p>
+        Jittery animations don't just tie up precious JavaScript execution time,
+        they look awful too. CrossAni has the browser do the heavy lifting in
+        running your animations.
+    </p>
+
+    <h4>Tiny bundles</h4>
+    <p>
+        As visible on [BundleJS](https://bundlejs.com/?q=crossani),
+        CrossAni is less than 3KB raw, and less than half that gzipped.
+        This makes it by far one of the smallest JS animation libraries.
+    </p>
+    
+    <h4>Rich framework integration</h4>
+    <p>
+        solid-crossani features an API tailor-made for
+        <a href="https://www.solidjs.com">SolidJS</a>.
+    </p>
+    <p>More frameworks soon!</p>
+
+    <h4>Automatic fall-through</h4>
+    <p>
+        When you define a transition, the duration and/or easing may be left unset.
+        This will cause CrossAni to use the values from the previously ran transition
+        on that element. If its the first transition, it uses EASE.ease and 100ms.
+    </p>
+    <p>
+        When you set the state styles for a transition, it applies them on top of
+        any existing styles. However, this can be modified via the reset prop.
+        When reset is set, <em>only styles added by CrossAni</em> will be reset to
+        the value they had before any transitions <em>at the same time as the state animations</em>.
+        Do not expect reset to cause your animation to run from the original state,
+        just to it.
+    </p>
+
+    <h3>Comparisons</h3>
+    See the package readme <a href="https://github.com/lexisother/CrossAni/tree/master/packages/crossani#readme">here.</a>
 
 </BaseLayout>
