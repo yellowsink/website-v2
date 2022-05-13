@@ -29,8 +29,8 @@ const fullTitle = title ? `Sink's place - ${title}` : "Sink's place";
 
     <style id="temp_dark" is:inline>
       @media (prefers-color-scheme: dark) {
-        #root, img { 
-          filter: "invert()" 
+        #root, img, #pfp-container { 
+          filter: invert()
         }
         * {
           transition-duration: 0ms !important 
