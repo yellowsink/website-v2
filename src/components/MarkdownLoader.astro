@@ -3,7 +3,7 @@ const { src } = Astro.props;
 ---
 
 <noscript>
-  <div style="border: 1px solid gray; border-radius: 1rem; padding: 1rem">
+  <div class="noscript-warn" style="border: 1px solid gray; border-radius: 1rem; padding: 1rem">
     <p>
       There would've been some dynamically fetched Markdown here, but you have
       Javascript disabled.
@@ -21,14 +21,15 @@ const { src } = Astro.props;
 </noscript>
 
 <div id="MARKDOWN_TARGET" data-src={src}></div>
-<script
-  src="https://cdn.jsdelivr.net/npm/remarkable@2.0.1/dist/remarkable.min.js"
-></script>
-<script type="module">
+<script>
+  import { Remarkable } from "https://cdn.esm.sh/remarkable"
   const mdTarget = document.getElementById("MARKDOWN_TARGET");
   const rawText = await(await fetch(mdTarget.dataset.src)).text();
-  const md = new remarkable.Remarkable({ html: true }).render(rawText);
+  const md = new Remarkable({ html: true }).render(rawText);
   mdTarget.innerHTML = md;
+
+  // god help me this should work without this
+  Array.from(document.getElementsByClassName("noscript-warn")).forEach(e => e.remove());
 </script>
 
 <style lang="sass">
