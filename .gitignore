@@ -20,3 +20,4 @@ yarn-error.log*
 # other
 pnpm-lock.yaml
 .pnpm-debug.log
+.idea
