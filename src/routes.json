@@ -32,6 +32,10 @@
     "path": "/fs_ops"
   },
   {
+    "name": "C# hierarchy",
+    "path": "/hierarchycs"
+  },
+  {
     "name": "Upcoming Projects",
     "path": "/upcoming"
   }
