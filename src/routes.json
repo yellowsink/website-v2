@@ -36,6 +36,10 @@
     "path": "/hierarchycs"
   },
   {
+    "name": "Arch No Boot",
+    "path": "/archboot"
+  },
+  {
     "name": "Upcoming Projects",
     "path": "/upcoming"
   }
