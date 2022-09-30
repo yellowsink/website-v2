@@ -1,0 +1,107 @@
+---
+const routes: [string, string, string, boolean?][] = [
+  ["/", "<root>", "My website"],
+  ["https://f.yellows.ink", "files", "File host for me + friends"],
+  ["https://prox.yellows.ink", "prox", "HTTP mirror"],
+  ["https://uwu.yellows.ink", "uwu", "My page @ uwu.network", true],
+  ["https://store.yellows.ink", "store", "Buy some of Yellow's Ink", true],
+];
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <link rel="shortcut icon" type="image/ico" href="/favicon.ico" />
+    <title>yellows.ink {">"} index</title>
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=IBM Plex Mono:wght@300&display=swap"
+    />
+  </head>
+  <body>
+    <h1>yellows.ink {">"} Index of /</h1>
+
+    <div id="outline">
+      <div id="grid">
+        {
+          routes.map(([url, display, info, external]) => (
+            <div class="row">
+              <a href={url}>{display}</a>
+              <a href={url}>{external ? "external" : "local"}</a>
+              <a href={url}>{info}</a>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <p class="right">By Cain Atkinson // Yellowsink 2022</p>
+
+    <style lang="sass">
+      body
+        height: 100vh
+        margin: 0
+        padding: 1.5rem
+        background: black
+        box-sizing: border-box
+        display: flex
+        flex-direction: column
+
+        color: white
+        font-family: "IBM Plex Mono", monospace
+
+      h1
+        text-align: center
+        margin: 0 0 1.5rem 0
+        font-size: 1.5rem
+
+      #outline
+        border: 2px solid currentColor
+        flex: 1
+
+      .right
+        text-align: right
+
+      #grid
+        margin: .5rem
+        .row
+          padding-left: .5rem
+          display: grid
+          grid-template-columns: .5fr .5fr 1fr
+
+          transition-duration: .1s
+          transition-property: color, background
+
+          &:hover
+            color: black
+            background: white
+
+      a
+        color: currentColor
+        text-decoration: none
+
+      @keyframes scan
+        to
+          transform: translateY(1px)
+
+      // incomplete ver of the CRT effect taken from
+      // https://aleclownes.com/2017/02/01/crt-display.html
+      body::before
+        content: " "
+        display: block
+        position: absolute
+        top: 0
+        left: 0
+        bottom: 0
+        right: 0
+        background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%)
+        z-index: 2
+        background-size: 100% 2px
+        pointer-events: none
+        animation: scan 60ms infinite
+    </style>
+  </body>
+</html>

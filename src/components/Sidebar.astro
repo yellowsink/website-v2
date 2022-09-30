@@ -10,7 +10,10 @@ const fixedPath =
 <div id="sidebar">
   <ThemeToggler client:idle />
 
-  <h1>sink's place</h1>
+  <h1>
+    sink's place
+    <a href="/domain">+</a>
+  </h1>
   <h2>Pages:</h2>
   <ul>
     {routes.map((route) => (
@@ -21,10 +24,6 @@ const fixedPath =
       </li>
     ))}
   </ul>
-
-  <div style="flex: 1"></div>
-
-  <p id="sbar_bottomtext">Built with Astro and VSCode</p>
 </div>
 
 <style lang="sass">
@@ -58,14 +57,23 @@ const fixedPath =
       width: 37.5rem // 150 windi units
 
     h1
-      text-align: center
       font-weight: lighter
+      display: flex
+      justify-content: center
+      align-items: center
+      gap: 1rem
 
-    #sbar_bottomtext
-      margin: -3.5rem
-      margin-top: 0
-      text-align: right
-      @include text-sm
+      a
+        display: block
+        width: 2rem
+        height: 2rem
+        color: black
+        text-decoration: none
+        text-align: center
+        line-height: 1em
+        &:hover
+          color: white
+          background: black
 
     ul
       padding-left: 0

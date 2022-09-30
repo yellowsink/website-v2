@@ -22,7 +22,7 @@ const fullTitle = title ? `Sink's place - ${title}` : "Sink's place";
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital@0;1&family=Roboto+Mono:wght@100;300&display=swap" />
   </head>
   <body id="root">
-    <Sidebar {routes} currentPath={Astro.canonicalURL.pathname} />
+    <Sidebar {routes} currentPath={Astro.url.pathname} />
     <div id="content">
       <slot />
     </div>
