@@ -1,15 +1,16 @@
 ---
-setup: import MarkdownLoader from "../components/MarkdownLoader.astro"
 layout: ../layouts/BaseLayout.astro
 title: Discord plugins
 ---
 
 # Discord plugins
 
-I build plugins for the chat app [Discord](https://dis.gd).
+I built plugins for the chat app Discord on the Cumcord plugin loader.
 
-See a more in-depth readme and install them at [the gh pages site](https://yellowsink.github.io/cc-plugins).
+They are all now deprecated, unmaintained, and probably broken.
 
-They are all built to work on the client mod [_Cumcord_](https://cumcord.com).
+See more about this [here](/client_mods).
 
-<MarkdownLoader src="https://raw.githubusercontent.com/yellowsink/cc-plugins/master/README.md" />
+I will be working on something new in this field, but you will have to check back later.
+
+[My unmaintained CC plugins](https://yellowsink.github.io/cc-plugins).

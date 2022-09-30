@@ -12,6 +12,10 @@
     "path": "/plugins"
   },
   {
+    "name": "on Discord modding",
+    "path": "/client_mods"
+  },
+  {
     "name": "Wacom",
     "path": "/wacom"
   },
