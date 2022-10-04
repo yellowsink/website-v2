@@ -67,13 +67,17 @@ const fixedPath =
         display: block
         width: 2rem
         height: 2rem
-        color: black
+        color: currentColor
         text-decoration: none
         text-align: center
         line-height: 1em
+        transition: color 150ms, background 150ms
         &:hover
           color: white
           background: black
+          :global(.dark) &
+            color: black
+            background: white
 
     ul
       padding-left: 0
