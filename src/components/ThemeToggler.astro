@@ -1,4 +1,4 @@
-<div style="display:none" id="theme-toggler" class="flex mb-10 self-center">
+<div style="visibility:hidden" id="theme-toggler" class="flex mb-10 self-center">
   <div class="imgwrapper">
     <img src="/light.svg" />
     <img src="/light.svg" />
@@ -14,17 +14,11 @@
   </div>
 
   <script>
-    document.getElementById("theme-toggler").style.display = "";
-    
-    window.toggleTheme = function () {
-      let root = document.getElementById("root");
-      let newIsDark = !(root.classList == "dark");
-      if (window.prefersDark == newIsDark) document.cookie = "detect";
-      else if (newIsDark) document.cookie = "dark";
-      else document.cookie = "light";
+    import {toggleTheme} from "../darkmode.js";
+    // @ts-expect-error
+    window.toggleTheme = toggleTheme;
 
-      root.classList = newIsDark ? "dark" : "";
-    };
+    document.getElementById("theme-toggler").style.cssText="";
   </script>
 </div>
 

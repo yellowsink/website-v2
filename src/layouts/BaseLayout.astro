@@ -2,7 +2,7 @@
 import Sidebar from "../components/Sidebar.astro";
 import routes from "../routes.json";
 
-import "../styles.sass"
+import "../styles.sass";
 
 // `content` for markdown pages.
 const { title: rawTitle, content } = Astro.props;
@@ -18,8 +18,14 @@ const fullTitle = title ? `Sink's place - ${title}` : "Sink's place";
     <link rel="shortcut icon" type="image/ico" href="/favicon.ico" />
     <title>{fullTitle}</title>
 
-    <link rel="stylesheet" href="https://cdn.esm.sh/jetbrains-mono/css/jetbrains-mono.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital@0;1&family=Roboto+Mono:wght@100;300&display=swap" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.esm.sh/jetbrains-mono/css/jetbrains-mono.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Lato:ital@0;1&family=Roboto+Mono:wght@100;300&display=swap"
+    />
   </head>
   <body id="root">
     <Sidebar {routes} currentPath={Astro.url.pathname} />
@@ -27,28 +33,26 @@ const fullTitle = title ? `Sink's place - ${title}` : "Sink's place";
       <slot />
     </div>
 
-    <style id="temp_dark" is:inline>
-      @media (prefers-color-scheme: dark) {
-        #root, img, #pfp-container { 
-          filter: invert()
+    <div id="temp_dark">
+      <style is:inline>
+        @media (prefers-color-scheme: dark) {
+          #root > *,
+          img,
+          #pfp-container,
+          .astro-code {
+            filter: invert();
+          }
         }
+      </style>
+      <style is:inline>
         * {
-          transition-duration: 0ms !important 
+          transition-duration: 0ms !important;
         }
-      }
-    </style>
+      </style>
+    </div>
 
     <script>
-      window.prefersDark = !!window.matchMedia("(prefers-color-scheme: dark)")
-        .matches;
-
-      if (
-        document.cookie.split("; ").includes("dark") ||
-        (!document.cookie.split("; ").includes("light") && window.prefersDark)
-      )
-        document.getElementById("root").className = "dark";
-
-      document.getElementById("temp_dark").remove();
+      import "../darkmode.js";
     </script>
   </body>
 </html>
