@@ -6,14 +6,13 @@ title: Index
 Hi, I'm Cain Atkinson, known online as Yellowsink. I make dumb little
 programs, and occasionally some cool stuff too.
 
-### Programming
+I write a LOT of code - though being at college has pared that back.
 
-My most comfortable programming language is C# (At this point I know .NET
-like the back of my hand). F# is really cool, but most people think it's
-horrific. I sometimes use Go because why not? I have recently been using
-JS a lot to make Discord plugins, as well as this site, and a little
-webdev for a client mod.
+My comfort lang is C#, but F# is really cool, so I use that a lot.
 
-### Rhythm Gaming
+I used to use Go, and now use JS and TS a *ton* for web stuff.
 
-I mostly play osu!, though I've been giving taiko a go recently. tau is fun.
+I like to play rhythm games in my spare time, I used to play osu!, and got
+reasonable during lockdown, but now I mostly play Quaver and Muse Dash.
+
+I try to [keep up](https://anilist.co/user/yellowsink) but usually forget :(
