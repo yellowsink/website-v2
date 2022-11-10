@@ -1,4 +1,5 @@
 ---
+import DefferedStyle from "../components/DefferedStyle.astro";
 import Sidebar from "../components/Sidebar.astro";
 import routes from "../routes.json";
 
@@ -19,12 +20,10 @@ const fullTitle = title ? `Sink's place - ${title}` : "Sink's place";
     <link rel="shortcut icon" type="image/ico" href="/favicon.ico" />
     <title>{fullTitle}</title>
 
-    <link
-      rel="stylesheet"
-      href="https://cdn.esm.sh/jetbrains-mono/css/jetbrains-mono.css"
+    <DefferedStyle
+      href="https://cdn.esm.sh/jetbrains-mono@latest/css/jetbrains-mono.css"
     />
-    <link
-      rel="stylesheet"
+    <DefferedStyle
       href="https://fonts.googleapis.com/css2?family=Lato:ital@0;1&family=Roboto+Mono:wght@100;300&display=swap"
     />
     
@@ -58,7 +57,8 @@ const fullTitle = title ? `Sink's place - ${title}` : "Sink's place";
     <script>
       import "../darkmode.js";
       import "../transitions.js";
-      import "../quicklink.js";
+      import { listen } from "quicklink";
+      listen()
     </script>
   </body>
 </html>
