@@ -10,13 +10,18 @@ function applyTransitions() {
 
         fetch(link.href).then((r) => {
           document.createDocumentTransition().start(async () => {
-            const newHtml = new DOMParser()
-              .parseFromString(await r.text(), "text/html")
-              .getElementsByTagName("html")[0];
+            const newDom = new DOMParser().parseFromString(
+              await r.text(),
+              "text/html"
+            );
 
             history.replaceState(null, "", link.href);
-            document.getElementsByTagName("html")[0].innerHTML =
-              newHtml.innerHTML;
+
+            document.getElementById("content").innerHTML =
+              newDom.getElementById("content").innerHTML;
+            
+            document.querySelector("#sidebar ul").innerHTML =
+              newDom.querySelector("#sidebar ul").innerHTML;
 
             applyTransitions();
           });

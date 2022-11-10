@@ -16,9 +16,9 @@ const fixedPath =
   </h1>
   <h2>Pages:</h2>
   <ul>
-    {routes.map((route) => (
+    {routes.map((route, i) => (
       <li>
-        <a class={route.path === fixedPath ? "active" : ""} href={route.path}>
+        <a class={route.path === fixedPath ? "active" : ""} href={route.path} style={"page-transition-tag: _"+ i}>
           {route.name}
         </a>
       </li>
