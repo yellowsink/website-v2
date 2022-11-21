@@ -24,10 +24,6 @@
     "path": "/linux_audio_prod"
   },
   {
-    "name": "CrossAni",
-    "path": "/crossani"
-  },
-  {
     "name": "HLCC",
     "path": "/hlcc"
   },
