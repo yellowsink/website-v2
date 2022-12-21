@@ -8,13 +8,24 @@ title: Upcoming Projects
 No guarantee these will ever be finished, nor this page ever updated, but you never know,
 some of these may actually get worked on!
 
-| project | org | team | desc                    |
-|---------|-----|------|-------------------------|
-| credits | uwu | no   | port of an animation    |
-| shelter | uwu | yes! | a rethunk client mod    |
-| onemath | N/A | no   | math editor for onenote |
+| project  | org | team | desc                                     | status   |
+| -------- | --- | ---- | ---------------------------------------- | -------- |
+| untitled | N/A | no   | iTunes match & audio reverse engineering | in dev   |
+| yotei    | N/A | no   | unix scheduler & supervisor              | in dev   |
+| credits  | uwu | no   | port of an animation                     | on hold  |
+| onemath  | N/A | no   | math editor for onenote                  | on hold  |
+| shelter  | uwu | yes  | a rethunk client mod                     | released |
 
-# Dead projects that I might finish :p
+| status   | meaning                                    |
+| -------- | ------------------------------------------ |
+| released | Released publicly, updates when necessary  |
+| eol      | Released publicly, no updates              |
+| private  | Released privately, either WIP or finished |
+| in dev   | Not released, WIP                          |
+| on hold  | Partial work done, not WIP currently       |
+| killed   | Cancelled before any releases              |
+
+# Older (unlikely to be completed) projects
 
 ## [Slices.NET](https://github.com/yellowsink/Slices.NET)
 
@@ -24,28 +35,3 @@ Also provides a data structure for storing huge amounts of data.
 ## [lazpack](https://github.com/yellowsink/lazpack)
 
 The missing package manager for your osu!lazer rulesets.
-
-# Cancelled projects
-
-## DynamiData
-
-A simple way to build data structures and queries programmatically,
-using delcarative patterns established in languages already.
-
-Targeted at JS via JSX:
-
-```jsx
-const DataComponent = ({ key }) => (
-  <record key={key}>
-    <string key="b">c</string>
-  </record>
-);
-const messagepack = (
-  <msgpack>
-    <string key="foo">bar</string>
-    <DataComponent key="baz" />
-  </msgpack>
-);
-```
-
-And F# via simple functions.

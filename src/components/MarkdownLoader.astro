@@ -1,8 +1,10 @@
 ---
 const { src } = Astro.props;
+const Nos = "noscript";
 ---
 
-<noscript>
+{/* I can't believe this hack is *necessary* for this to nest properly */}
+<Nos>
   <div class="noscript-warn" style="border: 1px solid gray; border-radius: 1rem; padding: 1rem">
     <p>
       There would've been some dynamically fetched Markdown here, but you have
@@ -18,7 +20,7 @@ const { src } = Astro.props;
       without client-side JS.
     </p>
   </div>
-</noscript>
+</Nos>
 
 <div id="MARKDOWN_TARGET" data-src={src}></div>
 <script>
@@ -27,9 +29,6 @@ const { src } = Astro.props;
   const rawText = await(await fetch(mdTarget.dataset.src)).text();
   const md = new Remarkable({ html: true }).render(rawText);
   mdTarget.innerHTML = md;
-
-  // god help me this should work without this
-  Array.from(document.getElementsByClassName("noscript-warn")).forEach(e => e.remove());
 </script>
 
 <style lang="sass">

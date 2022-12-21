@@ -8,6 +8,10 @@
     "path": "/accounts"
   },
   {
+    "name": "Upcoming Projects",
+    "path": "/upcoming"
+  },
+  {
     "name": "Discord plugins",
     "path": "/plugins"
   },
@@ -38,9 +42,5 @@
   {
     "name": "Arch No Boot",
     "path": "/archboot"
-  },
-  {
-    "name": "Upcoming Projects",
-    "path": "/upcoming"
   }
 ]
