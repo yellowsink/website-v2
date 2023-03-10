@@ -10,11 +10,11 @@ some of these may actually get worked on!
 
 | project  | org | team | desc                                     | status   |
 | -------- | --- | ---- | ---------------------------------------- | -------- |
-| untitled | N/A | no   | iTunes match & audio reverse engineering | in dev   |
 | yotei    | N/A | no   | unix scheduler & supervisor              | in dev   |
 | credits  | uwu | no   | port of an animation                     | on hold  |
 | onemath  | N/A | no   | math editor for onenote                  | on hold  |
 | shelter  | uwu | yes  | a rethunk client mod                     | released |
+| untitled | N/A | no   | iTunes match & audio reverse engineering | killed   |
 
 | status   | meaning                                    |
 | -------- | ------------------------------------------ |

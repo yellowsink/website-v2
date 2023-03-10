@@ -20,6 +20,10 @@
     "path": "/client_mods"
   },
   {
+    "name": "予定 Yotei",
+    "path": "/yotei"
+  },
+  {
     "name": "Wacom",
     "path": "/wacom"
   },
