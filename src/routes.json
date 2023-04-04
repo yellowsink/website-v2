@@ -8,6 +8,10 @@
     "path": "/accounts"
   },
   {
+    "name": "Keys",
+    "path": "/keys"
+  },
+  {
     "name": "Upcoming Projects",
     "path": "/upcoming"
   },
