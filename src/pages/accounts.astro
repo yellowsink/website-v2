@@ -1,56 +1,7 @@
 ---
 import AccountCard from "../components/AccountCard.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-
-const accounts = [
-  {
-    banner: "/icons/discord.svg",
-    label: "Discord",
-    uname: "Yellowsink#8156",
-  },
-  {
-    banner: "/icons/mastodon.svg",
-    label: "Mastodon",
-    link: "https://noc.social/@yellowsink",
-    uname: "@yellowsink@noc.social"
-  },
-  {
-    banner: "/icons/twitter.svg",
-    label: "Twitter",
-    link: "https://twitter.com/CainAtkin",
-    uname: "@CainAtkin",
-  },
-  {
-    banner: "/icons/github.svg",
-    label: "Github",
-    link: "https://github.com/yellowsink",
-    uname: "Yellowsink",
-  },
-  {
-    banner: "/icons/at.svg",
-    label: "Email me!",
-    link: "mailto:yellowsink@riseup.net",
-    uname: "yellowsink@riseup.net",
-  },
-  {
-    banner: "/icons/reddit-alien.svg",
-    label: "Reddit",
-    link: "https://reddit.com/u/yellosink",
-    uname: "u/yellosink",
-  },
-  {
-    banner: "/icons/osu.svg",
-    label: "osu!",
-    link: "https://osu.ppy.sh/u/yellowsink",
-    uname: "Yellowsink",
-  },
-  {
-    banner: "/icons/youtube.svg",
-    label: "YouTube",
-    link: "https://www.youtube.com/channel/UCQ_ZGydjNeSHNbdo_m6uUcQ",
-    uname: "Cain Atkinson",
-  },
-];
+import accounts from "../accounts.json";
 ---
 
 <BaseLayout title="Accounts">

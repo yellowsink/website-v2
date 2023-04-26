@@ -1,7 +1,12 @@
 ---
-layout: ../layouts/IndexLayout.astro
+layout: ../layouts/BaseLayout.astro
 title: Index
 ---
+
+import IndexTop from "../components/IndexTop.astro"
+import IndexDefinition from "../components/IndexDefinition.astro"
+
+<IndexTop />
 
 Hi, I'm Cain Atkinson, known online as Yellowsink. I make dumb little
 programs, and occasionally some cool stuff too.
@@ -25,3 +30,5 @@ That is also where my [blog](https://uwu.network/~sink/blog) lives.
 
 All my software is free (as in beer).
 If its helpful to you, a [coffee](https://ko-fi.com/yellowsink) is always appreciated ;)
+
+<IndexDefinition />
