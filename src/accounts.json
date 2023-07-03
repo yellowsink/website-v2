@@ -2,7 +2,7 @@
   {
     "banner": "/icons/discord.svg",
     "label": "Discord",
-    "uname": "Yellowsink#8156"
+    "uname": "@yellowsink"
   },
   {
     "banner": "/icons/mastodon.svg",
@@ -27,6 +27,12 @@
     "label": "Email me!",
     "link": "mailto:yellowsink@riseup.net",
     "uname": "yellowsink@riseup.net"
+  },
+  {
+    "banner": "/icons/prons.svg",
+    "label": "pronouns .page",
+    "link": "https://en.pronouns.page/@yellowsink",
+    "uname": "@yellowsink"
   },
   {
     "banner": "/icons/reddit-alien.svg",
