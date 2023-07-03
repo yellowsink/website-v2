@@ -46,3 +46,18 @@
 
   li
     list-style-type: disc
+
+  .tag
+    @include transition-col
+
+    color: unset !important
+    background: #CCC
+    padding: 1px 3px
+    border-radius: 6px
+    font-size: 0.8em !important
+    font-style: italic
+    opacity: 0.8
+    text-decoration: none
+
+    .dark &
+      background: #444
