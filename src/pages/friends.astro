@@ -1,0 +1,27 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import frens from "../frens.json";
+---
+
+<BaseLayout title="Friends">
+  <h2>Friends</h2>
+  <p>Shoutouts to these awesome people. They all rock.</p>
+  <p>It needs to be said - this is a non-exhaustive list. I can't think of everyone let alone fit them all, no IRLs.</p>
+
+  <div id="wrap"></div>
+</BaseLayout>
+
+<script>
+  const max = 600;
+
+  const wrap = document.getElementById("wrap")!;
+  const fix = () => wrap.style.height = Math.min(wrap.clientWidth, max) + "px";
+  new ResizeObserver(fix).observe(wrap);
+</script>
+
+<style lang="sass">
+  #wrap
+    max-width: 600px
+    margin: 0 auto
+    border: red 1px solid
+</style>
