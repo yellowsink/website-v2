@@ -50,5 +50,9 @@
   {
     "name": "Arch No Boot",
     "path": "/archboot"
+  },
+  {
+    "name": "<3",
+    "path": "/friends"
   }
 ]

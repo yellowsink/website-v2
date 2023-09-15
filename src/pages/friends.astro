@@ -4,36 +4,53 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 <BaseLayout title="Friends">
   <h2>Friends</h2>
-  <p>Shoutouts to these awesome people. They all rock.</p>
-  <p>
-    It needs to be said - this is a non-exhaustive list. I can't think of
-    everyone let alone fit them all, no IRLs.
-  </p>
+  <p>Shoutouts to these awesome people. I love you all.</p>
 
   <div id="canvas"></div>
 </BaseLayout>
+
+<style lang="sass">
+  #canvas
+    width: unset !important
+
+  :global(#special)
+    position: absolute
+    left: 50%
+    border: 3px solid transparent
+    border-radius: 999999px
+
+    :global(.dark) &
+      background: #222
+
+    :global(.light) &
+      background: #f1f3f5
+</style>
 
 <script>
   import * as mg from "mingine-engine";
   import frens from "../frens.json";
 
+  // randomize names
   for (let i = frens.n.length - 1; i > 0; i--) {
     const j = ~~(Math.random() * (i + 1));
     [frens.n[i], frens.n[j]] = [frens.n[j], frens.n[i]];
   }
 
-  const PROFILE_PICTURE_RADIUS = 0.1; // m
+  // parameters
+  const PROFILE_PICTURE_RADIUS = 0.09; // m
   const MAX_CANVAS_SIZE = 600; // px
-  const ROTATION_SPEED = 0.025 * 2 * Math.PI; // rad / s
+  const ROTATION_SPEED = 0.02 * 2 * Math.PI; // rad / s
   const SPRING_CONSTANT = 4; // N / m
   const RADIUS = 0.35; // m
   const REPULSION_STREGTH = .1;
   const REPULSION_MAX = 10;
 
+  // globals
   let mousePos : mg.Vec2 | undefined;
+  let lines : HTMLDivElement | undefined;
+  const canvas = document.getElementById("canvas")!;
 
   // implementation of the profile pic object
-
   const createProfilePic = (id: string, initRot: number, img: string, col: string) => {
     let rotation = initRot;
 
@@ -47,12 +64,18 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       angVelocity: 0,
       angAccel: 0,
 
+      collide: true,
+
+      // @ts-expect-error
+      pos: mg.vAngle(Math.random() * 2 * Math.PI, Math.random() * RADIUS * 1.5),
+
       styles: {
         border: `3px solid ${col}`,
         "border-radius": "999px",
         "box-sizing": "border-box",
-        background: col,//`url(${img})`,
-        "background-size": "contain"
+        background: `url(${img})`,
+        "background-size": "contain",
+        "z-index": 2
       },
 
       forces: [
@@ -73,7 +96,6 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
         ([physObj]) => {
           if (!mousePos) return [mg.vo(), 0];
-          console.log(mousePos);
 
           const relativePos = physObj.pos.sub(mousePos);
           const amount = Math.min(REPULSION_STREGTH / relativePos.len(), REPULSION_MAX);
@@ -96,39 +118,78 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       renderOffset: mg.v(-0.5, -0.5),
       scale: 1,
 
-      objects: [
-        ...[frens.s, ...frens.n].map((fren, i) => createProfilePic(`fren_${i}`, 2 * Math.PI * i / frens.n.length, fren[0], fren[1]))
+      rootStyles: {
+        "margin": "0 auto",
+        "max-width": "600px",
+      },
+
+      objects: [frens.s, ...frens.n].map((fren, i) => createProfilePic(`fren_${i}`, 2 * Math.PI * i / (frens.n.length + 1), fren[0], fren[1])),
+
+      postTickHooks: [
+        ([scene]) => {
+          if (!lines || !lines.isConnected) {
+            lines = document.createElement("div");
+            canvas.append(lines);
+            //lines.style.cssText = "position: absolute; left: 50%; top: 50%; z-index: 1; position: relative"
+          }
+
+          const children = scene.getObjects().map((o, i) => {
+            const center = o.physicsObj.pos.scdiv(2).scale(canvas.clientWidth);
+            const len = o.physicsObj.pos.len() * canvas.clientWidth;
+            let rot = o.physicsObj.pos.angleTo(mg.v(1, 0));
+            const col = (i ? frens.n[i - 1] : frens.s)[1];
+
+            // fun adjustments
+            if (center.y > 0) rot = Math.PI - rot;
+
+            const el = document.createElement("div");
+            Object.assign(el.style, {
+              transform: `translate(${center.x - (len/2)}px, ${-center.y}px) rotate(${rot}rad)`,
+              width: `${len}px`,
+              borderTop: `1px solid ${col}`,
+              position: "absolute",
+              top: "50%",
+              left: "50%"
+            });
+
+            if (!i) {
+              el.innerHTML = `<img src="/heart.svg" />`;
+              el.firstElementChild!.id = "special";
+              // @ts-expect-error
+              Object.assign(el.firstElementChild.style, {
+                transform: `translate(-50%, -50%) rotate(-${rot}rad)`
+              })
+            }
+
+            return el;
+          });
+
+          lines.replaceChildren(...children);
+        }
       ]
     })
   );
-  engine.mount(document.getElementById("canvas")!);
+
+  engine.mount(canvas);
 
   engine.start({ lockPhysicsToRender: true });
   window["engine"] = engine;
 
   // resize observer
-  const wrap = document.getElementById("canvas")!;
   const fix = () => {
-      engine.scene.scale = Math.min(wrap.clientWidth, MAX_CANVAS_SIZE)
+      engine.scene.scale = Math.min(canvas.clientWidth, MAX_CANVAS_SIZE)
 
       for (const o of engine.scene.getObjects()) {
         const s = o.styles as any;
         s.width = s.height = engine.scene.scale * PROFILE_PICTURE_RADIUS * 2 + "px";
       }
     };
-  new ResizeObserver(fix).observe(wrap);
+  new ResizeObserver(fix).observe(canvas);
 
-  wrap.onmousemove = (ev) => {
-    const bounds = wrap.getBoundingClientRect();
+  canvas.onmousemove = (ev) => {
+    const bounds = canvas.getBoundingClientRect();
     mousePos = mg.v(ev.x - bounds.left, bounds.height - (ev.y - bounds.top)).scdiv(bounds.height).sub(mg.v(0.5, 0.5));
   }
-  wrap.onmouseleave = () => mousePos = undefined;
+  canvas.onmouseleave = () => mousePos = undefined;
+  canvas.ontouchend = () => mousePos = undefined;
 </script>
-
-<style lang="sass">
-  #canvas
-    max-width: 600px
-    margin: 0 auto
-    border: red 1px solid
-    width: unset !important
-</style>
