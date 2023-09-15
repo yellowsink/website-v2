@@ -24,9 +24,13 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
   const PROFILE_PICTURE_RADIUS = 0.1; // m
   const MAX_CANVAS_SIZE = 600; // px
-  const ROTATION_SPEED = 0.1 * 2 * Math.PI; // rad / s
-  const SPRING_CONSTANT = 1; // N / m
-  const RADIUS = 0.8; // m
+  const ROTATION_SPEED = 0.025 * 2 * Math.PI; // rad / s
+  const SPRING_CONSTANT = 4; // N / m
+  const RADIUS = 0.35; // m
+  const REPULSION_STREGTH = .1;
+  const REPULSION_MAX = 10;
+
+  let mousePos : mg.Vec2 | undefined;
 
   // implementation of the profile pic object
 
@@ -47,7 +51,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         border: `3px solid ${col}`,
         "border-radius": "999px",
         "box-sizing": "border-box",
-        background: `url(${img})`,
+        background: col,//`url(${img})`,
         "background-size": "contain"
       },
 
@@ -63,9 +67,20 @@ import BaseLayout from "../layouts/BaseLayout.astro";
             SPRING_CONSTANT,
             // @ts-expect-error I forgot to put vAngle in the type defs
             mg.vAngle(rotation, RADIUS),
-            mg.v(PROFILE_PICTURE_RADIUS, PROFILE_PICTURE_RADIUS)
+            mg.vo()
           )(simulation);
         },
+
+        ([physObj]) => {
+          if (!mousePos) return [mg.vo(), 0];
+          console.log(mousePos);
+
+          const relativePos = physObj.pos.sub(mousePos);
+          const amount = Math.min(REPULSION_STREGTH / relativePos.len(), REPULSION_MAX);
+          return [relativePos.norm().scale(amount), 0];
+        },
+
+        mg.forceModels.simpleDamping(2, 1),
       ],
     });
 
@@ -78,11 +93,11 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     mg.createScene({
       // canvas from -1/2 to 1/2
       canvasSize: mg.v(1, 1),
-      renderOffset: mg.v(0.5, 0.5),
+      renderOffset: mg.v(-0.5, -0.5),
       scale: 1,
 
       objects: [
-        ...frens.n.map((fren, i) => createProfilePic(`fren_${i}`, 2 * Math.PI * i / frens.n.length, fren[0], fren[1]))
+        ...[frens.s, ...frens.n].map((fren, i) => createProfilePic(`fren_${i}`, 2 * Math.PI * i / frens.n.length, fren[0], fren[1]))
       ]
     })
   );
@@ -102,6 +117,12 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       }
     };
   new ResizeObserver(fix).observe(wrap);
+
+  wrap.onmousemove = (ev) => {
+    const bounds = wrap.getBoundingClientRect();
+    mousePos = mg.v(ev.x - bounds.left, bounds.height - (ev.y - bounds.top)).scdiv(bounds.height).sub(mg.v(0.5, 0.5));
+  }
+  wrap.onmouseleave = () => mousePos = undefined;
 </script>
 
 <style lang="sass">
