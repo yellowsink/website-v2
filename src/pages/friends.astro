@@ -1,27 +1,113 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import frens from "../frens.json";
 ---
 
 <BaseLayout title="Friends">
   <h2>Friends</h2>
   <p>Shoutouts to these awesome people. They all rock.</p>
-  <p>It needs to be said - this is a non-exhaustive list. I can't think of everyone let alone fit them all, no IRLs.</p>
+  <p>
+    It needs to be said - this is a non-exhaustive list. I can't think of
+    everyone let alone fit them all, no IRLs.
+  </p>
 
-  <div id="wrap"></div>
+  <div id="canvas"></div>
 </BaseLayout>
 
 <script>
-  const max = 600;
+  import * as mg from "mingine-engine";
+  import frens from "../frens.json";
 
-  const wrap = document.getElementById("wrap")!;
-  const fix = () => wrap.style.height = Math.min(wrap.clientWidth, max) + "px";
+  for (let i = frens.n.length - 1; i > 0; i--) {
+    const j = ~~(Math.random() * (i + 1));
+    [frens.n[i], frens.n[j]] = [frens.n[j], frens.n[i]];
+  }
+
+  const PROFILE_PICTURE_RADIUS = 0.1; // m
+  const MAX_CANVAS_SIZE = 600; // px
+  const ROTATION_SPEED = 0.1 * 2 * Math.PI; // rad / s
+  const SPRING_CONSTANT = 1; // N / m
+  const RADIUS = 0.8; // m
+
+  // implementation of the profile pic object
+
+  const createProfilePic = (id: string, initRot: number, img: string, col: string) => {
+    let rotation = initRot;
+
+    const circle = mg.createCircle({
+      id,
+      radius: PROFILE_PICTURE_RADIUS, // m
+      momentOfInertia: 0, // this is ignored anyway
+      mass: 1, // kg
+
+      angle: 0,
+      angVelocity: 0,
+      angAccel: 0,
+
+      styles: {
+        border: `3px solid ${col}`,
+        "border-radius": "999px",
+        "box-sizing": "border-box",
+        background: `url(${img})`,
+        "background-size": "contain"
+      },
+
+      forces: [
+        (simulation) => {
+          const [, tStep] = simulation;
+
+          rotation += tStep * ROTATION_SPEED;
+
+          // we have to construct a new force model every time as we change the target position
+          // Mingine models are stable and un-stateful and so this should work just fine
+          return mg.forceModels.spring(
+            SPRING_CONSTANT,
+            // @ts-expect-error I forgot to put vAngle in the type defs
+            mg.vAngle(rotation, RADIUS),
+            mg.v(PROFILE_PICTURE_RADIUS, PROFILE_PICTURE_RADIUS)
+          )(simulation);
+        },
+      ],
+    });
+
+    circle.physicsObj.momentOfInertia = Infinity; // rotation is impossible - mingine bug :(
+    return circle;
+  };
+
+  // construct engine
+  const engine = mg.createEngine(
+    mg.createScene({
+      // canvas from -1/2 to 1/2
+      canvasSize: mg.v(1, 1),
+      renderOffset: mg.v(0.5, 0.5),
+      scale: 1,
+
+      objects: [
+        ...frens.n.map((fren, i) => createProfilePic(`fren_${i}`, 2 * Math.PI * i / frens.n.length, fren[0], fren[1]))
+      ]
+    })
+  );
+  engine.mount(document.getElementById("canvas")!);
+
+  engine.start({ lockPhysicsToRender: true });
+  window["engine"] = engine;
+
+  // resize observer
+  const wrap = document.getElementById("canvas")!;
+  const fix = () => {
+      engine.scene.scale = Math.min(wrap.clientWidth, MAX_CANVAS_SIZE)
+
+      for (const o of engine.scene.getObjects()) {
+        const s = o.styles as any;
+        s.width = s.height = engine.scene.scale * PROFILE_PICTURE_RADIUS * 2 + "px";
+      }
+    };
   new ResizeObserver(fix).observe(wrap);
 </script>
 
 <style lang="sass">
-  #wrap
+  #canvas
     max-width: 600px
     margin: 0 auto
     border: red 1px solid
+    width: unset !important
 </style>

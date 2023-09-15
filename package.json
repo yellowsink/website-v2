@@ -15,5 +15,8 @@
     "prettier-plugin-astro": "^0.5.5",
     "quicklink": "^2.3.0",
     "sass": "^1.55.0"
+  },
+  "dependencies": {
+    "mingine-engine": "^1.1.1"
   }
 }
