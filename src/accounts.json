@@ -5,10 +5,10 @@
     "uname": "@yellowsink"
   },
   {
-    "banner": "/icons/mastodon.svg",
-    "label": "Mastodon",
-    "link": "https://noc.social/@yellowsink",
-    "uname": "@yellowsink@noc.social"
+    "banner": "/icons/firefish.svg",
+    "label": "Fediverse",
+    "link": "https://lethallava.land/@sink",
+    "uname": "@sink@lethallava.land"
   },
   {
     "banner": "/icons/twitter.svg",
