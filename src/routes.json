@@ -12,6 +12,10 @@
     "path": "/keys"
   },
   {
+    "name": "<3",
+    "path": "/friends"
+  },
+  {
     "name": "Upcoming Projects",
     "path": "/upcoming"
   },
@@ -28,31 +32,11 @@
     "path": "/yotei"
   },
   {
-    "name": "Wacom",
-    "path": "/wacom"
-  },
-  {
-    "name": "Linux Audio",
-    "path": "/linux_audio_prod"
-  },
-  {
-    "name": "HLCC",
-    "path": "/hlcc"
-  },
-  {
     "name": "F# ops",
     "path": "/fs_ops"
   },
   {
-    "name": "C# hierarchy",
-    "path": "/hierarchycs"
-  },
-  {
     "name": "Arch No Boot",
     "path": "/archboot"
-  },
-  {
-    "name": "<3",
-    "path": "/friends"
   }
 ]

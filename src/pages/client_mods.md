@@ -54,7 +54,7 @@ The uwu team are now working on a new client mod, which will be lower maintainan
 new innovation in the space. It should be low maintenance and allow us to work much more on
 our other projects while keeping all our creature comforts of a modded Discord client.
 
-*WATCH THIS SPACE: I'll post more info here when its generally available!*
+UPDATE, OVER A YEAR LATER, LOL: https://github.com/uwu/shelter.
 
 I hope you all stick around to see what me and my friends [work on](https://github.com/orgs/uwu/repositories)
 in the future.
