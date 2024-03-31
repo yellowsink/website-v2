@@ -123,7 +123,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         "max-width": "600px",
       },
 
-      objects: [frens.s, ...frens.n].map((fren, i) => createProfilePic(`fren_${i}`, 2 * Math.PI * i / (frens.n.length + 1), fren[0], fren[1])),
+      objects: frens.n.map((fren, i) => createProfilePic(`fren_${i}`, 2 * Math.PI * i / (frens.n.length), fren[0], fren[1])),
 
       postTickHooks: [
         ([scene]) => {
@@ -137,7 +137,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
             const center = o.physicsObj.pos.scdiv(2).scale(canvas.clientWidth);
             const len = o.physicsObj.pos.len() * canvas.clientWidth;
             let rot = o.physicsObj.pos.angleTo(mg.v(1, 0));
-            const col = (i ? frens.n[i - 1] : frens.s)[1];
+            const col = frens.n[i][1];
 
             // fun adjustments
             if (center.y > 0) rot = Math.PI - rot;
@@ -151,15 +151,6 @@ import BaseLayout from "../layouts/BaseLayout.astro";
               top: "50%",
               left: "50%"
             });
-
-            if (!i) {
-              el.innerHTML = `<img src="/heart.svg" />`;
-              el.firstElementChild!.id = "special";
-              // @ts-expect-error
-              Object.assign(el.firstElementChild.style, {
-                transform: `translate(-50%, -50%) rotate(-${rot}rad)`
-              })
-            }
 
             return el;
           });
