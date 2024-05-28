@@ -16,8 +16,8 @@
     "path": "/friends"
   },
   {
-    "name": "Upcoming Projects",
-    "path": "/upcoming"
+    "name": "Projects Status",
+    "path": "/projects"
   },
   {
     "name": "Discord plugins",

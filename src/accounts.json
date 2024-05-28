@@ -5,7 +5,7 @@
     "uname": "@yellowsink"
   },
   {
-    "banner": "/icons/firefish.svg",
+    "banner": "/icons/fedi.svg",
     "label": "Fediverse",
     "link": "https://lethallava.land/@sink",
     "uname": "@sink@lethallava.land"
@@ -13,8 +13,8 @@
   {
     "banner": "/icons/twitter.svg",
     "label": "Twitter",
-    "link": "https://twitter.com/CainAtkin",
-    "uname": "@CainAtkin"
+    "link": "https://twitter.com/_hazeler",
+    "uname": "@_hazeler"
   },
   {
     "banner": "/icons/github.svg",
@@ -50,6 +50,6 @@
     "banner": "/icons/youtube.svg",
     "label": "YouTube",
     "link": "https://www.youtube.com/channel/UCQ_ZGydjNeSHNbdo_m6uUcQ",
-    "uname": "Cain Atkinson"
+    "uname": "Hazel Atkinson"
   }
 ]
