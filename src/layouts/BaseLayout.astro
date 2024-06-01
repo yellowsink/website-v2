@@ -1,6 +1,7 @@
 ---
 import DefferedStyle from "../components/DefferedStyle.astro";
 import Sidebar from "../components/Sidebar.astro";
+import Leaves from "../components/Leaves.astro";
 import routes from "../routes.json";
 
 import "../styles.sass";
@@ -26,7 +27,7 @@ const fullTitle = title ? `Sink's place - ${title}` : "Sink's place";
     <DefferedStyle
       href="https://fonts.googleapis.com/css2?family=Lato:ital@0;1&family=Roboto+Mono:wght@100;300&display=swap"
     />
-    
+
     {/* gotta get that shiny green tick fr fr */}
     <link rel="me" href="https://noc.social/@yellowsink" />
     <link rel="me" href="https://lethallava.land/@sink" />
@@ -64,5 +65,7 @@ const fullTitle = title ? `Sink's place - ${title}` : "Sink's place";
       import { listen } from "quicklink";
       listen()
     </script>
+
+    <Leaves />
   </body>
 </html>
