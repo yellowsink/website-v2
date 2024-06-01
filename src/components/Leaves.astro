@@ -28,7 +28,7 @@ const id = `leaves-${Math.random().toString(16).split(".")[1]}`;
           leafel.src = LEAVES[~~(Math.random() * LEAVES.length)];
           leafel.style.cssText =
             // 2x scale
-            "width: 28px; height: 18px; image-rendering: crisp-edges; position: fixed; z-index: 999999999; pointer-events: none";
+            "width: 28px; height: 18px; image-rendering: pixelated; position: fixed; z-index: 999999999; pointer-events: none";
           PARENT.append(leafel);
 
           let x = Math.random() * window.innerWidth,
