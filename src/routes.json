@@ -24,19 +24,7 @@
     "path": "/plugins"
   },
   {
-    "name": "on Discord modding",
-    "path": "/client_mods"
-  },
-  {
     "name": "予定 Yotei",
     "path": "/yotei"
-  },
-  {
-    "name": "F# ops",
-    "path": "/fs_ops"
-  },
-  {
-    "name": "Arch No Boot",
-    "path": "/archboot"
   }
 ]
