@@ -9,7 +9,7 @@ This page may be out of date.
 
 | project                  | org | team | desc                                                 | status   |
 |--------------------------|-----|------|------------------------------------------------------|----------|
-| GDC SerenityOS port      | N/A | no   | wouldn't it be fun if D ran on serenity?             | in dev   |
+| 3dskit                   | N/A | no   | 3DS Homebrew development in D with Xmake             | in dev   |
 | Rockhopper               | N/A | no   | A small, modern async runtime for D                  | in dev   |
 | ouroboros                | N/A | no   | a web ui for headscale                               | in dev   |
 | Rawr DSP                 | uwu | no   | a better web audio API                               | on hold  |
@@ -29,6 +29,7 @@ This page may be out of date.
 | ash                      | uwu | no   | an experimental elm-like js framework                | eol      |
 | crossani                 | N/A | yes  | A tiny cubicimpact-like js anim library using css    | eol      |
 | solid-reactor            | N/A | no   | A compiler from react to solid                       | eol      |
+| GDC SerenityOS port      | N/A | no   | wouldn't it be fun if D ran on serenity?             | killed   |
 | Paramin                  | uwu | no   | a better JS minifier                                 | killed   |
 | credits                  | uwu | no   | port of an animation                                 | killed   |
 | OneMath                  | N/A | no   | math editor for onenote                              | killed   |
