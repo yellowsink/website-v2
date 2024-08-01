@@ -10,7 +10,8 @@ was signed by me, or decrypt something I have encrypted.
 
 This page lists where you can find my [public keys](https://en.wikipedia.org/wiki/Public-key_cryptography).
 
-Something something keybase something shush
+You can verify my identity claims at https://keyoxide.org/69508A81E697A65220C2E707DB78982E597E772A.
+Most of my accounts and sites should be proven cryptographically there.
 
 ## SSH Keys
 
@@ -24,4 +25,9 @@ I use separate keys for home servers I log in to, as well as for the AUR.
 
 PGP keys are useful for signing and encrypting.
 
-My PGP keys can be found at https://github.com/yellowsink.gpg.
+The PGP keys that I use for signing Git commits can be found at https://github.com/yellowsink.gpg.
+These keys are used for Git and Git ONLY.
+None of my other keys are used for Git.
+
+My main PGP key used for signing and verifying can be found on https://keys.openpgp.org.
+It has the fingerprint `6950 8A81 E697 A652 20C2 E707 DB78 982E 597E 772A` and is tied to `yellowsink@riseup.net`.
