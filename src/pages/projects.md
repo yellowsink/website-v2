@@ -11,13 +11,13 @@ This page may be out of date.
 |--------------------------|-----|------|------------------------------------------------------|----------|
 | 3dskit                   | N/A | no   | 3DS Homebrew development in D with Xmake             | in dev   |
 | Rockhopper               | N/A | no   | A small, modern async runtime for D                  | in dev   |
-| ouroboros                | N/A | no   | a web ui for headscale                               | in dev   |
 | Rawr DSP                 | uwu | no   | a better web audio API                               | on hold  |
 | Powerplay                | N/A | no   | music player, library organizer, and tagger          | on hold  |
 | Lyricsmatic              | N/A | no   | automatic fetcher for song lyrics                    | on hold  |
 | 予定 Yotei                 | N/A | no   | unix scheduler & supervisor                          | on hold  |
 | Exhaustive Lyrics Format | N/A | no   | the .LRC replacement nobody wanted                   | on hold  |
 | BFN                      | N/A | no   | a potentially fast NPM replacement                   | on hold  |
+| ouroboros                | N/A | no   | a web ui for headscale                               | released |
 | webfps                   | N/A | no   | a performance HUD for the web                        | released |
 | uwu radio                | uwu | yes  | internet radio, for us                               | released |
 | shelter                  | uwu | yes  | a rethunk client mod                                 | released |
