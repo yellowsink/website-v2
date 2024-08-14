@@ -10,7 +10,7 @@ was signed by me, or decrypt something I have encrypted.
 
 This page lists where you can find my [public keys](https://en.wikipedia.org/wiki/Public-key_cryptography).
 
-You can verify my identity claims at https://keyoxide.org/69508A81E697A65220C2E707DB78982E597E772A.
+You can verify my identity claims at https://keyoxide.org/sink%40uwu.network.
 Most of my accounts and sites should be proven cryptographically there.
 
 ## SSH Keys
@@ -31,3 +31,5 @@ None of my other keys are used for Git.
 
 My main PGP key used for signing and verifying can be found on https://keys.openpgp.org.
 It has the fingerprint `6950 8A81 E697 A652 20C2 E707 DB78 982E 597E 772A` and is tied to `yellowsink@riseup.net`.
+
+It can also be found via Web Key Directory (WKD) at [`sink@uwu.network`](https://uwu.network/.well-known/openpgpkey/hu/phiagit188wgpu9qbkcm3frsbws76bmo).
