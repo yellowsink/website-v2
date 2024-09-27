@@ -8,6 +8,10 @@
     "path": "/accounts"
   },
   {
+    "name": "Ouroboros",
+    "path": "/ouroboros"
+  },
+  {
     "name": "Keys",
     "path": "/keys"
   },
