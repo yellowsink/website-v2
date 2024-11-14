@@ -9,14 +9,17 @@ This page may be out of date.
 
 | project                  | org | team | desc                                                 | status   |
 |--------------------------|-----|------|------------------------------------------------------|----------|
-| 3dskit                   | N/A | no   | 3DS Homebrew development in D with Xmake             | in dev   |
+| HRTrack                  | N/A | no   | A specialised, private service for tracking your HRT | in dev   |
+| YSBase                   | N/A | no   | A set of base utilities for my D software            | in dev   |
 | Rockhopper               | N/A | no   | A small, modern async runtime for D                  | in dev   |
+| 3dskit                   | N/A | no   | 3DS Homebrew development in D with Xmake             | on hold  |
 | Rawr DSP                 | uwu | no   | a better web audio API                               | on hold  |
 | Powerplay                | N/A | no   | music player, library organizer, and tagger          | on hold  |
 | Lyricsmatic              | N/A | no   | automatic fetcher for song lyrics                    | on hold  |
 | 予定 Yotei                 | N/A | no   | unix scheduler & supervisor                          | on hold  |
 | Exhaustive Lyrics Format | N/A | no   | the .LRC replacement nobody wanted                   | on hold  |
 | BFN                      | N/A | no   | a potentially fast NPM replacement                   | on hold  |
+| foldiff                  | N/A | no   | the diffing tool for folders, not streams.           | released |
 | ouroboros                | N/A | no   | a web ui for headscale                               | released |
 | webfps                   | N/A | no   | a performance HUD for the web                        | released |
 | uwu radio                | uwu | yes  | internet radio, for us                               | released |
