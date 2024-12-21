@@ -11,6 +11,8 @@ const { banner, label, link, uname } = Astro.props;
 </a>
 
 <style lang="sass">
+  @import "../vars.sass"
+
   a
     background: #f8f9fa
     transition: all 150ms
@@ -22,7 +24,7 @@ const { banner, label, link, uname } = Astro.props;
     display: flex
     justify-content: space-between
 
-    font-family: "Roboto Mono", monospace
+    font-family: $font-prose
     text-decoration: none
     :global(.dark) &
       background: #1f1f1f
