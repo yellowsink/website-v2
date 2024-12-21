@@ -1,3 +1,5 @@
+@use "sass:color"
+
 @mixin text-lg
   font-size: 1.125rem
   line-height: 1.75rem
@@ -22,10 +24,10 @@ $root-text-colour: #212121 // semantic UI
   color: $root-text-colour
 
   .dark &
-    color: invert($root-text-colour)
+    color: color.invert($root-text-colour)
 
 @mixin text-col-dark
-  color: invert($root-text-colour)
+  color: color.invert($root-text-colour)
 
 @mixin transition-col
   $DURATION: 150ms

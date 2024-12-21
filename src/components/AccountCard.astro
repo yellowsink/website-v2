@@ -11,6 +11,7 @@ const { banner, label, link, uname } = Astro.props;
 </a>
 
 <style lang="sass">
+  @use "sass:color"
   @import "../vars.sass"
 
   a
@@ -38,7 +39,7 @@ const { banner, label, link, uname } = Astro.props;
 
       color: #212121 !important
     :global(.dark) &
-      color: invert(#212121) !important
+      color: color.invert(#212121) !important
 
   img
     height: 3rem
@@ -49,7 +50,7 @@ const { banner, label, link, uname } = Astro.props;
     transition: filter 150ms
 
     :global(.dark) &
-      filter: invert(1)
+      filter: color.invert(1)
 
     @media (min-width: 768px)
       height: 75%
