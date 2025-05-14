@@ -50,7 +50,7 @@ const { banner, label, link, uname } = Astro.props;
     transition: filter 150ms
 
     :global(.dark) &
-      filter: color.invert(1)
+      filter: invert(1) hue-rotate(180deg)
 
     @media (min-width: 768px)
       height: 75%

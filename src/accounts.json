@@ -5,10 +5,28 @@
     "uname": "@yellowsink"
   },
   {
+    "banner": "/icons/telegram.svg",
+    "label": "Telegram",
+    "link": "https://t.me/hazeler_la",
+    "uname": "@hazeler_la"
+  },
+  {
+    "banner": "/icons/signal.svg",
+    "label": "Signal",
+    "link": "https://signal.me/#eu/kynE2AuPZNK6J25CQO3OYnOno8jFFa7H_FN0Q0Bb_1bol8fK4IJAQ4F3Qvhatlj6",
+    "uname": "@hazel.01"
+  },
+  {
     "banner": "/icons/fedi.svg",
     "label": "Fediverse",
     "link": "https://lethallava.land/@sink",
     "uname": "@sink@lethallava.land"
+  },
+  {
+    "banner": "/icons/bsky.svg",
+    "label": "Bluesky",
+    "link": "https://bsky.app/profile/yellows.ink",
+    "uname": "yellows.ink"
   },
   {
     "banner": "/icons/twitter.svg",
@@ -41,9 +59,21 @@
     "uname": "u/yellosink"
   },
   {
+    "banner": "/icons/steam.svg",
+    "label": "Steam",
+    "link": "https://steamcommunity.com/id/Yellowsink",
+    "uname": "Yellowsink"
+  },
+  {
     "banner": "/icons/osu.svg",
     "label": "osu!",
     "link": "https://osu.ppy.sh/u/yellowsink",
+    "uname": "Yellowsink"
+  },
+  {
+    "banner": "/icons/quaver.svg",
+    "label": "Quaver",
+    "link": "https://quavergame.com/user/91914",
     "uname": "Yellowsink"
   },
   {
