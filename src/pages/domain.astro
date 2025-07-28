@@ -8,8 +8,10 @@ const routes: [string, string, string, boolean?][] = [
   ["https://aart.yellows.ink", "aart", "A mirror for Cover Art Archive"],
   ["https://michiru.yellows.ink", "michiru", "My own server :)"],
   ["https://michiflare.yellows.ink", "michiflare", "Michiru via Cloudflare"],
-  ["https://uwu.yellows.ink", "uwu", "My page @ uwu.network", true],
+  ["https://michiscale.yellows.ink", "michiscale", "Headscale control plane"],
+  ["https://mail.yellows.ink", "mail", "Email *@yellows.ink"],
   ["https://qsgcount.yellows.ink", "qsgcount", "Analytics infrastructure"],
+  ["https://cloud.yellows.ink", "cloud", "ownCloud"],
 ];
 ---
 
@@ -32,10 +34,9 @@ const routes: [string, string, string, boolean?][] = [
     <div id="outline">
       <div id="grid">
         {
-          routes.map(([url, display, info, external]) => (
+          routes.map(([url, display, info]) => (
             <div class="row">
               <a href={url}>{display}</a>
-              <a href={url}>{external ? "external" : "local"}</a>
               <a href={url}>{info}</a>
             </div>
           ))
@@ -43,7 +44,7 @@ const routes: [string, string, string, boolean?][] = [
       </div>
     </div>
 
-    <p class="right">By Hazel Atkinson // Yellowsink 2022~24</p>
+    <p class="right">By Hazel Atkinson // Yellowsink 2022~25</p>
 
     <style lang="sass">
       body
