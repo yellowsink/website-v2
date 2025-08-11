@@ -1,5 +1,4 @@
 ---
-import DefferedStyle from "../components/DefferedStyle.astro";
 import Sidebar from "../components/Sidebar.astro";
 import Leaves from "../components/Leaves.astro";
 import routes from "../routes.json";
@@ -21,7 +20,7 @@ const fullTitle = title ? `Sink's place - ${title}` : "Sink's place";
     <link rel="shortcut icon" type="image/ico" href="/favicon.ico" />
     <title>{fullTitle}</title>
 
-    <DefferedStyle
+    <link rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@300&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400;1,600&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Shippori+Mincho&display=swap" rel="stylesheet"
     />
 
