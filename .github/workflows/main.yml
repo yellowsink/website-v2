@@ -46,6 +46,7 @@ jobs:
           username: ${{ secrets.SSHUSER }}
           key: ${{ secrets.SSHPRIVKEY }}
           rm: true
+          strip_components: true
           source: "dist/*"
           target: "/home/services/www-yellows.ink"
 
