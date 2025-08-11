@@ -1,4 +1,4 @@
-name: Deploy to pages
+name: Deploy
 
 on:
   push:
@@ -39,23 +39,16 @@ jobs:
         run: pnpm build
 
       # deploy
-      - name: Safely remove old dist from server
-        uses: appleboy/ssh-action@v1
-        with:
-          host: ${{ secrets.SSHHOST }}
-          username: ${{ secrets.SSHUSER }}
-          key: ${{ secrets.SSHPRIVKEY }}
-          script: rm -r www-yellows.ink/* www-yellows.ink/.*
-
       - name: Copy dist to server
         uses: appleboy/scp-action@v1
         with:
           host: ${{ secrets.SSHHOST }}
           username: ${{ secrets.SSHUSER }}
           key: ${{ secrets.SSHPRIVKEY }}
+          rm: true
           strip_components: 1
           source: "dist/*"
-          target: "/home/services/www-yellows.ink"
+          target: "/home/services/www-yellows.ink/dist"
 
       - name: Update configuration on server
         uses: appleboy/ssh-action@v1
