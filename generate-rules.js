@@ -26,7 +26,7 @@ for (const [file, route] of pages) {
 	// find files of ours
 	
 	const files = new Set(
-		[...content.matchAll(/"(\/.*?\.(?:css|js))"/g)]
+		[...content.matchAll(/"(\/[a-zA-Z0-9.-_]+?\.(?:css|js))"/g)]
 			.filter(m => m?.[1])
 			.map(m => m[1])
 	);
