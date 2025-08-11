@@ -12,6 +12,7 @@
     "@astrojs/mdx": "^4.0.3",
     "astro": "5.1.1",
     "crossani": "^1.3.3",
+    "fast-glob": "^3.3.3",
     "prettier-plugin-astro": "^0.14.1",
     "quicklink": "^2.3.0",
     "sass": "^1.83.0"

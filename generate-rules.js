@@ -1,27 +1,41 @@
 #!/usr/bin/env node
 const fs = require("fs");
+const fg = require("fast-glob");
 
 const index = fs.readFileSync("dist/index.html").toString();
 
 let rules = fs.readFileSync("Caddyfile-rules").toString();
 
-const addRule = (rule) => rule && (rules += `header +Link "<${rule}>; rel=\"preload\""\n`);
+const addRule = (rule, route) => rule && (rules += `header ${route ?? ""} +Link "<${rule}>; rel=\\"preload\\""\n`);
 
 // read google fonts url and create preload
 addRule(
 	index.match(/href="(https:\/\/fonts\.googleapis\.com\/.*?)"/)?.[1]
 );
 
+// for each page
+const pages = fg.sync("dist/*/index.html").map(file => {
+	return [file, `/${file.match(/\/(.*)\//)[1]}*`];	
+});
+pages.push(["dist/index.html", "/"]);
 
-// find the generically named css file shared across pages
-const sharedCss = index.match(/href="\/assets\/([a-f0-9]+\.[a-f0-9]+\.css)"/)?.[1];
+// find more preloads for specific paths
+for (const [file, route] of pages) {
+	const content = fs.readFileSync(file).toString();
 
-if (sharedCss) addRule(`https://{host}/assets/${sharedCss}`);
+	// find files of ours
+	
+	const files = new Set(
+		[...content.matchAll(/"(\/.*?\.(?:css|js))"/g)]
+			.filter(m => m?.[1])
+			.map(m => m[1])
+	);
 
-// shared js file
-const sharedJs = index.match(/src="\/(hoisted\.[a-f0-9]+\.js)"/)?.[1];
+	for (const match of files)
+		addRule(`https://{host}${match}`, route);
+}
 
-if (sharedJs) addRule(`https://{host}/${sharedJs}`);
+
 
 // write rules
 fs.writeFileSync("dist/Caddyfile-rules", rules);
