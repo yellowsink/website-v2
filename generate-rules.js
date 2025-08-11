@@ -2,16 +2,16 @@
 const fs = require("fs");
 const fg = require("fast-glob");
 
-const index = fs.readFileSync("dist/index.html").toString();
+//const index = fs.readFileSync("dist/index.html").toString();
 
 let rules = fs.readFileSync("Caddyfile-rules").toString();
 
 const addRule = (rule, route) => rule && (rules += `header ${route ?? ""} +Link "<${rule}>; rel=\\"preload\\""\n`);
 
 // read google fonts url and create preload
-addRule(
-	index.match(/href="(https:\/\/fonts\.googleapis\.com\/.*?)"/)?.[1]
-);
+//addRule(
+//	index.match(/href="(https:\/\/fonts\.googleapis\.com\/.*?)"/)?.[1]
+//);
 
 // for each page
 const pages = fg.sync("dist/*/index.html").map(file => {

@@ -7,4 +7,10 @@ redir /hlcc*             https://uwu.network/~sink/blog/2022/02/hlcc            
 redir /linux_audio_prod* https://uwu.network/~sink/blog/2022/02/linux_audio_prod permanent
 redir /simian*           https://github.com/yellowsink/simian                    permanent
 
-header +Link "<https://fonts.gstatic.com>; rel=\"preconnect\""
+header Cache-Control "public, max-age=600" # 600s taken from gh pages
+
+@assets *.js *.css *.png *.jpg *.webp *.svg *.ico *.mp4 *.webm
+header @assets Cache-Control "public, max-age=31536000, immutable" # stolen from cloudflare fonts cache line
+
+# cloudflare fonts replaces the need for g fonts preloads
+#header +Link "<https://fonts.gstatic.com>; rel=\"preconnect\""
