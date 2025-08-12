@@ -12,8 +12,8 @@ const applyStyles = () =>
 export const toggleTheme = () => {
   let newIsDark = !(root.className == "dark");
   if (prefersDark() == newIsDark) document.cookie = "detect";
-  else if (newIsDark) document.cookie = "dark";
-  else document.cookie = "light";
+  else if (newIsDark) document.cookie = "dark; Path=/";
+  else document.cookie = "light; Path=/";
 
   applyStyles();
 };
