@@ -57,6 +57,7 @@ export default defineConfig(
 							prose: [i("IBM Plex Serif", 600), i("Noto Serif JP"), fallback("serif")],
 							heading: ["Roboto Mono:300,100", "IBM Plex Sans JP:300", fallback("monospace")],
 							code: ["Jetbrains Mono", "Roboto Mono", fallback("monospace")],
+							plexmono: ["IBM Plex Mono:300", fallback("monospace")]
 						},
 					}),
 				],

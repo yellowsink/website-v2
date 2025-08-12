@@ -22,17 +22,15 @@ const routes: [string, string, string, boolean?][] = [
 		<meta name="theme-color" content="#000000" />
 		<link rel="shortcut icon" type="image/ico" href="/favicon.ico" />
 		<title>yellows.ink {">"} index</title>
-
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM Plex Mono:wght@300&display=swap" />
 	</head>
-	<body>
-		<h1>yellows.ink {">"} Index of /</h1>
+	<body class=":uno: h-dvh m-0 p-6 bg-black text-white font-plexmono flex flex-col">
+		<h1 class="text-center m-0 mb-6 text-2xl">yellows.ink {">"} Index of /</h1>
 
-		<div id="outline">
-			<div id="grid">
+		<div class=":uno: b-2px b-solid b-white flex-1">
+			<div class="m-2">
 				{
 					routes.map(([url, display, info]) => (
-						<div class="row">
+						<div class=":uno: pl-2 grid grid-cols-[1fr_1fr_2fr] transition-duration-100 transition-[color,background-color] hover:(text-black bg-white)">
 							<a href={url}>{display}</a>
 							<a href={url}>{info}</a>
 						</div>
@@ -41,46 +39,12 @@ const routes: [string, string, string, boolean?][] = [
 			</div>
 		</div>
 
-		<p class="right">By Hazel Atkinson // Yellowsink 2022~25</p>
+		<p class="text-right">By Hazel Atkinson // Yellowsink 2022~25</p>
 
-		<style lang="sass">
-			body
-				height: 100vh
-				margin: 0
-				padding: 1.5rem
-				background: black
+		<style lang="sass" is:global>
+			// we dont pull in styles.sass here
+			*
 				box-sizing: border-box
-				display: flex
-				flex-direction: column
-
-				color: white
-				font-family: "IBM Plex Mono", monospace
-
-			h1
-				text-align: center
-				margin: 0 0 1.5rem 0
-				font-size: 1.5rem
-
-			#outline
-				border: 2px solid currentColor
-				flex: 1
-
-			.right
-				text-align: right
-
-			#grid
-				margin: .5rem
-				.row
-					padding-left: .5rem
-					display: grid
-					grid-template-columns: .5fr .5fr 1fr
-
-					transition-duration: .1s
-					transition-property: color, background
-
-				&:hover
-					color: black
-					background: white
 
 			a
 				color: currentColor
@@ -94,16 +58,11 @@ const routes: [string, string, string, boolean?][] = [
 			// https://aleclownes.com/2017/02/01/crt-display.html
 			body::before
 				content: " "
-				display: block
-				position: absolute
-				top: 0
-				left: 0
-				bottom: 0
-				right: 0
+
+				@apply block absolute top-0 left-0 bottom-0 right-0 z-2 pointer-events-none
+
 				background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%)
-				z-index: 2
 				background-size: 100% 2px
-				pointer-events: none
 				animation: scan 60ms infinite
 		</style>
 	</body>
