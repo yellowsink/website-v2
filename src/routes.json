@@ -1,34 +1,34 @@
 [
-  {
-    "name": "About me",
-    "path": "/"
-  },
-  {
-    "name": "Accounts",
-    "path": "/accounts"
-  },
-  {
-    "name": "Ouroboros",
-    "path": "/ouroboros"
-  },
-  {
-    "name": "Keys",
-    "path": "/keys"
-  },
-  {
-    "name": "<3",
-    "path": "/friends"
-  },
-  {
-    "name": "Projects Status",
-    "path": "/projects"
-  },
-  {
-    "name": "Discord plugins",
-    "path": "/plugins"
-  },
-  {
-    "name": "予定 Yotei",
-    "path": "/yotei"
-  }
+	{
+		"name": "About me",
+		"path": "/"
+	},
+	{
+		"name": "Accounts",
+		"path": "/accounts"
+	},
+	{
+		"name": "Ouroboros",
+		"path": "/ouroboros"
+	},
+	{
+		"name": "Keys",
+		"path": "/keys"
+	},
+	{
+		"name": "<3",
+		"path": "/friends"
+	},
+	{
+		"name": "Projects Status",
+		"path": "/projects"
+	},
+	{
+		"name": "Discord plugins",
+		"path": "/plugins"
+	},
+	{
+		"name": "予定 Yotei",
+		"path": "/yotei"
+	}
 ]

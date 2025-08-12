@@ -14,8 +14,8 @@ const addRule = (rule, route) => rule && (rules += `header ${route ?? ""} +Link 
 //);
 
 // for each page
-const pages = fg.sync("dist/*/index.html").map(file => {
-	return [file, `/${file.match(/\/(.*)\//)[1]}*`];	
+const pages = fg.sync("dist/*/index.html").map((file) => {
+	return [file, `/${file.match(/\/(.*)\//)[1]}*`];
 });
 pages.push(["dist/index.html", "/"]);
 
@@ -24,18 +24,13 @@ for (const [file, route] of pages) {
 	const content = fs.readFileSync(file).toString();
 
 	// find files of ours
-	
+
 	const files = new Set(
-		[...content.matchAll(/"(\/[a-zA-Z0-9.-_]+?\.(?:css|js))"/g)]
-			.filter(m => m?.[1])
-			.map(m => m[1])
+		[...content.matchAll(/"(\/[a-zA-Z0-9.-_]+?\.(?:css|js))"/g)].filter((m) => m?.[1]).map((m) => m[1]),
 	);
 
-	for (const match of files)
-		addRule(`https://{host}${match}`, route);
+	for (const match of files) addRule(`https://{host}${match}`, route);
 }
-
-
 
 // write rules
 fs.writeFileSync("dist/Caddyfile-rules", rules);

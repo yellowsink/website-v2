@@ -1,103 +1,106 @@
 ---
 import ThemeToggler from "./ThemeToggler.astro";
 const { routes, currentPath } = Astro.props;
-const fixedPath =
-  currentPath.length > 1 && currentPath.endsWith("/")
-    ? currentPath.slice(0, -1)
-    : currentPath;
+const fixedPath = currentPath.length > 1 && currentPath.endsWith("/") ? currentPath.slice(0, -1) : currentPath;
 ---
 
 <div id="sidebar">
-  <ThemeToggler />
+	<ThemeToggler />
 
-  <h1>
-    hazel
-    <a href="/domain">+</a>
-  </h1>
-  <h2>Pages:</h2>
-  <ul>
-    {routes.map((route, i) => (
-      <li>
-        <a class={route.path === fixedPath ? "active" : ""} href={route.path} style={"page-transition-tag: _"+ i}>
-          {route.name}
-        </a>
-      </li>
-    ))}
-  </ul>
+	<h1>
+		hazel
+		<a href="/domain">+</a>
+	</h1>
+	<h2>Pages:</h2>
+	<ul>
+		{
+			routes.map((route, i) => (
+				<li>
+					<a
+						class={route.path === fixedPath ? "active" : ""}
+						href={route.path}
+						style={"page-transition-tag: _" + i}
+					>
+						{route.name}
+					</a>
+				</li>
+			))
+		}
+	</ul>
 </div>
 
 <style lang="sass">
-  @import "../vars.sass"
+	@import "../vars.sass"
 
-  #sidebar
-    @include transition-col
+	#sidebar
+	  @include transition-col
 
-    @include text-col
+	  @include text-col
 
-    box-sizing: border-box
-    display: flex
-    flex-direction: column
-    padding: 5rem
-    padding-top: 1.25rem
-    width: auto
-    background: #fafafa
-    font-family: $font-prose
-    box-shadow: 0 10px 15px -3px rgb(0 0 0/0.1),0 4px 6px -4px rgb(0 0 0/0.1)
+	  box-sizing: border-box
+	  display: flex
+	  flex-direction: column
+	  padding: 5rem
+	  padding-top: 1.25rem
+	  width: auto
+	  background: #fafafa
+	  font-family: $font-prose
+	  box-shadow: 0 10px 15px -3px rgb(0 0 0/0.1),0 4px 6px -4px rgb(0 0 0/0.1)
 
-    :global(.dark) &
-      background: #181818
-      @include text-col-dark
+	  :global(.dark) &
+	    background: #181818
+		@include text-col-dark
 
-    @media (min-width: $md)
-      height: 100vh
-      width: 20rem
-      position: fixed
+	  @media (min-width: $md)
+	    height: 100vh
+	    width: 20rem
+	    position: fixed
 
-    @media (min-width: $xl)
-      width: 30rem
+	  @media (min-width: $xl)
+	    width: 30rem
 
-    h1
-      font-weight: lighter
-      display: flex
-      justify-content: center
-      align-items: center
-      gap: 1rem
+	  h1
+	    font-weight: lighter
+	    display: flex
+	    justify-content: center
+	    align-items: center
+	    gap: 1rem
 
-      a
-        display: block
-        width: 2rem
-        height: 2rem
-        color: currentColor
-        text-decoration: none
-        text-align: center
-        line-height: 1em
-        transition: color 150ms, background 150ms
-        &:hover
-          color: white
-          background: black
-          :global(.dark) &
-            color: black
-            background: white
+		a
+			display: block
+			width: 2rem
+			height: 2rem
+			color: currentColor
+			text-decoration: none
+			text-align: center
+			line-height: 1em
+			transition: color 150ms, background 150ms
+			&:hover
+	        color: white
+	        background: black
+			  :global(.dark) &
+	          color: black
+	          background: white
 
-    ul
-      padding-left: 0
-      margin: 0
+	  ul
+	    padding-left: 0
+	    margin: 0
 
-    li
-      list-style: none
-      &> a
-        @include text-lg
-        @include text-col
-        font-style: italic
+	  li
+	    list-style: none
+		&> a
+			@include text-lg
+			@include text-col
+	      font-style: italic
 
-        text-decoration: none
-        transition: padding-left 150ms, color 150ms
-        :global(.dark) &
-          @include text-col-dark
+	      text-decoration: none
+	      transition: padding-left 150ms, color 150ms
+			:global(.dark) &
+			  @include text-col-dark
 
-        &:hover
-          padding-left: 1rem
+			&:hover
+	        padding-left: 1rem
 
-        &.active
-          margin-left: 2rem
+			&.active
+	        margin-left: 2rem
 </style>

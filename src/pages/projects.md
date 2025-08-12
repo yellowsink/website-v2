@@ -8,13 +8,13 @@ title: Projects
 This page may be out of date.
 
 | project                  | org | team | desc                                                 | status   |
-|--------------------------|-----|------|------------------------------------------------------|----------|
+| ------------------------ | --- | ---- | ---------------------------------------------------- | -------- |
 | YSBase                   | N/A | no   | A set of base utilities for my D software            | in dev   |
 | Rockhopper               | N/A | no   | A small, modern async runtime for D                  | in dev   |
 | HRTrack                  | N/A | no   | A specialised, private service for tracking your HRT | on hold  |
 | Rawr DSP                 | uwu | no   | a better web audio API                               | on hold  |
 | Lyricsmatic              | N/A | no   | automatic fetcher for song lyrics                    | on hold  |
-| 予定 Yotei                 | N/A | no   | unix scheduler & supervisor                          | on hold  |
+| 予定 Yotei               | N/A | no   | unix scheduler & supervisor                          | on hold  |
 | Exhaustive Lyrics Format | N/A | no   | the .LRC replacement nobody wanted                   | on hold  |
 | ContainerSpy             | uwu | no   | docker OTLP metrics collector                        | released |
 | foldiff                  | N/A | no   | the diffing tool for folders, not streams.           | released |
@@ -43,11 +43,11 @@ This page may be out of date.
 | Slices.NET               | N/A | no   | no-copy slices of C# collections                     | killed   |
 | lazpack                  | N/A | no   | the missing package manager for osu!lazer            | killed   |
 
-| status   | meaning                                     |
-|----------|---------------------------------------------|
-| released | Released publicly, updates when necessary   |
-| eol      | Released publicly, no updates               |
-| private  | Released privately, either WIP or finished  |
-| in dev   | Not released, WIP                           |
-| on hold  | Partial work done, not WIP currently        |
-| killed   | Cancelled before any releases               |
+| status   | meaning                                    |
+| -------- | ------------------------------------------ |
+| released | Released publicly, updates when necessary  |
+| eol      | Released publicly, no updates              |
+| private  | Released privately, either WIP or finished |
+| in dev   | Not released, WIP                          |
+| on hold  | Partial work done, not WIP currently       |
+| killed   | Cancelled before any releases              |

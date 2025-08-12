@@ -1,166 +1,161 @@
 <div id="now-playing" style="display: none">
-  <div id="np-art"></div>
+	<div id="np-art"></div>
 
-  <div>
-    <p>I am currently listening to:</p>
-    <p><em><a id="np-title"></a></em></p>
-    <p>by <em><span id="np-artist"></span></em></p>
-    <p id="np-album-wrap">on <em><span id="np-album"></span></em></p>
-    <p style="text-align: right;">
-      <a href="https://listenbrainz.org/user/yellowsink/">via Listenbrainz</a>
-    </p>
-  </div>
+	<div>
+		<p>I am currently listening to:</p>
+		<p><em><a id="np-title"></a></em></p>
+		<p>by <em><span id="np-artist"></span></em></p>
+		<p id="np-album-wrap">on <em><span id="np-album"></span></em></p>
+		<p style="text-align: right;">
+			<a href="https://listenbrainz.org/user/yellowsink/">via Listenbrainz</a>
+		</p>
+	</div>
 </div>
 
 <script>
-  const username = "yellowsink";
+	const username = "yellowsink";
 
-  const FETCH_SHPROX_UA_HEADER = {
-    headers: {
-      "X-Shprox-UA":
-        "YellowsinkWebsite/0.0.0 ( https://github.com/yellowsink/website-v2 )",
-    }
-  };
+	const FETCH_SHPROX_UA_HEADER = {
+		headers: {
+			"X-Shprox-UA": "YellowsinkWebsite/0.0.0 ( https://github.com/yellowsink/website-v2 )",
+		},
+	};
 
-  // this code copied almost verbatim from the lastfm shelter plugin
-  // https://github.com/yellowsink/shelter-plugins/blob/96a38c6/plugins/lastfm/index.ts#L132
-  async function getLb() {
-    // using shelter cors proxy to set a custom user agent
-    const nowPlayingRes = await fetch(
-      `https://shcors.uwu.network/https://api.listenbrainz.org/1/user/${username}/playing-now`,
-      FETCH_SHPROX_UA_HEADER
-    ).then((r) => r.json());
+	// this code copied almost verbatim from the lastfm shelter plugin
+	// https://github.com/yellowsink/shelter-plugins/blob/96a38c6/plugins/lastfm/index.ts#L132
+	async function getLb() {
+		// using shelter cors proxy to set a custom user agent
+		const nowPlayingRes = await fetch(
+			`https://shcors.uwu.network/https://api.listenbrainz.org/1/user/${username}/playing-now`,
+			FETCH_SHPROX_UA_HEADER,
+		).then((r) => r.json());
 
-    if (!nowPlayingRes.payload.count) return;
+		if (!nowPlayingRes.payload.count) return;
 
-    const track = nowPlayingRes.payload.listens[0].track_metadata;
+		const track = nowPlayingRes.payload.listens[0].track_metadata;
 
-    await listenBrainzLookupAdditional(track);
+		await listenBrainzLookupAdditional(track);
 
-    let albumArtUrl: string | undefined;
+		let albumArtUrl: string | undefined;
 
-    if (track.additional_info?.release_mbid) {
-      // first check for release art and then for release group art
-      const relArtCheck = await fetch(
-        `https://coverartarchive.org/release/${track.additional_info?.release_mbid}/front`,
-        { method: "HEAD", redirect: "manual" },
-      );
-      if (relArtCheck.status !== 404) {
-        // ok fine we have album art for this release
-        albumArtUrl = `https://aart.yellows.ink/release/${track.additional_info.release_mbid}.webp`;
-      } else {
-        // okay, get the release group
-        // we may already have it from the listenbrainz lookup
-        let releaseGroupMbid = track.additional_info.metadata?.release?.release_group_mbid;
+		if (track.additional_info?.release_mbid) {
+			// first check for release art and then for release group art
+			const relArtCheck = await fetch(
+				`https://coverartarchive.org/release/${track.additional_info?.release_mbid}/front`,
+				{ method: "HEAD", redirect: "manual" },
+			);
+			if (relArtCheck.status !== 404) {
+				// ok fine we have album art for this release
+				albumArtUrl = `https://aart.yellows.ink/release/${track.additional_info.release_mbid}.webp`;
+			} else {
+				// okay, get the release group
+				// we may already have it from the listenbrainz lookup
+				let releaseGroupMbid = track.additional_info.metadata?.release?.release_group_mbid;
 
-        const rgLookup = await fetch(
-          `https://shcors.uwu.network/https://musicbrainz.org/ws/2/release/${track.additional_info.release_mbid}?fmt=json&inc=release-groups`,
-          FETCH_SHPROX_UA_HEADER,
-        );
-        if (rgLookup.ok)
-          releaseGroupMbid = (await rgLookup.json())["release-group"].id;
+				const rgLookup = await fetch(
+					`https://shcors.uwu.network/https://musicbrainz.org/ws/2/release/${track.additional_info.release_mbid}?fmt=json&inc=release-groups`,
+					FETCH_SHPROX_UA_HEADER,
+				);
+				if (rgLookup.ok) releaseGroupMbid = (await rgLookup.json())["release-group"].id;
 
-        if (releaseGroupMbid)
-          albumArtUrl = `https://aart.yellows.ink/release-group/${releaseGroupMbid}.webp`;
-      }
-    }
+				if (releaseGroupMbid) albumArtUrl = `https://aart.yellows.ink/release-group/${releaseGroupMbid}.webp`;
+			}
+		}
 
-    if (albumArtUrl) {
-      // test
-      const testRes = await fetch(albumArtUrl);
-      if (!testRes.ok) albumArtUrl = undefined;
-    }
+		if (albumArtUrl) {
+			// test
+			const testRes = await fetch(albumArtUrl);
+			if (!testRes.ok) albumArtUrl = undefined;
+		}
 
-    // [title, artist, album?, arturl?, url?, is now playing]
-    return [
-      track.track_name,
-      track.artist_name,
-      track.release_name,
-      albumArtUrl,
-      track.additional_info?.recording_mbid
-        ? `https://musicbrainz.org/recording/${track.additional_info.recording_mbid}`
-        : "#",
-      nowPlayingRes.payload.listens[0].playing_now,
-    ];
-  }
+		// [title, artist, album?, arturl?, url?, is now playing]
+		return [
+			track.track_name,
+			track.artist_name,
+			track.release_name,
+			albumArtUrl,
+			track.additional_info?.recording_mbid
+				? `https://musicbrainz.org/recording/${track.additional_info.recording_mbid}`
+				: "#",
+			nowPlayingRes.payload.listens[0].playing_now,
+		];
+	}
 
-  // finds a MBID and adds it to a track if it doesnt exist
-  const listenBrainzLookupAdditional = async (basicTrack) => {
-    // following the behaviour of the webapp, if theres not an MBID, do a search.
-    if (basicTrack.additional_info?.release_mbid) return;
+	// finds a MBID and adds it to a track if it doesnt exist
+	const listenBrainzLookupAdditional = async (basicTrack) => {
+		// following the behaviour of the webapp, if theres not an MBID, do a search.
+		if (basicTrack.additional_info?.release_mbid) return;
 
-    try {
-      const metaRes = await fetch(
-        `https://shcors.uwu.network/https://api.listenbrainz.org/1/metadata/lookup/?${new URLSearchParams(
-          {
-            recording_name: basicTrack.track_name,
-            artist_name: basicTrack.artist_name,
-            metadata: "true",
-            inc: "artist tag release",
-          }
-        )}`,
-        FETCH_SHPROX_UA_HEADER
-      ).then((r) => r.json());
+		try {
+			const metaRes = await fetch(
+				`https://shcors.uwu.network/https://api.listenbrainz.org/1/metadata/lookup/?${new URLSearchParams({
+					recording_name: basicTrack.track_name,
+					artist_name: basicTrack.artist_name,
+					metadata: "true",
+					inc: "artist tag release",
+				})}`,
+				FETCH_SHPROX_UA_HEADER,
+			).then((r) => r.json());
 
-      basicTrack.additional_info = {
-        ...basicTrack?.additional_info,
-        ...metaRes,
-      };
-    } catch (e) {
-      console.error("finding listenbrainz MBID for track", basicTrack, "failed, ", e);
-    }
-  };
+			basicTrack.additional_info = {
+				...basicTrack?.additional_info,
+				...metaRes,
+			};
+		} catch (e) {
+			console.error("finding listenbrainz MBID for track", basicTrack, "failed, ", e);
+		}
+	};
 
-  const npWrap = document.getElementById("now-playing");
-  const npArt = document.getElementById("np-art");
-  const npTitle = document.getElementById("np-title");
-  const npArtist = document.getElementById("np-artist");
-  const npAlbumWrap = document.getElementById("np-album-wrap");
-  const npAlbum = document.getElementById("np-album");
+	const npWrap = document.getElementById("now-playing");
+	const npArt = document.getElementById("np-art");
+	const npTitle = document.getElementById("np-title");
+	const npArtist = document.getElementById("np-artist");
+	const npAlbumWrap = document.getElementById("np-album-wrap");
+	const npAlbum = document.getElementById("np-album");
 
-  (async () => {
-    while (true) {
-      const res = await getLb();
+	(async () => {
+		while (true) {
+			const res = await getLb();
 
-      if (res && res[5]) {
-        npWrap!.style.display = "";
+			if (res && res[5]) {
+				npWrap!.style.display = "";
 
-        const [title, artist, album, arturl, url, _isnowplaying] = res;
+				const [title, artist, album, arturl, url, _isnowplaying] = res;
 
-        npArt!.style.display = arturl ? "" : "none";
-        npArt!.style.backgroundImage = `url("${arturl}")`;
+				npArt!.style.display = arturl ? "" : "none";
+				npArt!.style.backgroundImage = `url("${arturl}")`;
 
-        npAlbumWrap!.style.display = album ? "" : "none";
+				npAlbumWrap!.style.display = album ? "" : "none";
 
-        npTitle!.innerText = title;
-        // @ts-expect-error
-        npTitle!.href = url;
-        npArtist!.innerText = artist;
-        npAlbum!.innerText = album;
-      } else {
-        npWrap!.style.display = "none";
-      }
+				npTitle!.innerText = title;
+				// @ts-expect-error
+				npTitle!.href = url;
+				npArtist!.innerText = artist;
+				npAlbum!.innerText = album;
+			} else {
+				npWrap!.style.display = "none";
+			}
 
-      await new Promise((r) => setTimeout(r, 5000));
-    }
-  })();
+			await new Promise((r) => setTimeout(r, 5000));
+		}
+	})();
 </script>
 
 <style>
-  #now-playing {
-    display: flex;
-    align-items: center;
-  }
+	#now-playing {
+		display: flex;
+		align-items: center;
+	}
 
-  #np-art {
-    background-size: contain;
-    background-repeat: no-repeat;
-    aspect-ratio: 1;
-    flex-basis: 10rem;
-  }
+	#np-art {
+		background-size: contain;
+		background-repeat: no-repeat;
+		aspect-ratio: 1;
+		flex-basis: 10rem;
+	}
 
-  p {
-    margin: 0;
-    margin-left: 1rem;
-  }
+	p {
+		margin: 0;
+		margin-left: 1rem;
+	}
 </style>

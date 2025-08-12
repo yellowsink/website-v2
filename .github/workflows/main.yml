@@ -1,59 +1,59 @@
 name: Deploy
 
 on:
-  push:
-    branches: [master]
-  workflow_dispatch:
+   push:
+      branches: [master]
+   workflow_dispatch:
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
-  contents: read
-  id-token: write
+   contents: read
+   id-token: write
 
 # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
 # However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
 concurrency:
-  group: "pages"
-  cancel-in-progress: false
+   group: "pages"
+   cancel-in-progress: false
 
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    steps:
-      # setup
-      - uses: actions/checkout@v4
-      
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 20.x
+   deploy:
+      environment:
+         name: github-pages
+         url: ${{ steps.deployment.outputs.page_url }}
+      runs-on: ubuntu-latest
+      steps:
+         # setup
+         - uses: actions/checkout@v4
 
-      - name: Install deps
-        run: |
-          npm install -g pnpm
-          pnpm i --frozen-lockfile
+         - uses: actions/setup-node@v3
+           with:
+              node-version: 20.x
 
-      - name: Build
-        run: pnpm build
+         - name: Install deps
+           run: |
+              npm install -g pnpm
+              pnpm i --frozen-lockfile
 
-      # deploy
-      - name: Copy dist to server
-        uses: appleboy/scp-action@v1
-        with:
-          host: ${{ secrets.SSHHOST }}
-          username: ${{ secrets.SSHUSER }}
-          key: ${{ secrets.SSHPRIVKEY }}
-          rm: true
-          strip_components: 1
-          source: "dist/*"
-          target: "/home/services/www-yellows.ink/dist"
+         - name: Build
+           run: pnpm build
 
-      - name: Update configuration on server
-        uses: appleboy/ssh-action@v1
-        with:
-          host: ${{ secrets.SSHHOST }}
-          username: ${{ secrets.SSHUSER }}
-          key: ${{ secrets.SSHPRIVKEY }}
-          script: docker compose exec caddy caddy reload -c /etc/caddy/Caddyfile
+         # deploy
+         - name: Copy dist to server
+           uses: appleboy/scp-action@v1
+           with:
+              host: ${{ secrets.SSHHOST }}
+              username: ${{ secrets.SSHUSER }}
+              key: ${{ secrets.SSHPRIVKEY }}
+              rm: true
+              strip_components: 1
+              source: "dist/*"
+              target: "/home/services/www-yellows.ink/dist"
+
+         - name: Update configuration on server
+           uses: appleboy/ssh-action@v1
+           with:
+              host: ${{ secrets.SSHHOST }}
+              username: ${{ secrets.SSHUSER }}
+              key: ${{ secrets.SSHPRIVKEY }}
+              script: docker compose exec caddy caddy reload -c /etc/caddy/Caddyfile

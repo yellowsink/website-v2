@@ -5,38 +5,30 @@ import accounts from "../accounts.json";
 ---
 
 <BaseLayout title="Accounts">
-  <h2>Accounts</h2>
-  <div class="">
-    {accounts.map((acc) => (
-      <AccountCard
-        banner={acc.banner}
-        label={acc.label}
-        link={acc.link}
-        uname={acc.uname}
-      />
-    ))}
-  </div>
+	<h2>Accounts</h2>
+	<div class="">
+		{accounts.map((acc) => <AccountCard banner={acc.banner} label={acc.label} link={acc.link} uname={acc.uname} />)}
+	</div>
 
-  <p>
-    Note on email: emails sent to me@yellows.ink will also arrive just fine. Emails sent
-    to other addressses @yellows.ink <em>may or may not</em> be delivered but I certainly
-    won't send from them.
-  </p>
-  <p>
-    I have had/have email addresses at Gmail, Proton Mail, and cock.li, but while I do not actually mind these
-    being public informaton too much, I prefer people not to try to use them to contact me, so I do not publish them.
-  </p>
+	<p>
+		Note on email: emails sent to me@yellows.ink will also arrive just fine. Emails sent to other addressses
+		@yellows.ink <em>may or may not</em> be delivered but I certainly won't send from them.
+	</p>
+	<p>
+		I have had/have email addresses at Gmail, Proton Mail, and cock.li, but while I do not actually mind these being
+		public informaton too much, I prefer people not to try to use them to contact me, so I do not publish them.
+	</p>
 </BaseLayout>
 
 <style lang="sass">
-  div
-    display: flex
-    flex-wrap: wrap
-    justify-content: space-evenly
-    gap: 1.5rem
-    margin-top: 1rem
-    margin-bottom: 1rem
+	div
+	  display: flex
+	  flex-wrap: wrap
+	  justify-content: space-evenly
+	  gap: 1.5rem
+	  margin-top: 1rem
+	  margin-bottom: 1rem
 
-    @media (max-width: 768px)
-      flex-direction: column
+	  @media (max-width: 768px)
+	    flex-direction: column
 </style>

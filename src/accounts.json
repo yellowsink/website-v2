@@ -1,85 +1,85 @@
 [
-  {
-    "banner": "/icons/discord.svg",
-    "label": "Discord",
-    "uname": "@yellowsink"
-  },
-  {
-    "banner": "/icons/telegram.svg",
-    "label": "Telegram",
-    "link": "https://t.me/hazeler_la",
-    "uname": "@hazeler_la"
-  },
-  {
-    "banner": "/icons/signal.svg",
-    "label": "Signal",
-    "link": "https://signal.me/#eu/kynE2AuPZNK6J25CQO3OYnOno8jFFa7H_FN0Q0Bb_1bol8fK4IJAQ4F3Qvhatlj6",
-    "uname": "@hazel.01"
-  },
-  {
-    "banner": "/icons/fedi.svg",
-    "label": "Fediverse",
-    "link": "https://lethallava.land/@sink",
-    "uname": "@sink@lethallava.land"
-  },
-  {
-    "banner": "/icons/bsky.svg",
-    "label": "Bluesky",
-    "link": "https://bsky.app/profile/yellows.ink",
-    "uname": "yellows.ink"
-  },
-  {
-    "banner": "/icons/twitter.svg",
-    "label": "Twitter",
-    "link": "https://twitter.com/_hazeler",
-    "uname": "@_hazeler"
-  },
-  {
-    "banner": "/icons/github.svg",
-    "label": "Github",
-    "link": "https://github.com/yellowsink",
-    "uname": "Yellowsink"
-  },
-  {
-    "banner": "/icons/at.svg",
-    "label": "Email me!",
-    "link": "mailto:yellowsink@riseup.net",
-    "uname": "yellowsink@riseup.net"
-  },
-  {
-    "banner": "/icons/prons.svg",
-    "label": "pronouns .page",
-    "link": "https://en.pronouns.page/@yellowsink",
-    "uname": "@yellowsink"
-  },
-  {
-    "banner": "/icons/reddit-alien.svg",
-    "label": "Reddit",
-    "link": "https://reddit.com/u/yellosink",
-    "uname": "u/yellosink"
-  },
-  {
-    "banner": "/icons/steam.svg",
-    "label": "Steam",
-    "link": "https://steamcommunity.com/id/Yellowsink",
-    "uname": "Yellowsink"
-  },
-  {
-    "banner": "/icons/osu.svg",
-    "label": "osu!",
-    "link": "https://osu.ppy.sh/u/yellowsink",
-    "uname": "Yellowsink"
-  },
-  {
-    "banner": "/icons/quaver.svg",
-    "label": "Quaver",
-    "link": "https://quavergame.com/user/91914",
-    "uname": "Yellowsink"
-  },
-  {
-    "banner": "/icons/youtube.svg",
-    "label": "YouTube",
-    "link": "https://www.youtube.com/channel/UCQ_ZGydjNeSHNbdo_m6uUcQ",
-    "uname": "Hazel Atkinson"
-  }
+	{
+		"banner": "/icons/discord.svg",
+		"label": "Discord",
+		"uname": "@yellowsink"
+	},
+	{
+		"banner": "/icons/telegram.svg",
+		"label": "Telegram",
+		"link": "https://t.me/hazeler_la",
+		"uname": "@hazeler_la"
+	},
+	{
+		"banner": "/icons/signal.svg",
+		"label": "Signal",
+		"link": "https://signal.me/#eu/kynE2AuPZNK6J25CQO3OYnOno8jFFa7H_FN0Q0Bb_1bol8fK4IJAQ4F3Qvhatlj6",
+		"uname": "@hazel.01"
+	},
+	{
+		"banner": "/icons/fedi.svg",
+		"label": "Fediverse",
+		"link": "https://lethallava.land/@sink",
+		"uname": "@sink@lethallava.land"
+	},
+	{
+		"banner": "/icons/bsky.svg",
+		"label": "Bluesky",
+		"link": "https://bsky.app/profile/yellows.ink",
+		"uname": "yellows.ink"
+	},
+	{
+		"banner": "/icons/twitter.svg",
+		"label": "Twitter",
+		"link": "https://twitter.com/_hazeler",
+		"uname": "@_hazeler"
+	},
+	{
+		"banner": "/icons/github.svg",
+		"label": "Github",
+		"link": "https://github.com/yellowsink",
+		"uname": "Yellowsink"
+	},
+	{
+		"banner": "/icons/at.svg",
+		"label": "Email me!",
+		"link": "mailto:yellowsink@riseup.net",
+		"uname": "yellowsink@riseup.net"
+	},
+	{
+		"banner": "/icons/prons.svg",
+		"label": "pronouns .page",
+		"link": "https://en.pronouns.page/@yellowsink",
+		"uname": "@yellowsink"
+	},
+	{
+		"banner": "/icons/reddit-alien.svg",
+		"label": "Reddit",
+		"link": "https://reddit.com/u/yellosink",
+		"uname": "u/yellosink"
+	},
+	{
+		"banner": "/icons/steam.svg",
+		"label": "Steam",
+		"link": "https://steamcommunity.com/id/Yellowsink",
+		"uname": "Yellowsink"
+	},
+	{
+		"banner": "/icons/osu.svg",
+		"label": "osu!",
+		"link": "https://osu.ppy.sh/u/yellowsink",
+		"uname": "Yellowsink"
+	},
+	{
+		"banner": "/icons/quaver.svg",
+		"label": "Quaver",
+		"link": "https://quavergame.com/user/91914",
+		"uname": "Yellowsink"
+	},
+	{
+		"banner": "/icons/youtube.svg",
+		"label": "YouTube",
+		"link": "https://www.youtube.com/channel/UCQ_ZGydjNeSHNbdo_m6uUcQ",
+		"uname": "Hazel Atkinson"
+	}
 ]

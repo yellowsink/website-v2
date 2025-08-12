@@ -6,61 +6,60 @@ const id = `leaves-${Math.random().toString(16).split(".")[1]}`;
 <div id={id} style="display: contents"></div>
 
 <script define:vars={{ id }}>
-  const LEAVES = ["w", "b", "p"].map((s) => `/leaf${s}.png`);
-  const PARENT = document.getElementById(id);
+	const LEAVES = ["w", "b", "p"].map((s) => `/leaf${s}.png`);
+	const PARENT = document.getElementById(id);
 
-  const WAIT = 0; // how long to wait before starting
-  const INT = 900; // how often to make a leaf
+	const WAIT = 0; // how long to wait before starting
+	const INT = 900; // how often to make a leaf
 
-  const vxS = 0.5; // velocity starts random of this
-  const vy = 0.3; // move down per frame
-  const ax = 0.15; // change velocity by +- per frame
-  const aint = 20; // frames per accel change
-  const bias = 0.075; // bias to accelerate in opposite direction to current velocity
+	const vxS = 0.5; // velocity starts random of this
+	const vy = 0.3; // move down per frame
+	const ax = 0.15; // change velocity by +- per frame
+	const aint = 20; // frames per accel change
+	const bias = 0.075; // bias to accelerate in opposite direction to current velocity
 
-  // pride month 🏳️‍🌈🏳️‍⚧️, and wrath month 😈.
-  // this is zero indexed. great.
-  if ([5, 6].includes(new Date().getMonth()))
-    setTimeout(
-      () =>
-        setInterval(() => {
-          const leafel = document.createElement("img");
-          leafel.src = LEAVES[~~(Math.random() * LEAVES.length)];
-          leafel.style.cssText =
-            // 2x scale
-            "width: 28px; height: 18px; image-rendering: pixelated; position: fixed; z-index: 999999999; pointer-events: none";
-          PARENT.append(leafel);
+	// pride month 🏳️‍🌈🏳️‍⚧️, and wrath month 😈.
+	// this is zero indexed. great.
+	if ([5, 6].includes(new Date().getMonth()))
+		setTimeout(
+			() =>
+				setInterval(() => {
+					const leafel = document.createElement("img");
+					leafel.src = LEAVES[~~(Math.random() * LEAVES.length)];
+					leafel.style.cssText =
+						// 2x scale
+						"width: 28px; height: 18px; image-rendering: pixelated; position: fixed; z-index: 999999999; pointer-events: none";
+					PARENT.append(leafel);
 
-          let x = Math.random() * window.innerWidth,
-            y = -30,
-            vx = (Math.random() - 0.5) * (2 * vxS),
-            i = 0;
+					let x = Math.random() * window.innerWidth,
+						y = -30,
+						vx = (Math.random() - 0.5) * (2 * vxS),
+						i = 0;
 
-          // fire off updater loop
-          const loop = () => {
-            i++;
+					// fire off updater loop
+					const loop = () => {
+						i++;
 
-            leafel.style.left = x + "px";
-            leafel.style.top = y + "px";
+						leafel.style.left = x + "px";
+						leafel.style.top = y + "px";
 
-            // accelerate
-            if (i % aint == 0) {
-              const oset = 0.5 + bias * vx;
-              vx += (Math.random() - oset) * (2 * ax);
-              //vx += (Math.random() - 0.5) * (2 * ax);
-            }
+						// accelerate
+						if (i % aint == 0) {
+							const oset = 0.5 + bias * vx;
+							vx += (Math.random() - oset) * (2 * ax);
+							//vx += (Math.random() - 0.5) * (2 * ax);
+						}
 
-            // update next x and y
-            y += vy;
-            x += vx;
+						// update next x and y
+						y += vy;
+						x += vx;
 
-            // remove finished leaves, and ones that fly *too far* off the edge
-            if (y > window.innerHeight || x < -60 || x > window.innerWidth + 60)
-              leafel.remove();
-            else setTimeout(loop, 1 / 60); // not raf.
-          };
-          loop();
-        }, INT),
-      WAIT
-    );
+						// remove finished leaves, and ones that fly *too far* off the edge
+						if (y > window.innerHeight || x < -60 || x > window.innerWidth + 60) leafel.remove();
+						else setTimeout(loop, 1 / 60); // not raf.
+					};
+					loop();
+				}, INT),
+			WAIT,
+		);
 </script>

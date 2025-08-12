@@ -7,44 +7,61 @@ import PayButton from "../components/PayButton.astro";
 <BaseLayout title="Payment Info">
 	<h1>Payment Info</h1>
 
-	<p>
-		Need to send me money? Relevant info here.
-	</p>
+	<p>Need to send me money? Relevant info here.</p>
 	<p>
 		My preferences, from left to right, are:
 		<div id="prefs-table">
 			<em><a href="https://en.wikipedia.org/wiki/Faster_Payment_System_(United_Kingdom)">UK</a> senders:</em>
 			<div>
-				<img src="/icons/pay/wise.svg">
-				<img src="/icons/pay/paypal.svg" class="noinv">
-				<img src="/icons/pay/bank.svg">
-				<img src="/icons/github.svg">
+				<img src="/icons/pay/wise.svg" />
+				<img src="/icons/pay/paypal.svg" class="noinv" />
+				<img src="/icons/pay/bank.svg" />
+				<img src="/icons/github.svg" />
 			</div>
 
-			<em><a href="https://en.wikipedia.org/wiki/Single_Euro_Payments_Area">EU / EEA</a>
-			& <a href="https://en.wikipedia.org/wiki/ACH_Network">US</a> senders:</em>
+			<em
+				><a href="https://en.wikipedia.org/wiki/Single_Euro_Payments_Area">EU / EEA</a>
+				& <a href="https://en.wikipedia.org/wiki/ACH_Network">US</a> senders:</em
+			>
 			<div>
-				<img src="/icons/pay/wise.svg">
-				<img src="/icons/pay/bank.svg">
-				<img src="/icons/pay/paypal.svg" class="noinv">
-				<img src="/icons/github.svg">
+				<img src="/icons/pay/wise.svg" />
+				<img src="/icons/pay/bank.svg" />
+				<img src="/icons/pay/paypal.svg" class="noinv" />
+				<img src="/icons/github.svg" />
 			</div>
 
 			<em>Crypto:</em>
 			<div>
-				<img src="/icons/pay/usdc.svg">
-				<img src="/icons/pay/litecoin.svg">
-				<img src="/icons/pay/monero.svg">
+				<img src="/icons/pay/usdc.svg" />
+				<img src="/icons/pay/litecoin.svg" />
+				<img src="/icons/pay/monero.svg" />
 			</div>
 		</div>
 	</p>
 	<p><em>Account required for Wise, PayPal, and Github Sponsors.</em></p>
 	<div class="button-cont">
-		<PayButton href="https://wise.com/pay/me/hazelleifa" icon="/icons/pay/wise.svg" inv name="Wise" account="@hazelleifa" />
-		<PayButton href="https://paypal.me/HazelAtkinsonYS" icon="/icons/pay/paypal.svg" name="PayPal" account="HazelAtkinsonYS" />
+		<PayButton
+			href="https://wise.com/pay/me/hazelleifa"
+			icon="/icons/pay/wise.svg"
+			inv
+			name="Wise"
+			account="@hazelleifa"
+		/>
+		<PayButton
+			href="https://paypal.me/HazelAtkinsonYS"
+			icon="/icons/pay/paypal.svg"
+			name="PayPal"
+			account="HazelAtkinsonYS"
+		/>
 	</div>
 	<div class="button-cont">
-		<PayButton href="https://github.com/sponsors/yellowsink" icon="/icons/github.svg" inv name="Github Sponsors" account="yellowsink" />
+		<PayButton
+			href="https://github.com/sponsors/yellowsink"
+			icon="/icons/github.svg"
+			inv
+			name="Github Sponsors"
+			account="yellowsink"
+		/>
 		<PayButton href="https://ko-fi.com/yellowsink" icon="/icons/pay/kofi.svg" name="Ko-Fi" account="yellowsink" />
 	</div>
 	<div class="button-cont">
@@ -61,8 +78,11 @@ import PayButton from "../components/PayButton.astro";
 	<div id="xmr-modal" style="display: none">
 		<a href="#">Close</a>
 		<p>
-			<code>88H8A4 cVkBhE N6CcSr NKH957 1feScg xYccVz x7Xk93 9q2FkV Wbb6FD sCdpFm PyFKir JxxDXB 5QiYVL KpzcfS nzLt2B Ygxx1</code>
-			<img src="/icons/pay/xmrqr.svg">
+			<code
+				>88H8A4 cVkBhE N6CcSr NKH957 1feScg xYccVz x7Xk93 9q2FkV Wbb6FD sCdpFm PyFKir JxxDXB 5QiYVL KpzcfS nzLt2B
+				Ygxx1</code
+			>
+			<img src="/icons/pay/xmrqr.svg" />
 		</p>
 	</div>
 

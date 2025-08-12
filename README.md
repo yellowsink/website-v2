@@ -11,6 +11,7 @@ The third was a rewrite in SvelteKit from scratch, which was going well until I 
 This one is now my current website, and no attempt has be made to migrate old content over.
 
 ## Tech
+
 This site is built with VSCode and Astro.
 
 Though it originally used solidjs + windicss and was a client app.
@@ -21,4 +22,5 @@ It uses ~~WindiCSS'~~ breakpoints to ~~effortlessly~~ respond to whatever size d
 so it looks natural yet consistent on both mobile and desktop.
 
 ## Misc
+
 Feel free to use my dark mode implementation, just leave credit please kthx.

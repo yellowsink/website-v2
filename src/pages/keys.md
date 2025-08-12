@@ -5,7 +5,7 @@ title: Keys
 
 # Cryptographic Keys
 
-[Keys](https://en.wikipedia.org/wiki/Key_(cryptography)) let you verify that something
+[Keys](<https://en.wikipedia.org/wiki/Key_(cryptography)>) let you verify that something
 was signed by me, or decrypt something I have encrypted.
 
 This page lists where you can find my [public keys](https://en.wikipedia.org/wiki/Public-key_cryptography).

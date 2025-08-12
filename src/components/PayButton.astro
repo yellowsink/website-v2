@@ -3,42 +3,42 @@ const { href, icon, name, account, inv } = Astro.props;
 ---
 
 <a href={href} target={href?.startsWith("#") ? "" : "_blank"} class="shadow-md">
-  <img src={icon} class={inv ? "invertible" : ""}>
-  <p><em>{name}</em></p>
-  <p>{account}</p>
-</div>
+	<img src={icon} class={inv ? "invertible" : ""} />
+	<p><em>{name}</em></p>
+	<p>{account}</p>
+</a>
 
 <style lang="sass">
-  @use "sass:color"
-  @import "../vars.sass"
+	@use "sass:color"
+	@import "../vars.sass"
 
-  a
-    transition: all 150ms
-    border: #71717a 1px solid
-    padding: .75rem
-    width: 15rem
-    height: min-content
+	a
+	  transition: all 150ms
+	  border: #71717a 1px solid
+	  padding: .75rem
+	  width: 15rem
+	  height: min-content
 
-    display: grid
-    grid-template-columns: 3rem 1fr
-    column-gap: 1rem
-    text-decoration: none
+	  display: grid
+	  grid-template-columns: 3rem 1fr
+	  column-gap: 1rem
+	  text-decoration: none
 
-    color: #212121 !important
+	  color: #212121 !important
 
-    :global(.dark) &
-      color: color.invert(#212121) !important
+	  :global(.dark) &
+	    color: color.invert(#212121) !important
 
-  p
-    margin: 0 !important
+	p
+	  margin: 0 !important
 
-  img
-    grid-row: 1 / span 2
-    max-height: 2.5rem
-    place-self: center
+	img
+	  grid-row: 1 / span 2
+	  max-height: 2.5rem
+	  place-self: center
 
-    &.invertible
-      transition: filter 150ms
-      :global(.dark) &
-        filter: invert(1)
+	  &.invertible
+	    transition: filter 150ms
+		:global(.dark) &
+			filter: invert(1)
 </style>

@@ -14,22 +14,24 @@ System admins create Headscale users, and manually match them up to GitHub user 
 Then, users can log in and manage their devices, and register devices seamlessly.
 
 Supported features:
- - view list of your nodes
- - view list of others' nodes
- - rename your nodes
- - delete your nodes
- - logout (expire) your nodes
- - enable and disable your exit nodes
- - enable, disable, and delete your routes
- - view other users' routes
- - authentication via GitHub OAuth2 for access
- - registering nodes via a UI
+
+- view list of your nodes
+- view list of others' nodes
+- rename your nodes
+- delete your nodes
+- logout (expire) your nodes
+- enable and disable your exit nodes
+- enable, disable, and delete your routes
+- view other users' routes
+- authentication via GitHub OAuth2 for access
+- registering nodes via a UI
 
 Not supported features:
- - Headscale server configuration and management
- - ACLs
- - DNS configuration and Tailscale SSH
- - User signups and management
+
+- Headscale server configuration and management
+- ACLs
+- DNS configuration and Tailscale SSH
+- User signups and management
 
 ## Demos
 
@@ -49,36 +51,37 @@ First, check instructions for setting up a GitHub app and more in depth explanat
 [here](https://github.com/yellowsink/ouroboros/blob/ee99700/README.md#setup-usage-and-config).
 
 First, set up your docker containers as so:
+
 ```yaml
 caddy:
-  image: caddy
-  ports:
-    - 80:80
-    - 443:443
-    - 443:443/udp
-  volumes:
-    - ./wherever/caddy/Caddyfile:/etc/caddy/Caddyfile
-    - ./wherever/caddy/data:/data
-    - ./wherever/caddy/config:/config
-  cap_add: [NET_ADMIN]
+   image: caddy
+   ports:
+      - 80:80
+      - 443:443
+      - 443:443/udp
+   volumes:
+      - ./wherever/caddy/Caddyfile:/etc/caddy/Caddyfile
+      - ./wherever/caddy/data:/data
+      - ./wherever/caddy/config:/config
+   cap_add: [NET_ADMIN]
 
 headscale:
-  image: headscale/headscale:0.23.0
-  ports: [3478:3478] # DERP STUN
-  command: serve
-  volumes:
-    - ./wherever/headscale:/etc/headscale
+   image: headscale/headscale:0.23.0
+   ports: [3478:3478] # DERP STUN
+   command: serve
+   volumes:
+      - ./wherever/headscale:/etc/headscale
 
 ouroboros:
-  image: yellosink/ouroboros:0.3.1
-  environment:
-   - HS_IS_REMOTE=true
-   - HS_ADDRESS=my.server.com:443
-   - HS_API_KEY=xxxxxxx
-   - HS_LOGIN_URL=my.server.com
-   - GH_CLIENT_ID=xxxxxxx
-   - GH_CLIENT_SECRET=xxxxxx
-   - 'USER_MAP={ "12345678": "john" }'
+   image: yellosink/ouroboros:0.3.1
+   environment:
+      - HS_IS_REMOTE=true
+      - HS_ADDRESS=my.server.com:443
+      - HS_API_KEY=xxxxxxx
+      - HS_LOGIN_URL=my.server.com
+      - GH_CLIENT_ID=xxxxxxx
+      - GH_CLIENT_SECRET=xxxxxx
+      - 'USER_MAP={ "12345678": "john" }'
 ```
 
 Copy the config file from the [headscale repo](https://github.com/juanfont/headscale/blob/204a102/config-example.yaml),
@@ -112,7 +115,6 @@ my.server.com {
 Then generate an API key with `docker compose exec headscale headscale apikeys --create` and put it in the `HS_API_KEY` env var.
 
 Now ensure you've created all the users you need to exist, then you're done!
-
 
 <style>
   #vidcont {

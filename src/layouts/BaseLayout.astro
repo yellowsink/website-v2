@@ -13,55 +13,57 @@ const fullTitle = title ? `Sink's place - ${title}` : "Sink's place";
 ---
 
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <link rel="shortcut icon" type="image/ico" href="/favicon.ico" />
-    <title>{fullTitle}</title>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="theme-color" content="#000000" />
+		<link rel="shortcut icon" type="image/ico" href="/favicon.ico" />
+		<title>{fullTitle}</title>
 
-    <link rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@300&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400;1,600&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Shippori+Mincho&display=swap" rel="stylesheet"
-    />
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@300&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400;1,600&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Shippori+Mincho&display=swap"
+			rel="stylesheet"
+		/>
 
-    {/* gotta get that shiny green tick fr fr */}
-    <link rel="me" href="https://noc.social/@yellowsink" />
-    <link rel="me" href="https://lethallava.land/@sink" />
-    <link rel="me" href="https://github.com/yellowsink" />
-    <link rel="me" href="https://git.io/ysink" />
-    <link rel="me" href="https://en.pronouns.page/@yellowsink" />
-  </head>
-  <body id="root">
-    <Sidebar {routes} currentPath={Astro.url.pathname} />
-    <div id="content">
-      <slot />
-    </div>
+		{/* gotta get that shiny green tick fr fr */}
+		<link rel="me" href="https://noc.social/@yellowsink" />
+		<link rel="me" href="https://lethallava.land/@sink" />
+		<link rel="me" href="https://github.com/yellowsink" />
+		<link rel="me" href="https://git.io/ysink" />
+		<link rel="me" href="https://en.pronouns.page/@yellowsink" />
+	</head>
+	<body id="root">
+		<Sidebar {routes} currentPath={Astro.url.pathname} />
+		<div id="content">
+			<slot />
+		</div>
 
-    <div id="temp_dark">
-      <style is:inline>
-        @media (prefers-color-scheme: dark) {
-          #root > *,
-          img,
-          #pfp-container,
-          .astro-code {
-            filter: invert();
-          }
-        }
-      </style>
-      <style is:inline>
-        * {
-          transition-duration: 0ms !important;
-        }
-      </style>
-    </div>
+		<div id="temp_dark">
+			<style is:inline>
+				@media (prefers-color-scheme: dark) {
+					#root > *,
+					img,
+					#pfp-container,
+					.astro-code {
+						filter: invert();
+					}
+				}
+			</style>
+			<style is:inline>
+				* {
+					transition-duration: 0ms !important;
+				}
+			</style>
+		</div>
 
-    <script>
-      import "../darkmode.js";
-      import "../transitions.js";
-      import { listen } from "quicklink";
-      listen()
-    </script>
+		<script>
+			import "../darkmode.js";
+			import "../transitions.js";
+			import { listen } from "quicklink";
+			listen();
+		</script>
 
-    <Leaves />
-  </body>
+		<Leaves />
+	</body>
 </html>
