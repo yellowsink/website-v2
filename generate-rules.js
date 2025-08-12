@@ -6,7 +6,7 @@ const fg = require("fast-glob");
 
 let rules = fs.readFileSync("Caddyfile-rules").toString();
 
-const addRule = (rule, route) => rule && (rules += `header ${route ?? ""} +Link "<${rule}>; rel=\\"preload\\""\n`);
+const addRule = (rule, route, as) => rule && (rules += `header ${route ?? ""} +Link "<${rule}>; rel=preload${ !as ? "" : `; as=${as}` }"\n`);
 
 // read google fonts url and create preload
 //addRule(
@@ -26,10 +26,10 @@ for (const [file, route] of pages) {
 	// find files of ours
 
 	const files = new Set(
-		[...content.matchAll(/"(\/[a-zA-Z0-9.-_]+?\.(?:css|js))"/g)].filter((m) => m?.[1]).map((m) => m[1]),
+		[...content.matchAll(/"(\/[a-zA-Z0-9.-_]+?\.)(css|js)"/g)].filter((m) => m?.[1]).map((m) => [m[1] + m[2], m[2]]),
 	);
 
-	for (const match of files) addRule(`https://{host}${match}`, route);
+	for (const [match, type] of files) addRule(`https://{host}${match}`, route, type === "css" ? "style" : "script");
 }
 
 // write rules
