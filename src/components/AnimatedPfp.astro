@@ -1,5 +1,4 @@
 ---
-
 ---
 
 <div id="pfp-container" style={`--size: ${Astro.props.size}`}>
@@ -23,18 +22,18 @@
 
 <style lang="sass">
 	#pfp-container
-		display: grid
+		@apply grid grid-rows-4 grid-cols-4 shrink-0
 		height: var(--size)
 		width: var(--size)
-		grid-template: repeat(4, 1fr) / repeat(4, 1fr)
-		flex-shrink: 0
+
+		> *
+			@apply transition-property-transform transition-duration-600 transition-ease-[cubic-bezier(0.16,1,0.3,1)]
 
 		:not(#bg)
-			background: #c2f1ff
 			// layering gets weird when transitioning, so explicitly move stuff in front
 			// of #bg so it always shows behind the others
 			// this is mostly a problem with #rect
-			z-index: 1
+			@apply bg-#c2f1ff z-1
 
 	#bg
 		background: #6db4d5
@@ -73,52 +72,35 @@
 		background: #0038a8 !important
 </style>
 
-<noscript
-	><style is:inline>
-		#container * {
-			transform: "none" !important;
-		}
-	</style></noscript
->
+<noscript><style is:inline> #pfp-container * { transform: none !important; } </style></noscript>
 
 <script>
-	import { EASE } from "crossani";
-
-	for (const elem of document.querySelectorAll("#pfp-container *"))
-		elem.transitions = [
-			{
-				state: { transform: "none" },
-				ms: 600,
-				easing: EASE.cubicBezier(0.16, 1, 0.3, 1),
-			},
-		];
-
-	const $ = document.querySelector.bind(document);
+	const $ = (sel: string) => (document.querySelector(sel) as HTMLDivElement).style.transform = "none";
 
 	setTimeout(() => {
-		$("#bg").doTransition(0);
+		$("#bg");
 
 		setTimeout(() => {
-			$("#rect").doTransition(0);
-			$("#c1-2").doTransition(0);
-			$("#c4-1").doTransition(0);
+			$("#rect");
+			$("#c1-2");
+			$("#c4-1");
 		}, 100);
 
 		setTimeout(() => {
-			$("#c1-3").doTransition(0);
-			$("#c2-2").doTransition(0);
-			$("#c4-2").doTransition(0);
+			$("#c1-3");
+			$("#c2-2");
+			$("#c4-2");
 		}, 150);
 
 		setTimeout(() => {
-			$("#c1-4").doTransition(0);
-			$("#c4-3").doTransition(0);
-			$("#c3-2").doTransition(0);
-			$("#c2-4").doTransition(0);
+			$("#c1-4");
+			$("#c4-3");
+			$("#c3-2");
+			$("#c2-4");
 		}, 200);
 
 		setTimeout(() => {
-			$("#c4-4").doTransition(0);
+			$("#c4-4");
 		}, 250);
 	}, 1000);
 </script>

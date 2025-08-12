@@ -30,9 +30,6 @@ importers:
       astro:
         specifier: 5.12.9
         version: 5.12.9(@types/node@24.2.1)(jiti@2.4.2)(rollup@4.46.2)(sass@1.83.0)(typescript@5.4.5)
-      crossani:
-        specifier: ^1.3.3
-        version: 1.3.3
       fast-glob:
         specifier: ^3.3.3
         version: 3.3.3
@@ -969,9 +966,6 @@ packages:
 
   cross-fetch@3.2.0:
     resolution: {integrity: sha512-Q+xVJLoGOeIMXZmbUK4HYk+69cQH6LudR0Vu/pRm2YlU/hDV9CiS0gKUMaWY5f2NeUH9C1nV3bsTlCo0FsTV1Q==}
-
-  crossani@1.3.3:
-    resolution: {integrity: sha512-BQXzqscuCsG2c34IVqT9qi0r4p66ynjOoSxUWEca58m31m/konyA53ZWNKvCl3wIzlicL5YXk93djtGKA/MhGg==}
 
   crossws@0.3.5:
     resolution: {integrity: sha512-ojKiDvcmByhwa8YYqbQI/hg7MEU0NC03+pSdEq4ZUnZR9xXpwk7E43SMNGkn+JxJGPFtNvQ48+vV2p+P1ml5PA==}
@@ -3177,8 +3171,6 @@ snapshots:
       node-fetch: 2.7.0
     transitivePeerDependencies:
       - encoding
-
-  crossani@1.3.3: {}
 
   crossws@0.3.5:
     dependencies:
