@@ -12,5 +12,4 @@ header Cache-Control "public, max-age=600" # 600s taken from gh pages
 @assets path *.js *.css *.png *.jpg *.webp *.svg *.ico *.mp4 *.webm
 header @assets Cache-Control "public, max-age=31536000, immutable" # stolen from cloudflare fonts cache line
 
-# cloudflare fonts replaces the need for g fonts preloads
-#header +Link "<https://fonts.gstatic.com>; rel=\"preconnect\""
+header +Link "<https://fonts.gstatic.com>; rel=\"preconnect\""

@@ -53,7 +53,6 @@ export default defineConfig(
 					presetAttributify(),
 					presetWebFonts({
 						provider: "google",
-						inlineImports: false,
 						fonts: {
 							prose: [i("IBM Plex Serif", 600), i("Noto Serif JP"), fallback("serif")],
 							heading: ["Roboto Mono:300,100", "IBM Plex Sans JP:300", fallback("monospace")],
