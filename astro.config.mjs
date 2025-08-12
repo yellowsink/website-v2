@@ -2,12 +2,15 @@ import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import UnoCSS from "@unocss/astro";
 import {
-	presetWebFonts,
+	presetAttributify,
 	presetWind3,
 	transformerCompileClass,
 	transformerDirectives,
-	transformerVariantGroup
+	transformerVariantGroup,
 } from "unocss";
+import presetWebFonts from "@unocss/preset-web-fonts";
+import { createLocalFontProcessor } from "@unocss/preset-web-fonts/local";
+
 // Full Astro Configuration API Documentation:
 // https://docs.astro.build/reference/configuration-reference
 // @type-check enabled!
@@ -16,8 +19,9 @@ import {
 // You can disable this by removing "@ts-check" and `@type` comments below.
 // @ts-check
 
-// font util function
-const i = (name) => ({ name, italic: true });
+// font util functions
+const i = (name, ...weights) => ({ name, italic: true, weights: [...new Set([...weights, 400])] });
+const fallback = (name) => ({ name, provider: "none" });
 
 // https://astro.build/config
 export default defineConfig(
@@ -46,12 +50,14 @@ export default defineConfig(
 				},
 				presets: [
 					presetWind3(),
+					presetAttributify(),
 					presetWebFonts({
+						provider: "google",
 						inlineImports: false,
 						fonts: {
-							prose: [i("IBM Plex Serif"), i("Noto Serif JP"), "serif"],
-							heading: ["Roboto Mono:300,100", "IBM Plex Sans JP:300", "monospace"],
-							code: ["Jetbrains Mono", "Roboto Mono", "monospace"],
+							prose: [i("IBM Plex Serif", 600), i("Noto Serif JP"), fallback("serif")],
+							heading: ["Roboto Mono:300,100", "IBM Plex Sans JP:300", fallback("monospace")],
+							code: ["Jetbrains Mono", "Roboto Mono", fallback("monospace")],
 						},
 					}),
 				],

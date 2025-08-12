@@ -4,8 +4,12 @@
 		<img src="/light.svg" alt="" />
 	</div>
 
-	<button onclick="toggleTheme()" aria-label="Toggle Theme">
-		<div></div>
+	<button
+		onclick="toggleTheme()"
+		aria-label="Toggle Theme"
+		class="cursor-pointer b-none p-0 w-12 h-6 rounded-full my-0 mx-2 flex items-center bg-#181818 dark:bg-#4a4a4a"
+	>
+		<div class="w-4 h-4 rounded-full bg-#f2f2f2 my-0 mx-1 dark:ml-7 transition-margin" />
 	</button>
 
 	<div class="imgwrapper">
@@ -24,57 +28,19 @@
 
 <style lang="sass">
 	#theme-toggler
-		display: flex
-		margin-bottom: 2.5rem
-		align-self: center
-
 		&> .imgwrapper
 			// fix spacing weirdness
-			width: 24px
-			height: 24px
+			@apply w-24px h-24px
 
-		&> *
-			// overlay both on top of each other
-			position: absolute
+			&> *
+				@apply absolute transition
+				transition-property: background-color	, color, opacity
 
-			// transition
-			$DURATION: 150ms
+				// invert the back one
+				&:first-child
+					@apply filter invert
 
-			transition: background-color $DURATION, color $DURATION, opacity #{$DURATION}
-
-			// invert the back one
-			&:first-child
-				filter: invert(1)
-
-			// hide the front one
-			:global(.dark) &:not(:first-child)
-				opacity: 0
-
-		button
-			cursor: pointer
-
-			border: none
-			padding: 0
-			width: 3rem
-			height: 1.5rem
-			border-radius: 9999px
-			margin: 0 .5rem
-			display: flex
-			align-items: center
-
-			background: #181818
-
-		:global(.dark) &
-			background: #4a4a4a
-
-		&> div
-			width: 1rem
-			height: 1rem
-			border-radius: 9999px
-			background: #f2f2f2
-			margin: 0 .25rem
-			transition: margin-left 150ms
-
-			:global(.dark) &
-				margin-left: 1.75rem
+				// hide the front one
+				:global(.dark) &:not(:first-child)
+					@apply opacity-0
 </style>

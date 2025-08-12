@@ -13,17 +13,11 @@ const Nos = "noscript";
 	</div>
 </Nos>
 
-<div id="MARKDOWN_TARGET" data-src={src}></div>
+<div id="MARKDOWN_TARGET" data-src={src} class="overflow-x-auto max-w-35rem"></div>
 <script>
-	import { Remarkable } from "https://cdn.esm.sh/remarkable";
+	import { Remarkable } from "remarkable";
 	const mdTarget = document.getElementById("MARKDOWN_TARGET");
 	const rawText = await (await fetch(mdTarget.dataset.src)).text();
 	const md = new Remarkable({ html: true }).render(rawText);
 	mdTarget.innerHTML = md;
 </script>
-
-<style lang="sass">
-	#MARKDOWN_TARGET
-		overflow-x: auto
-		max-width: 35rem
-</style>

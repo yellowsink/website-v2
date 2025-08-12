@@ -4,18 +4,24 @@ const { routes, currentPath } = Astro.props;
 const fixedPath = currentPath.length > 1 && currentPath.endsWith("/") ? currentPath.slice(0, -1) : currentPath;
 ---
 
-<div id="sidebar" class="transition-colors text-text dark:text-text-dark flex flex-col p-20 pt-5 w-auto bg-#fafafa dark:bg-#181818 font-prose md:(h-dvh w-80 fixed) xl:w-120">
+<div id="sidebar"
+	  text="text dark:text-dark"
+	  bg="#fafafa dark:#181818"
+	  class="transition-colors flex flex-col p-20 pt-5 w-auto font-prose md:(h-dvh w-80 fixed) xl:w-120 shadow-lg">
 	<ThemeToggler />
 
 	<h1 class="font-100 flex justify-center items-center gap-4">
 		hazel
-		<a href="/domain">+</a>
+		<a
+			href="/domain"
+			class="block w-8 h-8 color-unset decoration-none text-center line-height-1em transition-colors hover:(text-white dark:text-black bg-black dark:bg-white)"
+		>+</a>
 	</h1>
 	<h2>Pages:</h2>
-	<ul>
+	<ul class="pl-0 m-0">
 		{
 			routes.map((route, i) => (
-				<li>
+				<li class="list-none">
 					<a
 						class={route.path === fixedPath ? "active" : ""}
 						href={route.path}
@@ -34,33 +40,12 @@ const fixedPath = currentPath.length > 1 && currentPath.endsWith("/") ? currentP
 
 	#sidebar
 		box-sizing: border-box
-		box-shadow: 0 10px 15px -3px rgb(0 0 0/0.1),0 4px 6px -4px rgb(0 0 0/0.1)
 
-		h1 a
-			display: block
-			width: 2rem
-			height: 2rem
-			color: currentColor
-			text-decoration: none
-			text-align: center
-			line-height: 1em
-			transition: color 150ms, background 150ms
-			&:hover
-				color: white
-				background: black
-				:global(.dark) &
-					color: black
-					background: white
+		li > a
+			@apply text-lg text-text dark:text-text-dark transition italic decoration-none hover:pl-4
 
-		ul
-			padding-left: 0
-			margin: 0
+			transition-property: color, padding-left // uno doesn't have a way to express this :/
 
-		li
-			list-style: none
-			&> a
-				@apply text-lg text-text dark:text-text-dark transition transition-property-[color,padding-left] italic decoration-none hover:pl-4
-
-				&.active
-					margin-left: 2rem
+			&.active
+				margin-left: 2rem
 </style>

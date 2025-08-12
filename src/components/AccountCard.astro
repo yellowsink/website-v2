@@ -2,66 +2,18 @@
 const { banner, label, link, uname } = Astro.props;
 ---
 
-<a href={link} target={"_blank"} class="shadow-md">
-	<img src={banner} />
-	<div>
+<a
+	href={link}
+	target={"_blank"}
+	class="shadow-md bg-#f8f9fa dark:bg-#1f1f1f transition-all b b-solid b-#71717a dark:b-#a1a1aa p-8 w-auto h-40 flex justify-between decoration-none
+		md:w-80 lt-md:flex-col text-inherit!"
+>
+	<img
+		src={banner}
+		class="h-12 mx-auto transition-filter dark:(filter invert hue-rotate-180) md:(h-75% self-center ml--2 mr-4 object-cover)"
+	/>
+	<div class="self-center text-center md:text-right">
 		<h2>{label}</h2>
 		<p>{uname}</p>
 	</div>
 </a>
-
-<style lang="sass">
-	@use "sass:color"
-	@import "../vars.sass"
-
-	a
-		background: #f8f9fa
-		transition: all 150ms
-		border: #71717a 1px solid
-		padding: 2rem
-		width: auto
-		height: 10rem
-
-		display: flex
-		justify-content: space-between
-
-		font-family: $font-prose
-		text-decoration: none
-		:global(.dark) &
-			background: #1f1f1f
-			border-color: #a1a1aa
-
-		@media (min-width: 768px)
-			width: 20rem
-
-		@media (max-width: 768px)
-			flex-direction: column
-
-			color: #212121 !important
-		:global(.dark) &
-			color: color.invert(#212121) !important
-
-	img
-		height: 3rem
-
-		margin-left: auto
-		margin-right: auto
-
-		transition: filter 150ms
-
-		:global(.dark) &
-			filter: invert(1) hue-rotate(180deg)
-
-		@media (min-width: 768px)
-			height: 75%
-			align-self: center
-			margin-left: -.5rem
-			margin-right: 1rem
-			object-fit: cover
-
-	div
-		align-self: center
-		text-align: center
-		@media (min-width: 768px)
-			text-align: right
-</style>
