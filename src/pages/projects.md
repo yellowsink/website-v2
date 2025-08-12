@@ -3,7 +3,7 @@ layout: "../layouts/BaseLayout.astro"
 title: Projects
 ---
 
-# Projects status
+## Projects status
 
 This page may be out of date.
 

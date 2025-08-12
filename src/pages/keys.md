@@ -3,7 +3,7 @@ layout: "../layouts/BaseLayout.astro"
 title: Keys
 ---
 
-# Cryptographic Keys
+## Cryptographic Keys
 
 [Keys](<https://en.wikipedia.org/wiki/Key_(cryptography)>) let you verify that something
 was signed by me, or decrypt something I have encrypted.
@@ -13,7 +13,7 @@ This page lists where you can find my [public keys](https://en.wikipedia.org/wik
 You can verify my identity claims at https://keyoxide.org/sink%40uwu.network.
 Most of my accounts and sites should be proven cryptographically there.
 
-## SSH Keys
+### SSH Keys
 
 Want me to be able to sign in to your server? Here's the relevant keys.
 
@@ -21,7 +21,7 @@ My SSH keys can be found at https://github.com/yellowsink.keys.
 
 I use separate keys for home servers I log in to, as well as for the AUR.
 
-## PGP Keys
+### PGP Keys
 
 PGP keys are useful for signing and encrypting.
 

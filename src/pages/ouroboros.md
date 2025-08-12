@@ -3,7 +3,7 @@ layout: ../layouts/BaseLayout.astro
 title: Ouroboros
 ---
 
-# Ouroboros
+## Ouroboros
 
 Ouroboros is a simple but effective private VPN manager for self hosting.
 
@@ -33,7 +33,7 @@ Not supported features:
 - DNS configuration and Tailscale SSH
 - User signups and management
 
-## Demos
+### Demos
 
 The easiest way to show how it works is demo videos:
 
@@ -43,7 +43,7 @@ The easiest way to show how it works is demo videos:
   <video id="r" src="/demo-mobile-add.mp4" alt="Demo video of logging in to ouroboros on android" controls></video>
 </div>
 
-## Setup
+### Setup
 
 Here are instructions to configure Headscale 0.23.0 with Ouroboros 0.3.1 with docker-compose and Caddy.
 

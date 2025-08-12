@@ -4,11 +4,11 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 <BaseLayout title="Yotei">
 	<div style="z-index: 1; position: relative">
-		<h1>予定 Yotei</h1>
+		<h2>予定 Yotei</h2>
 
 		<em>A task scheduler for the modern era</em>
 
-		<h2>Task scheduler?</h2>
+		<h3>Task scheduler?</h3>
 		<p>
 			To the average computer user, scheduling things to run regularly may not be something you would do. Hell, even
 			more technical computer users probably don't think about it - so why build a new task scheduler?
@@ -24,7 +24,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 			to a very high proportion of my disk usage.
 		</p>
 
-		<h2>What's wrong with cron?</h2>
+		<h3>What's wrong with cron?</h3>
 		<p>
 			cron is designed to run tasks regularly while it is running. I wonder what it does if it's <em>not</em> running?
 		</p>
@@ -34,7 +34,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 			I guess. Too bad.
 		</p>
 
-		<h2>What's new with Yotei?</h2>
+		<h3>What's new with Yotei?</h3>
 		<p>
 			Firstly, the core issue of tasks that should've ran whilst offline. Yotei provides a solution to this via a
 			config option on the task. Tasks can be set to either drop like cron, run once Yotei restarts if a run was
@@ -56,7 +56,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 			those permissions. No problem! Yotei can run as a regular user account.
 		</p>
 
-		<h2>And a lil treat for homebrewing sysadmins...</h2>
+		<h3>And a lil treat for homebrewing sysadmins...</h3>
 		<p>
 			Have you ever come across a script that does some horrid things with GNU Screen? Just to run a task in the
 			background, and perhaps send the output somewhere? Or to be able to kill it later?
@@ -77,7 +77,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 			can intelligently name log files, cleanup old logs, etc).
 		</p>
 
-		<h2>Can I use it and where do I get it?</h2>
+		<h3>Can I use it and where do I get it?</h3>
 		<p>
 			Yotei is built for Linux, and currently is only supported there. Once stable, I will look into a MacOS port,
 			since it is relatively similar (its a BSD!)

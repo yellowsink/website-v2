@@ -1,19 +1,33 @@
-//@use "./page"
-//@import "./vars"
+// generic styles specified here for brevity and for markdown
 
 h1, h2, h3, h4, h5, h6
 	@apply font-heading font-300
 
 .astro-code
-	@apply p-2 pl-3 rounded
 	// pl-3 looks a little more balanced due to text layouting
+	@apply p-2 pl-3 rounded
 
-	& > code
-		@apply font-code text-.9rem
+:is(.astro_code, #content) code
+	@apply font-code text-.9rem
 
 #content
 	a
 		@apply text-link
 
-	p
+	p, table, ul
 		@apply mt-2
+
+	h2
+		@apply text-4xl
+
+	h3
+		@apply text-2xl mt-4
+
+	li
+		list-style-type: disc
+
+	table
+		@apply w-full border-collapse
+
+		td
+			@apply b b-solid b-#ccc p-2 first-font-bold
