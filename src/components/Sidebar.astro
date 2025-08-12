@@ -36,15 +36,13 @@ const fixedPath = currentPath.length > 1 && currentPath.endsWith("/") ? currentP
 </div>
 
 <style lang="sass">
-	@import "../vars.sass"
-
 	#sidebar
 		box-sizing: border-box
 
 		li > a
 			@apply text-lg text-text dark:text-text-dark transition italic decoration-none hover:pl-4
 
-			transition-property: color, padding-left // uno doesn't have a way to express this :/
+			transition-property: color, padding-left, margin-left // uno doesn't have a way to express this :/
 
 			&.active
 				margin-left: 2rem
