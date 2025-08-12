@@ -117,30 +117,30 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 <style lang="sass">
 	@keyframes strokemove
-	  from
-	    stroke-dashoffset: 0
-	  to
-	    stroke-dashoffset: 8
+		from
+			stroke-dashoffset: 0
+		to
+			stroke-dashoffset: 8
 
 	#yotei-bg
-	  stroke-dasharray: 3 5
-	  animation: strokemove 10s linear infinite
-	  position: absolute
-	  top: 5rem
-	  left: -15rem
-	  right: -20rem
-	  opacity: 0.1
+		stroke-dasharray: 3 5
+		animation: strokemove 10s linear infinite
+		position: absolute
+		top: 5rem
+		left: -15rem
+		right: -20rem
+		opacity: 0.1
 
-	  :global(.dark) &
-	    opacity: 0.05
+		:global(.dark) &
+			opacity: 0.05
 
-	  & > g
-	    transition: stroke 150ms, opacity 150ms
+		& > g
+			transition: stroke 150ms, opacity 150ms
 
 		:global(.dark) &
 			stroke: #FFF
 
 	:global(#content)
-	  position: relative
-	  overflow: hidden
+		position: relative
+		overflow: hidden
 </style>

@@ -23,54 +23,54 @@
 
 <style lang="sass">
 	#pfp-container
-	  display: grid
-	  height: var(--size)
-	  width: var(--size)
-	  grid-template: repeat(4, 1fr) / repeat(4, 1fr)
-	  flex-shrink: 0
+		display: grid
+		height: var(--size)
+		width: var(--size)
+		grid-template: repeat(4, 1fr) / repeat(4, 1fr)
+		flex-shrink: 0
 
-	  :not(#bg)
-	    background: #c2f1ff
-	    // layering gets weird when transitioning, so explicitly move stuff in front
-	    // of #bg so it always shows behind the others
-	    // this is mostly a problem with #rect
-	    z-index: 1
+		:not(#bg)
+			background: #c2f1ff
+			// layering gets weird when transitioning, so explicitly move stuff in front
+			// of #bg so it always shows behind the others
+			// this is mostly a problem with #rect
+			z-index: 1
 
 	#bg
-	  background: #6db4d5
-	  grid-area: 1 / 1 / span 4 / span 4
-	  transform: translateX(-50%) scaleX(0)
+		background: #6db4d5
+		grid-area: 1 / 1 / span 4 / span 4
+		transform: translateX(-50%) scaleX(0)
 
 	#rect
-	  grid-area: 1 / 1 / span 3 / 1
-	  transform: translateY(-50%) scaleY(0)
+		grid-area: 1 / 1 / span 3 / 1
+		transform: translateY(-50%) scaleY(0)
 
 	.tri-r, .tri-b
-	  clip-path: polygon(100% 100%, 0 100%, 100% 0)
+		clip-path: polygon(100% 100%, 0 100%, 100% 0)
 
 	.tri-l, .tri-t
-	  clip-path: polygon(0 0, 0 100%, 100% 0)
+		clip-path: polygon(0 0, 0 100%, 100% 0)
 
 	.tri-l
-	  transform: translateX(-50%) scaleX(0)
+		transform: translateX(-50%) scaleX(0)
 
 	.tri-t
-	  transform: translateY(-50%) scaleY(0)
+		transform: translateY(-50%) scaleY(0)
 
 	.tri-r
-	  transform: translateX(50%) scaleX(0)
+		transform: translateX(50%) scaleX(0)
 
 	.tri-b
-	  transform: translateY(50%) scaleY(0)
+		transform: translateY(50%) scaleY(0)
 
 	#c1-2
-	  background: #d60270 !important
+		background: #d60270 !important
 
 	#c2-2
-	  background: #9b4f96 !important
+		background: #9b4f96 !important
 
 	#c3-2
-	  background: #0038a8 !important
+		background: #0038a8 !important
 </style>
 
 <noscript

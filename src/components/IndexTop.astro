@@ -2,36 +2,10 @@
 import AnimatedPfp from "./AnimatedPfp.astro";
 ---
 
-<div class="top-wrap">
+<div class="flex mb-10 font-heading">
 	<AnimatedPfp size="7.5rem" />
-	<div>
-		<h1>About me</h1>
-		<h2>When awful ideas and free time collide.</h2>
+	<div class="ml-6">
+		<h1 class="m-0 text-3xl mb-2">About me</h1>
+		<h2 class="m-0 text-xl italic">When awful ideas and free time collide.</h2>
 	</div>
 </div>
-
-<style lang="sass">
-	@import "../vars"
-
-	.top-wrap
-	  display: flex
-	  margin-bottom: 2.5rem
-	  font-family: $font-heading
-
-	  h1, h2
-	    font-weight: 300
-	    margin: 0
-
-	  div
-	    margin-left: 1.5rem
-
-	  h1
-	    font-size: 1.875rem !important
-	    line-height: 2.25rem !important
-	    margin-bottom: .5rem
-
-	  h2
-	    font-size: 1.25rem !important
-	    line-height: 1.75rem !important
-	    font-style: italic
-</style>

@@ -4,7 +4,7 @@ import Leaves from "../components/Leaves.astro";
 import routes from "../routes.json";
 
 import "../styles.sass";
-import "../transitions.sass";
+//import "../transitions.sass";
 
 // `content` for markdown pages.
 const { title: rawTitle, content } = Astro.props;
@@ -20,12 +20,6 @@ const fullTitle = title ? `Sink's place - ${title}` : "Sink's place";
 		<link rel="shortcut icon" type="image/ico" href="/favicon.ico" />
 		<title>{fullTitle}</title>
 
-		<link
-			rel="stylesheet"
-			href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@300&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400;1,600&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Shippori+Mincho&display=swap"
-			rel="stylesheet"
-		/>
-
 		{/* gotta get that shiny green tick fr fr */}
 		<link rel="me" href="https://noc.social/@yellowsink" />
 		<link rel="me" href="https://lethallava.land/@sink" />
@@ -33,9 +27,11 @@ const fullTitle = title ? `Sink's place - ${title}` : "Sink's place";
 		<link rel="me" href="https://git.io/ysink" />
 		<link rel="me" href="https://en.pronouns.page/@yellowsink" />
 	</head>
-	<body id="root">
+	<body id="root" class="flex min-h-dvh m-0 lt-md:flex-col">
 		<Sidebar {routes} currentPath={Astro.url.pathname} />
-		<div id="content">
+		<div
+			id="content"
+			class="p-18 bg-#f1f3f5 dark:bg-#222 flex-1 font-prose md:ml-80 xl:ml-120 text-text dark:text-text-dark transition-colors">
 			<slot />
 		</div>
 
@@ -58,8 +54,7 @@ const fullTitle = title ? `Sink's place - ${title}` : "Sink's place";
 		</div>
 
 		<script>
-			import "../darkmode.js";
-			import "../transitions.js";
+			//import "../transitions.js";
 			import { listen } from "quicklink";
 			listen();
 		</script>

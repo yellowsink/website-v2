@@ -1,22 +1,19 @@
-@use "./page"
-@import "./vars"
+//@use "./page"
+//@import "./vars"
 
-.shadow-md
-  // okay sure I like WindiCSS sue me
-  box-shadow: 0 4px 6px -1px rgb(0 0 0/0.1),0 2px 4px -2px rgb(0 0 0/0.1)
-
-body
-  display: flex
-  min-height: 100vh
-  margin: 0
-
-  @media (max-width: $md)
-    flex-direction: column
+h1, h2, h3, h4, h5, h6
+	@apply font-heading font-300
 
 .astro-code
-  padding: .5rem
-  padding-left: .75rem // looks a little more balanced due to font rendering madness
-  border-radius: .25rem
-  &> code
-    font-family: "Jetbrains Mono", "Roboto Mono", monospace
-    font-size: .9rem
+	@apply p-2 pl-3 rounded
+	// pl-3 looks a little more balanced due to text layouting
+
+	& > code
+		@apply font-code text-.9rem
+
+#content
+	a
+		@apply text-link
+
+	p
+		@apply mt-2

@@ -1,7 +1,7 @@
-<div id="now-playing" style="display: none">
+<div id="now-playing" class="flex items-center" style="display: none">
 	<div id="np-art"></div>
 
-	<div>
+	<div class="children:(m-0 ml-4)">
 		<p>I am currently listening to:</p>
 		<p><em><a id="np-title"></a></em></p>
 		<p>by <em><span id="np-artist"></span></em></p>
@@ -142,20 +142,7 @@
 </script>
 
 <style>
-	#now-playing {
-		display: flex;
-		align-items: center;
-	}
-
 	#np-art {
-		background-size: contain;
-		background-repeat: no-repeat;
-		aspect-ratio: 1;
-		flex-basis: 10rem;
-	}
-
-	p {
-		margin: 0;
-		margin-left: 1rem;
+		@apply bg-contain bg-no-repeat aspect-square flex-basis-40
 	}
 </style>
