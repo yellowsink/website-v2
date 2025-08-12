@@ -1,0 +1,87 @@
+---
+layout: ../layouts/BaseLayout.astro
+title: Yotei
+---
+
+import YoteiBg from "../components/YoteiBg.astro";
+
+<div class="z-1 relative">
+
+## 予定 Yotei
+
+*A task scheduler for the modern era*
+
+### Task scheduler?
+
+To the average computer user, scheduling things to run regularly may not be something you would do. Hell, even
+more technical computer users probably don't think about it - so why build a new task scheduler?
+
+Well, for a start, high uptime servers / mainframes often have regular cleanup or maintenance tasks to run
+every so often - this is what the classic UNIX cron daemon is for.
+
+And let's take the example that sparked the creation of Yotei - clearing out my package manager cache. As I
+kept my system up to date, the cache was filling with packages, often very old packages. Eventually, this grew
+to a very high proportion of my disk usage.
+
+### What's wrong with cron?
+
+cron is designed to run tasks regularly while it is running. I wonder what it does if it's *not* running?
+
+It just drops the task.
+
+So if I set a monthly task to clear out the folder, and my system was shut down, it'd just not run that month,
+I guess. Too bad.
+
+### What's new with Yotei?
+
+Firstly, the core issue of tasks that should've ran whilst offline. Yotei provides a solution to this via a
+config option on the task. Tasks can be set to either drop like cron, run once Yotei restarts if a run was
+missed, or, if your task depends on running exactly the right amount of times, to run for each time the task
+should've ran on Yotei's next start.
+
+Second, config. Yotei features a yaml-based config format that is very easy and very flexible. Yotei is easier
+to config than cron, and provides more flexibility.
+
+Third, a user friendly interface. The `yoteictl` command provides a comfortable command line interface
+for Yotei, and is the preferred way to configure Yotei (manually configuring tasks should only be done while the
+daemon is offline, by the way).
+
+Fourth, user mode. Perhaps you are running on a system where you do not have the relevant permissions to run
+Yotei or cron as root, or cannot configure the tasks, and the system admin cannot be persuaded to give you
+those permissions. No problem! Yotei can run as a regular user account.
+
+### And a lil treat for homebrewing sysadmins...
+
+Have you ever come across a script that does some horrid things with GNU Screen? Just to run a task in the
+background, and perhaps send the output somewhere? Or to be able to kill it later?
+
+I have seen these sort of things with the wonderful kind of sysadmin who will roll their own scripts for
+supervising things, or perhaps for deploying to a bare metal server automatically over ssh.
+
+A lot of those screen-based scripts range from obtuse to disgusting. There must be a better way.
+
+Yotei aims to also provide that better way! A careful eye is kept on scope creep - Yotei is not a multiplexer
+and, at least initially, attaching to a task's stdin and using it as if it was a normal process is out of
+scope.
+
+Simply fire off a supervised command with `yoteictl`, list running supervised tags you have
+permissions to manage, kill them, specify where you want to send logs and if you want to annotate them (Yotei
+can intelligently name log files, cleanup old logs, etc).
+
+### Can I use it and where do I get it?
+
+Yotei is built for Linux, and currently is only supported there. Once stable, I will look into a MacOS port,
+since it is relatively similar (its a BSD!)
+
+Windows support is probably off the table. It's not impossible, but you Windows users already have a decent
+enough task scheduler!
+
+Once a point-release is out, packages will be released for various Linuxes, but for now you will have to build
+from source yourself.
+
+Obtain the source code from [GitHub]("https://github.com/yellowsink/yotei"), navigate to the `daemon`
+or `ctl` directory, and (with the D toolchain installed), run `dub build -b release --compiler ldc`.
+
+</div>
+
+<YoteiBg />

@@ -40,9 +40,7 @@ const fixedPath = currentPath.length > 1 && currentPath.endsWith("/") ? currentP
 		box-sizing: border-box
 
 		li > a
-			@apply text-lg text-text dark:text-text-dark transition italic decoration-none hover:pl-4
-
-			transition-property: color, padding-left, margin-left // uno doesn't have a way to express this :/
+			@apply text-lg text-text dark:text-text-dark transition-[color,padding,margin] italic decoration-none hover:pl-4
 
 			&.active
 				margin-left: 2rem
