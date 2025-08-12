@@ -1,7 +1,7 @@
 import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import UnoCSS from "@unocss/astro";
-import { presetWind3 } from "unocss";
+import {presetWebFonts, presetWind3, transformerCompileClass, transformerVariantGroup} from "unocss";
 // Full Astro Configuration API Documentation:
 // https://docs.astro.build/reference/configuration-reference
 // @type-check enabled!
@@ -26,7 +26,18 @@ export default defineConfig(
 		integrations: [
 			mdx(),
 			UnoCSS({
-				presets: [presetWind3()],
+				presets: [
+                    presetWind3(),
+                    presetWebFonts({
+                        provider: "google", // transformed into cloudflare fonts at the edge
+                        fonts: {
+                            prose: ["IBM Plex Serif", "Noto Serif JP", "serif"],
+                            heading: ["Roboto Mono", "IBM Plex Sans JP", "monospace"],
+                            code: ["Jetbrains Mono", "monospace"],
+                        }
+                    })
+                ],
+                transformers: [transformerVariantGroup(), transformerCompileClass()]
 			}),
 		],
 	},
