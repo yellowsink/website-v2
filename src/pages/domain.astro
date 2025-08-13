@@ -27,10 +27,10 @@ const routes: [string, string, string, boolean?][] = [
 		<h1 class="text-center m-0 mb-6 text-2xl">yellows.ink {">"} Index of /</h1>
 
 		<div class=":uno: b-2px b-solid b-white flex-1">
-			<div class=":uno: m-2 children:(pl-2 grid grid-cols-[1fr_1fr_2fr] transition-duration-100 transition-[color,background-color] hover:(text-black bg-white))">
+			<div class="m-2">
 				{
 					routes.map(([url, display, info]) => (
-						<div>
+						<div class=":uno: pl-2 grid grid-cols-[1fr_1fr_2fr] transition-duration-100 transition-[color,background-color] hover:(text-black bg-white)">
 							<a href={url}>{display}</a>
 							<a href={url}>{info}</a>
 						</div>
