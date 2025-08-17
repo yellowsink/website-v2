@@ -11,6 +11,7 @@ const { banner, label, link, uname } = Astro.props;
 	<img
 		src={banner}
 		class="h-12 mx-auto transition-filter dark:(filter invert hue-rotate-180) md:(h-75% self-center ml--2 mr-4 object-cover)"
+		aria-hidden="true"
 	/>
 	<div class="self-center text-center md:text-right">
 		<h2>{label}</h2>
